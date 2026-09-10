@@ -12,9 +12,14 @@
 /**
  * Create a canvas, hides the cursor
 */
+
+//making some variables  for the canvas size
+let canvasHeight = 1200;
+let canvasWidth = 1200;
+
 function setup() {
-    // A 640x480 canvas
-    createCanvas(640, 640);
+    // A big square canvas
+    createCanvas(canvasWidth, canvasHeight);
 
     // Don't show the cursor
     noCursor();
@@ -25,12 +30,12 @@ function setup() {
  * at the position of the user's cursor
 */
 function draw() {
-    // Make the background black (specified as RGB)
-    background(0, 0, 0);
+    // Make the background a sumptuous deep magenta (specified as RGB)
+    background(182, 53, 196);
 
     // Draw a pyramid
     // How many levels for the pyramid
-    const levels = 10;
+    const levels = 20;
     // Loop through every level (backwards)
     for (let level = levels; level > 0; level--) {
         // Draw this layer
@@ -49,7 +54,10 @@ function draw() {
         // (320, 320) with a size based on the level
         // e.g. level 1 will be a 48x48 rectangle and
         // level 10 will be a 480x480 rectangle
-        rect(320, 320, level * 48, level * 48);
+
+        // The centre is hard coded here, maybe I can use a variable instead
+        // So that the centre will move based on the size of the canvas
+        rect(width/2, height/2, level * 48, level * 48);
         pop();
     }
 
