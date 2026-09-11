@@ -1,6 +1,6 @@
 # TITLE OF PROJECT
 
-AUTHOR NAME
+Mostly Pippin Barr but then Matthew Thompson messed with it
 
 [View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
@@ -8,17 +8,14 @@ AUTHOR NAME
 
 This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
 
-> *The Mayor of Clown Town* is a simulator experience that allows the user to control a small town populated entirely by clowns.
+> *The Society for the promotion of Psyduck* is meant to ensure that all persons, alive or dead, are aware of the supremacy of Psyduck
 
-> The experience is controlled via the mouse, with left click selecting a clown and bringing up a menu of options such as "slip of banana peel" or "get into impossible capacious clown-car."
-
-> The project is meant to give the user a sense of what it would be the mayor of a town of clowns, eventually getting the sense that clowns are not taking their civic duties seriously.
 
 ## Screenshot(s)
 
 This bit should have some images of the program running so that the reader has a sense of what it looks like. For example:
 
-> ![Image of a clown face](./assets/images/clown.png)
+> ![Image of a perfect Angel](./assets/images/psyduck.png)
 
 ## Attribution
 

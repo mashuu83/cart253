@@ -55,7 +55,7 @@ function draw() {
         // e.g. level 1 will be a 48x48 rectangle and
         // level 10 will be a 480x480 rectangle
 
-        // The centre is hard coded here, maybe I can use a variable instead
+        // The centre was hard coded here, maybe I can use a variable instead
         // So that the centre will move based on the size of the canvas
         rect(width/2, height/2, level * 48, level * 48);
         pop();
