@@ -1,24 +1,25 @@
 /**
- * Title of Project
- * Author Name
+ * Challenge Landscape
+ * Matthew Thompson and Ilianna Faoro
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Draw a Landscape Challenge for week 2 CART 253
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ Draw a Canvas 720p
 */
 function setup() {
+    createCanvas(1280, 720);
 
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ Draw a Mountain Landscape (Cuz I'm from Alberta!!)
 */
 function draw() {
-
+    //Draw the Sky
+    background("#7cd3f2")
 }
