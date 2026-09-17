@@ -29,6 +29,7 @@ function draw() {
     stroke("#063d0a");
     strokeWeight(15);
     fill("#54c75b");
+   //place a huge circle sitting under the canvas to be the horizon
     ellipse(640, 1720, 2400);
     pop();
     
@@ -56,4 +57,13 @@ function draw() {
     //MATH!?! Heck no, we guess an check like MADMEN.
     triangle(117, 460, 200, 360, 300, 480);
     pop();
+
+    //Lets add some SUN
+    push();
+    noStroke();
+    fill("#d14521");
+    //Place the sun top right off screen
+    ellipse(1280, 0, 500);
+    pop();
+
 }
