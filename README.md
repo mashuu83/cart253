@@ -12,7 +12,7 @@ A collection and showcase of various protoypes created this semester
 [Reflective Journal](./journal/journal.md)
 
 ## Prototypes
-[Version Control Workflow](./topics/version-control/version-control-workflow/index.html)
+[Version Control Workflow](./topics/version-control/version-control-workflow/index.html)  
 [Week 2 Challenge - Landscape](./topics/instructions-challenge/index.html)
 
 ## Screenshot(s)
