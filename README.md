@@ -19,3 +19,4 @@ A collection and showcase of various protoypes created this semester
 
 ## Attributions
 Header Image taken from https://x.com/monmons137/header_photo
+Artist was credited as @terrythefox (TikTok) though I could not find the artists personal site/profile.
