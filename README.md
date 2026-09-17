@@ -9,7 +9,7 @@ Matthew Thompson. Student No.40352579
 A collection and showcase of various protoypes created this semester
 
 ## Quick Links
-[Reflective Journal](URL_FOR_THE_RUNNING_PROJECT)
+[Reflective Journal](./journal/journal.md)
 
 ## Prototypes
 [Version Control Workflow](./topics/version-control/version-control-workflow/index.html)
