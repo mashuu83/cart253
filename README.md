@@ -13,6 +13,7 @@ A collection and showcase of various protoypes created this semester
 
 ## Prototypes
 [Version Control Workflow](./topics/version-control/version-control-workflow/index.html)  
+
 [Week 2 Challenge - Landscape](./topics/instructions-challenge/index.html)
 
 ## Screenshot(s)
