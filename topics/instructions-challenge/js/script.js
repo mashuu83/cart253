@@ -23,7 +23,16 @@ function draw() {
     //Draw the Sky
     background("#7cd3f2");
 
-    //Draw a small mountain to sit behind 
+    //Draw the Horizon 
+    push();
+    //Huge circle, thick green stroke, light green fill
+    stroke("#063d0a");
+    strokeWeight(15);
+    fill("#54c75b");
+    ellipse(640, 1720, 2400);
+    pop();
+    
+    //Draw a smaller mountain to sit behind 
     push();
     stroke("black")
     strokeWeight(3);
