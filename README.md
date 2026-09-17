@@ -1,4 +1,4 @@
-Insert Banner Image
+![Psyduck Header](./assets/images/psyduck_banner.jpeg)
 
 # CART 253 Course Website
 
@@ -16,3 +16,5 @@ A collection and showcase of various protoypes created this semester
 
 ## Screenshot(s)
 
+## Attributions
+Header Image taken from https://x.com/monmons137/header_photo
