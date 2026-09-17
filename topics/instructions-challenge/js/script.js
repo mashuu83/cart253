@@ -23,7 +23,15 @@ function draw() {
     //Draw the Sky
     background("#7cd3f2");
 
-    //Draw a Mountain
+    //Draw a small mountain to sit behind 
+    push();
+    stroke("black")
+    strokeWeight(3);
+    fill("grey");
+    // Draw a smaller triangle 
+    triangle(200, 720, 500, 400, 600, 720);
+    pop();
+    //Draw a Mountain in front on the left
     push();
     stroke("black")
     strokeWeight(3);
