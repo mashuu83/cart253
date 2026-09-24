@@ -19,5 +19,15 @@ function setup() {
  * Draw The Juggler
 */
 function draw() {
-    ellipse(500, 500, 100);
+    //Set a soft pink background color (Using hex codes this time);
+    background("#eba9ea");
+    
+    // Draw the Juggers Body
+    push();
+    stroke(0); //I think one argument should set for all colors and be solid black
+    strokeWeight(4);
+    fill("#1ed3e0");
+    ellipse(width/2, height-175, 175, 300);
+    pop();
+
 }
