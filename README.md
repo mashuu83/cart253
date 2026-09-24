@@ -15,6 +15,8 @@ A collection and showcase of various protoypes created Fall 2026
 
 [Week 2 Challenge - Landscape](./topics/instructions-challenge/index.html)
 
+[Week 3 Challenge - Mr Furious](./topics/weekly-challenges/variables-challenge/index.html)
+
 ## Instructions Prototypes - Week 2
 
 ![Screenshot fcnsr](./assets/screenshots/Screenshot%20fcnsr.png)
