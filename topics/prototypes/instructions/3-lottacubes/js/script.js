@@ -6,6 +6,8 @@
  * 
  * Uses some code from The section entitled: The Default: Positioning Objects in a Scene
  * on the page: https://p5js.org/tutorials/coordinates-and-transformations/
+ * 
+ * Uses a color palette from https://www.colourlovers.com/palette/353921/day-dreaming
  */
 
 "use strict";
@@ -15,10 +17,12 @@
 */
 
 //Define empty arrays for position info
-let positions = [], scales = [], rotations = [];
+let positions = [], scales = [], rotations = [], colors = [];
 
 //Define an array for the colors
-let colors = ["red", "green", "blue"];
+// Pallette taken from https://www.colourlovers.com/palette/353921/day-dreaming
+// Made by user Skyblue2u on 26 April 2008
+let colorset = ["#FFA398", "#FFC48C", "#FCE5C0", "#9AD9D2", "#D0F7A6"];
 
 function setup() {
     createCanvas(1280, 720, WEBGL);
@@ -39,10 +43,10 @@ function setup() {
     ));
     // Create random scale values from .25 to 2.5
     scales.push(random(0.25, 2.5));
-
+    // Choose a random color for each cube
+    colors.push(random(colorset));
   }
 }
-
 
 /**
  * Draw a whole entire metric ton of cubes
@@ -50,24 +54,30 @@ function setup() {
 function draw() {
     //Black Background
     background(0);
-
     //Set default camera info
     orbitControl();
     noStroke();
     lights();
-
+    // Run 5000 times to create the drawing
     for (let i = 0; i < 5000; i += 1) {
     push();
+    // Move to the randomly generated spot created in setup
     translate(
       positions[i].x,
       positions[i].y,
       positions[i].z
     );
+    // Rotate the random values created in setup
     rotateX(rotations[i].x);
     rotateY(rotations[i].y);
     rotateZ(rotations[i].z);
+    // Scale to the random sizes created in setup
     scale(scales[i]);
+    // Set a random fill color chosen from the colorset
+    fill(colors[i]);
+    // Draw a Cube
     box(20);
+    // Clear out all the data for the next loop
     pop();
   }
 }
