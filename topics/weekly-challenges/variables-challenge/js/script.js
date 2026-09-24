@@ -2,7 +2,7 @@
  * Mr. Furious
  * Pippin Barr
  * Edited by:
- * Matthew Thompson and Iliana 
+ * Matthew Thompson and Ilianna Faoro 
  *
  * A guy who becomes visibly furious!
  */
