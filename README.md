@@ -35,7 +35,7 @@ A collection and showcase of various protoypes created Fall 2026
 
 ## Reflective Journal Entries
 
-[Week 1 Reflection (Version Control)](./journal/journal.md) | [Week 2 Reflection (Instructions)](./journal/journal2.md)
+[Week 1 Reflection (Version Control)](.topics/journal/journal.md) | [Week 2 Reflection (Instructions)](.topics/journal/journal2.md)
 
 ### Attributions
 Header Image taken from https://x.com/monmons137/header_photo
