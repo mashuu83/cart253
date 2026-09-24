@@ -9,12 +9,8 @@ Matthew Thompson. Student No.40352579
 A collection and showcase of various protoypes created Fall 2026
 
 ## In Class Challenges
-[Week 1 Reflective Journal](./journal/journal.md)
 
-[Version Control Workflow](./topics/weekly-challenges/version-control/version-control-workflow/index.html) 
-
-[Week 2 Challenge - Landscape](./topics/weekly-challenges/instructions-challenge/index.html)
-
+[Version Control Workflow](./topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 Challenge - Landscape](./topics/weekly-challenges/instructions-challenge/index.html) | 
 [Week 3 Challenge - Mr Furious](./topics/weekly-challenges/variables-challenge/index.html)
 
 ## Instructions Prototypes - Week 2
@@ -37,7 +33,9 @@ A collection and showcase of various protoypes created Fall 2026
 
 ---
 
-[Week 2 Reflection](./journal/journal2.md)
+## Reflective Journal Entries
+
+[Week 1 Reflection (Version Control)](./journal/journal.md) | [Week 2 Reflection (Instructions)](./journal/journal2.md)
 
 ### Attributions
 Header Image taken from https://x.com/monmons137/header_photo
