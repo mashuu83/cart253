@@ -17,7 +17,9 @@ A collection and showcase of various protoypes created this semester
 [Week 2 Challenge - Landscape](./topics/instructions-challenge/index.html)
 
 ### Instructions Prototypes
-[Funny Color Names and Slow Rotations](./topics/prototypes/instructions/1-fcnsr/index.html) 
+[Funny Color Names and Slow Rotations](./topics/prototypes/instructions/1-fcnsr/index.html)
+
+[Juggler](./topics/prototypes/instructions/2-juggler/index.html)
 
 ## Screenshot(s)
 ![Screenshot Sept. 16, 2026](./assets/screenshots/Screenshot%202026-09-16%20website.png)
