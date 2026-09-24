@@ -10,8 +10,6 @@ A whole dang lot of cubes
 
 ## Attribution
 
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
-
 This project uses [p5.js](https://p5js.org).
 Uses some code from: https://p5js.org/tutorials/coordinates-and-transformations/
 
