@@ -30,4 +30,18 @@ function draw() {
     ellipse(width/2, height-175, 175, 300);
     pop();
 
+    // Draw two simple rectangles for the jugglers arms, try rotating for angle?
+    
+    // Gotta move the origin, then rotate, then draw?
+    push();
+    translate(375, 360);
+    rotate(PI/8);
+    rect(0, 0, 200, 50);
+    pop();
+
+    push();
+    translate(725, 450);
+    rotate(TWO_PI-(PI/8));
+    rect(0, 0, 200, 50);
+    pop();
 }
