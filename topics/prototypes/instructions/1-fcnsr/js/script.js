@@ -42,9 +42,13 @@ function draw() {
     ellipse(0, 80, 100, 150);
     ellipse(-35, 150, 100, 75);
     pop();
-    //Add a long rectangle in the top right area of the canvas which intersects the triangle and rotates suuuuper slowly
+    //Add a long rectangle in the top right area of the canvas which intersects the triangle and rotates pretty slowly
     push();
-    stroke();
+    stroke("Thistle");
+    strokeWeight(5);
+    fill("RebeccaPurple");
+    rotateY(frameCount * 0.0002);
+    rect(-550, -200, 500, 30);
     pop();
 
     //Want to see if a new shape will also rotate
