@@ -1,13 +1,12 @@
-# Funny Color Names and Slow Rotations
+# JUGGLER
 
 Matthew Brandon Thompson
 
-[View this project online](https://mashuu83.github.io/cart253/topics/prototypes/instructions/1-fcnsr/index.html)
+[View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
 ## Description
 
-An Illustration prototype using the p5 library
-Learning about the CSS color names by choosing the silliest ones, and exploring rotations of simple 2D shapes.
+A Very simple animation of a Juggler as an exploration for future projects
 
 ## Attribution
 
