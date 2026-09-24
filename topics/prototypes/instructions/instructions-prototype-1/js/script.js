@@ -3,7 +3,7 @@
  * Matthew Brandon Thompson
  * 
  * The First Prototype Illustration for the 'Instructions' Assignment
- * Trying to choose colors for this project from the CSS color list that I think have the funniest/cutest names. Want to explore the concept of shapes rotating slowly. But not like, too slowly.
+ * Trying to choose colors for this project from the CSS color list that I think have the funniest/cutest names. Want to explore the visual of shapes rotating slowly. But not like, too slowly.
  */
 
 "use strict";
@@ -15,7 +15,6 @@
 function setup() {
     createCanvas(1280, 720, WEBGL)
 }
-
 
 /**
  * Create the Illustration
@@ -32,12 +31,20 @@ function draw() {
     fill("Cornsilk");
     //Because WEBGL uses a 3D coordinate system, the centre of the screen is 0,0
     triangle(0, -340, -300, 220, 300, 220);
-    //Add some more shapes inside the triangle that should rotate with it
+    pop();
+    //Add some circles inside the triangle that will have their own rotation speed, but rotate as a cluster, because they are smaller than the triangle they should spin slightly faster?
+    push();
     stroke("LightCoral");
+    strokeWeight(2);
     fill("LemonChiffon");
-    ellipse(-150, 150, 100);
-    ellipse(0, -150, 100, 150);
-    ellipse(-80, 150, 100, 75);
+    rotateY(frameCount * 0.005);
+    ellipse(-105, 150, 100);
+    ellipse(0, 80, 100, 150);
+    ellipse(-35, 150, 100, 75);
+    pop();
+    //Add a long rectangle in the top right area of the canvas which intersects the triangle and rotates suuuuper slowly
+    push();
+    stroke();
     pop();
 
     //Want to see if a new shape will also rotate
