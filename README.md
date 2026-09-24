@@ -6,25 +6,33 @@ Matthew Thompson. Student No.40352579
 
 ## Welcome
 
-A collection and showcase of various protoypes created this semester
+A collection and showcase of various protoypes created Fall 2026
 
-## Quick Links
-[Reflective Journal](./journal/journal.md)
+## In Class Challenges
+[Week 1 Reflective Journal](./journal/journal.md)
 
-## Prototypes
 [Version Control Workflow](./topics/version-control/version-control-workflow/index.html) 
 
 [Week 2 Challenge - Landscape](./topics/instructions-challenge/index.html)
 
-### Instructions Prototypes
+### Instructions Prototypes - Week 2
+
+![Screenshot fcnsr](./assets/screenshots/Screenshot%20fcnsr.png)
 [Funny Color Names and Slow Rotations](./topics/prototypes/instructions/1-fcnsr/index.html)
 
+---
+
+![Screenshot juggler](./assets/screenshots/Screenshot%20juggler.png)
 [Juggler](./topics/prototypes/instructions/2-juggler/index.html)
 
+---
+
+![Screenshot lottacubes](./assets/screenshots/Screenshot%20lottacubes.png)
 [A Lotta Cubes](./topics/prototypes/instructions/3-lottacubes/index.html)
 
-## Screenshot(s)
-![Screenshot Sept. 16, 2026](./assets/screenshots/Screenshot%202026-09-16%20website.png)
+---
+
+[Week 2 Reflection](./journal/journal2.md)
 
 ## Attributions
 Header Image taken from https://x.com/monmons137/header_photo
