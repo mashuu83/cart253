@@ -21,7 +21,7 @@ A collection and showcase of various protoypes created this semester
 
 [Juggler](./topics/prototypes/instructions/2-juggler/index.html)
 
-[A Lotta Cubes]
+[A Lotta Cubes](./topics/prototypes/instructions/3-lottacubes/index.html)
 
 ## Screenshot(s)
 ![Screenshot Sept. 16, 2026](./assets/screenshots/Screenshot%202026-09-16%20website.png)
