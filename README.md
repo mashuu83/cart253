@@ -10,8 +10,8 @@ A collection and showcase of various protoypes created Fall 2026
 
 ## In Class Challenges
 
-[Version Control Workflow](./topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 Challenge - Landscape](./topics/weekly-challenges/instructions-challenge/index.html) | 
-[Week 3 Challenge - Mr Furious](./topics/weekly-challenges/variables-challenge/index.html)
+[Version Control](./topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](./topics/weekly-challenges/instructions-challenge/index.html) | 
+[Week 3 - Mr Furious](./topics/weekly-challenges/variables-challenge/index.html) |
 
 ## Instructions Prototypes - Week 2
 
