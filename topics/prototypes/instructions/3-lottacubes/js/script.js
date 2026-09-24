@@ -25,10 +25,10 @@ let positions = [], scales = [], rotations = [], colors = [];
 let colorset = ["#FFA398", "#FFC48C", "#FCE5C0", "#9AD9D2", "#D0F7A6"];
 
 function setup() {
-    createCanvas(1280, 720, WEBGL);
-    //Fill the arrays with random values
-    //Run this loop 5 thousand times
-    for (let i = 0; i < 5000; i++) {
+  createCanvas(1280, 720, WEBGL);
+  //Fill the arrays with random values
+  //Run this loop 5 thousand times
+  for (let i = 0; i < 5000; i++) {
     //Create 3 random values for each entry to be the x,y,z axis
     positions.push(createVector(
       random(-width / 2, width / 2),
@@ -52,14 +52,16 @@ function setup() {
  * Draw a whole entire metric ton of cubes
 */
 function draw() {
-    //Black Background
-    background(0);
-    //Set default camera info
-    orbitControl();
-    noStroke();
-    lights();
-    // Run 5000 times to create the drawing
-    for (let i = 0; i < 5000; i += 1) {
+  //Black Background
+  background(0);
+  //Set default camera info
+  // THIS ENABLES CAMERA CONTROL!! Scrolling, left drag and right drag
+  orbitControl();
+  noStroke();
+  // Without the lights, there will be no shading on the sides of the cubes
+  lights();
+  // Run 5000 times to create the drawing
+  for (let i = 0; i < 5000; i += 1) {
     push();
     // Move to the randomly generated spot created in setup
     translate(

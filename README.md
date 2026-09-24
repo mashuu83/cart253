@@ -29,7 +29,7 @@ A collection and showcase of various protoypes created Fall 2026
 
 ![Screenshot lottacubes](./assets/screenshots/Screenshot%20lottacubes.png)
 
-[A Lotta Cubes](./topics/prototypes/instructions/3-lottacubes/index.html) | Try refreshing the page to generate a new drawing! | [Code](https://github.com/mashuu83/cart253/tree/main/topics/prototypes/instructions/2-juggler)
+[A Lotta Cubes](./topics/prototypes/instructions/3-lottacubes/index.html) | Refresh the page to generate a new drawing, move the camera by dragging and scrolling | [Code](https://github.com/mashuu83/cart253/tree/main/topics/prototypes/instructions/2-juggler) |
 
 ---
 
