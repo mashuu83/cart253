@@ -20,7 +20,10 @@ let mrFurious = {
         r: 255,
         g: 225,
         b: 225
-    }
+    },
+    rage: .5,
+    rageRate: .005,
+    maxrage: 10
 };
 
 // Our enemy the Sky
@@ -51,7 +54,7 @@ let bird = {
     },
 
     velocity: 1,
-    speed: 1
+    speed: .5
 }
 
 /**
@@ -73,7 +76,12 @@ function draw() {
     noStroke();
     // Make mr.furious turn red over time
     fill(mrFurious.fill.r, mrFurious.fill.g -= 0.2, mrFurious.fill.b -= 0.2);
-    ellipse(mrFurious.x, mrFurious.y, mrFurious.size);
+    // Move mr furious by a rage amount, which increases by the rage rate
+    mrFurious.rage += mrFurious.rageRate;
+    mrFurious.rageRate = constrain(mrFurious.rageRate, 0, mrFurious.maxrage);
+    mrFurious.x = constrain(mrFurious.x, 0, width);
+    mrFurious.y = constrain(mrFurious.y, 0, height);
+    ellipse(mrFurious.x += random(-mrFurious.rage, mrFurious.rage), mrFurious.y += random(-mrFurious.rage, mrFurious.rage), mrFurious.size);
     pop();
 
     // Adding bird left to right
