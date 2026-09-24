@@ -1,6 +1,6 @@
-# TITLE OF PROJECT
+# A LOTTA CUBES
 
-AUTHOR NAME
+Matthew Brandon Thompson
 
 [View this project online](URL_FOR_THE_RUNNING_PROJECT)
 
