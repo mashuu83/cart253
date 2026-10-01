@@ -1,0 +1,19 @@
+# FIND THE CUBE
+
+Matthew Brandon Thompson
+
+[View this project online](https://mashuu83.github.io/cart253/topics/prototypes/variables/1-findthecube/index.html)
+
+## Description
+
+A game based on last weeks illustartation where you need to locate the single slowly rotating cube in the field
+
+## Attribution
+
+This project uses [p5.js](https://p5js.org).
+Uses some code from: https://p5js.org/tutorials/coordinates-and-transformations/
+WEBGL is up in there too!
+
+## License
+
+This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.

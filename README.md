@@ -33,6 +33,9 @@ A collection and showcase of various protoypes created Fall 2026
 
 ---
 
+## Variables Prototypes - Week 3
+<!-- Can I insert a GIF as my screenshot here I wonder? -->
+
 ## Reflective Journal Entries
 
 [Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2)
