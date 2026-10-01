@@ -29,7 +29,8 @@ let howmanycubes = 5000;
 
 // Choose one magic cube
 // Using int/floor to hopefully make it a whole number?
-// let magiccube = random(1, howmanycubes);
+let magiccube = undefined;
+magiccube = floor(random(1, howmanycubes));
 
 function setup() {
   createCanvas(1280, 720, WEBGL);
