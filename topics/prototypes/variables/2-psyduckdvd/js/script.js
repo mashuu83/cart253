@@ -24,9 +24,8 @@ const psyduck = {
 async function setup() {
     psyduck.image = await loadImage('./assets/images/psyduck.png');
     createCanvas(720, 480);
-
+    // Set background color
     background("darkgrey");
-
 }
 
 
