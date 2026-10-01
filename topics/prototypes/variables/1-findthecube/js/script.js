@@ -98,6 +98,8 @@ function draw() {
     //Trying a different method for rotation
     //This one works! Commenting out the random rotation for now
     //Choose just one cube to go the opposite way
+
+    // I put the two == before Pippins rant about ===, I commit to doing better in the future
     if (i == floor(howmanycubes / 2)) {
       //The scale is a test line to see if the code is working by making the opposite cube bigger
       //scale(20);
