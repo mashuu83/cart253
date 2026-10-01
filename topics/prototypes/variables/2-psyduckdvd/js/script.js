@@ -12,7 +12,8 @@ const psyduck = {
     x: 100,
     y: 100,
     image: undefined,
-    speed: 1
+    hspeed: 1,
+    vspeed: 1
 }
 
 /**
@@ -30,9 +31,33 @@ async function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draw Psyduck and move him around
 */
 function draw() {
-    // Draw Psyduck
-    image(psyduck.image, 100, 100);
+    //Move Psyduck Leaving a glorious trail
+    psyduck.x += psyduck.hspeed;
+    psyduck.y += psyduck.vspeed;
+
+    //Bounce psyduck if he hits the edge
+    bouncePsyduck();
+
+    // Draw Psyduck, not clearing between draws
+    image(psyduck.image, psyduck.x, psyduck.y);
+}
+
+function bouncePsyduck() {
+    //Check if he hits left/right and flip
+    if (psyduck.x + psyduck.image.width >= width) {
+        psyduck.hspeed = -psyduck.hspeed;
+    }
+    else if (psyduck.x < 0) {
+        psyduck.hspeed = -psyduck.hspeed;
+    }
+    //Check if he hits top/bottom and flip
+    if (psyduck.y < 0) {
+        psyduck.vspeed = -psyduck.vspeed;
+    }
+    else if (psyduck.y + psyduck.image.height >= height) {
+        psyduck.vspeed = -psyduck.vspeed;
+    }
 }
