@@ -10,32 +10,32 @@ A collection and showcase of various protoypes created Fall 2026
 
 ## In Class Challenges
 
-[Version Control](./topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](./topics/weekly-challenges/instructions-challenge/index.html) | 
-[Week 3 - Mr Furious](./topics/weekly-challenges/variables-challenge/index.html) |
+[Version Control](https://mashuu83.github.io/cart253/topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](https://mashuu83.github.io/cart253/topics/weekly-challenges/instructions-challenge/index.html) | 
+[Week 3 - Mr Furious](https://mashuu83.github.io/cart253/topics/weekly-challenges/variables-challenge/index.html) |
 
 ## Instructions Prototypes - Week 2
 
 ![Screenshot fcnsr](./assets/screenshots/Screenshot%20fcnsr.png)
 
-[Funny Color Names and Slow Rotations](./topics/prototypes/instructions/1-fcnsr/index.html) | [Code](https://github.com/mashuu83/cart253/tree/main/topics/prototypes/instructions/1-fcnsr)
+[Funny Color Names and Slow Rotations](https://mashuu83.github.io/cart253/topics/prototypes/instructions/1-fcnsr/index.html) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/instructions/1-fcnsr/js/script.js)
 
 ---
 
 ![Screenshot juggler](./assets/screenshots/Screenshot%20juggler.png)
 
-[Juggler](./topics/prototypes/instructions/2-juggler/index.html) | [Code](https://github.com/mashuu83/cart253/tree/main/topics/prototypes/instructions/2-juggler)
+[Juggler](https://mashuu83.github.io/cart253/topics/prototypes/instructions/2-juggler/index.html) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/instructions/2-juggler/js/script.js)
 
 ---
 
 ![Screenshot lottacubes](./assets/screenshots/Screenshot%20lottacubes.png)
 
-[A Lotta Cubes](./topics/prototypes/instructions/3-lottacubes/index.html) | Refresh the page to generate a new drawing, move the camera by dragging and scrolling | [Code](https://github.com/mashuu83/cart253/tree/main/topics/prototypes/instructions/2-juggler) |
+[A Lotta Cubes](https://mashuu83.github.io/cart253/topics/prototypes/instructions/3-lottacubes/index.html) | Refresh the page to generate a new drawing, move the camera by dragging and scrolling | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/instructions/3-lottacubes/js/script.js) |
 
 ---
 
 ## Reflective Journal Entries
 
-[Week 1 Reflection (Version Control)](.topics/journal/journal.md) | [Week 2 Reflection (Instructions)](.topics/journal/journal2.md)
+[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2)
 
 ### Attributions
 Header Image taken from https://x.com/monmons137/header_photo
