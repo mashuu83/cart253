@@ -43,7 +43,7 @@ A collection and showcase of various protoypes created Fall 2026
 ---
 ![Screenshot Psyduck Screensaver](./assets/screenshots/psyduckscreensave.png)
 
-[Psyduck Screensaver](./topics/prototypes/variables/2-psyduckdvd/index.html) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/variables/2-psyduckdvd/js/script.js)
+[Psyduck Screensaver](https://mashuu83.github.io/cart253/topics/prototypes/variables/2-psyduckdvd/) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/variables/2-psyduckdvd/js/script.js)
 
 ## Reflective Journal Entries
 
