@@ -1,4 +1,4 @@
-# Week 3 Prototype 2
+# Psyduck Screensaver
 
 Matthew Brandon Thompson
 
@@ -6,7 +6,7 @@ Matthew Brandon Thompson
 
 ## Description
 
-Describe Prototype 2 Here
+An old school bouncing psyduck, like the DVD player logo bounce
 
 ## Attribution
 
