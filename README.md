@@ -47,7 +47,7 @@ A collection and showcase of various protoypes created Fall 2026
 
 ## Reflective Journal Entries
 
-[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2)
+[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3)
 
 ### Attributions
 Header Image taken from https://x.com/monmons137/header_photo
