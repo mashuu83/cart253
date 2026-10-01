@@ -17,9 +17,15 @@ const psyduck = {
 
 /**
  * Set a Canvas, the same as DVD resolution (480p)
+ * 
+ * Load the psyduck image in setup
 */
-function setup() {
+async function setup() {
+    psyduck.image = await loadImage('./assets/images/psyduck.png');
     createCanvas(720, 480);
+
+    background("darkgrey");
+
 }
 
 
@@ -27,5 +33,6 @@ function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-
+    // Draw Psyduck
+    image(psyduck.image, 100, 100);
 }
