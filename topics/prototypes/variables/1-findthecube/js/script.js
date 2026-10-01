@@ -24,11 +24,18 @@ let positions = [], scales = [], rotations = [], colors = [];
 // Made by user Skyblue2u on 26 April 2008
 let colorset = ["#FFA398", "#FFC48C", "#FCE5C0", "#9AD9D2", "#D0F7A6"];
 
+// Set the number of cubes
+let howmanycubes = 5000;
+
+// Choose one magic cube
+// Using int/floor to hopefully make it a whole number?
+// let magiccube = random(1, howmanycubes);
+
 function setup() {
   createCanvas(1280, 720, WEBGL);
   //Fill the arrays with random values
-  //Run this loop 5 thousand times
-  for (let i = 0; i < 5000; i++) {
+  //Run this the set number of times
+  for (let i = 0; i < howmanycubes; i++) {
     //Create 3 random values for each entry to be the x,y,z axis
     positions.push(createVector(
       random(-width / 2, width / 2),
@@ -36,6 +43,7 @@ function setup() {
       random(-width / 2, width / 2)
     ));
     // Create 3 random angles to be the x, y, z rotations for each cube
+    // Not currently used in this version but leaving in place, in case I try a version where they all have different alignments to begin
     rotations.push(createVector(
       random(TWO_PI),
       random(TWO_PI),
@@ -54,14 +62,17 @@ function setup() {
 function draw() {
   //Black Background
   background(0);
+
   //Set default camera info
   // THIS ENABLES CAMERA CONTROL!! Scrolling, left drag and right drag!!
   orbitControl();
   noStroke();
+
   // Without the lights, there will be no shading on the sides of the cubes
   lights();
-  // Run 5000 times to create the drawing
-  for (let i = 0; i < 5000; i += 1) {
+
+  // Run howmanycubes times to create the drawing
+  for (let i = 0; i < howmanycubes; i += 1) {
     push();
 
     // Move to the randomly generated spot created in setup
@@ -85,8 +96,19 @@ function draw() {
 
     //Trying a different method for rotation
     //This one works! Commenting out the random rotation for now
-    rotateX(frameCount * 0.02);
-    rotateY(frameCount * 0.02);
+    //Choose just one cube to go the opposite way
+    if (i == floor(howmanycubes / 2)) {
+      //The scale is a test line to see if the code is working by making the opposite cube bigger
+      //scale(20);
+
+      rotateX(frameCount * -0.02);
+      rotateY(frameCount * -0.02);
+    }
+    //Make the rest of the cubes go the other way
+    else {
+      rotateX(frameCount * 0.02);
+      rotateY(frameCount * 0.02);
+    }
 
     // Draw a Cube
     box(20);
