@@ -63,20 +63,31 @@ function draw() {
   // Run 5000 times to create the drawing
   for (let i = 0; i < 5000; i += 1) {
     push();
+
     // Move to the randomly generated spot created in setup
     translate(
       positions[i].x,
       positions[i].y,
       positions[i].z
     );
+
     // Rotate the random values created in setup
-    rotateX(rotations[i].x);
-    rotateY(rotations[i].y);
-    rotateZ(rotations[i].z);
+    // Commenting this out to have all cubes have the same alignment
+    // rotateX(rotations[i].x);
+    // rotateY(rotations[i].y);
+    // rotateZ(rotations[i].z);
+
     // Scale to the random sizes created in setup
     scale(scales[i]);
+
     // Set a random fill color chosen from the colorset
     fill(colors[i]);
+
+    //Trying a different method for rotation
+    //This one works! Commenting out the random rotation for now
+    rotateX(frameCount * 0.02);
+    rotateY(frameCount * 0.02);
+
     // Draw a Cube
     box(20);
     // Clear out all the data for the next loop
@@ -87,6 +98,8 @@ function draw() {
     // let axis = [1, 1, 0];
     // let angle = frameCount * 0.0000001;
     // rotate(angle, axis);
+
+
 
   }
 }
