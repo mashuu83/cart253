@@ -36,6 +36,8 @@ A collection and showcase of various protoypes created Fall 2026
 ## Variables Prototypes - Week 3
 <!-- Can I insert a GIF as my screenshot here I wonder? -->
 
+![Gif Screenshot findthecube](./assets/screenshots/findthecube.gif)
+
 [Odd One Out](https://mashuu83.github.io/cart253/topics/prototypes/variables/1-findthecube/) | Try and find the solitary cube rotating the opposite direction from the others. Use left/right drag to pan/tilt and scroll to zoom. Refresh the page to generate a new puzzle. | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/variables/1-findthecube/js/script.js)
 
 ## Reflective Journal Entries
