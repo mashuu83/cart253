@@ -45,6 +45,11 @@ A collection and showcase of various protoypes created Fall 2026
 
 [Psyduck Screensaver](https://mashuu83.github.io/cart253/topics/prototypes/variables/2-psyduckdvd/) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/variables/2-psyduckdvd/js/script.js)
 
+---
+![Screenshot Pallette Swap](./assets/screenshots/palletteswap.png)
+
+[Palette Swap](./topics/prototypes/variables/3-paletteshift/index.html) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/variables/2-paletteshift/js/script.js)
+
 ## Reflective Journal Entries
 
 [Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3)
