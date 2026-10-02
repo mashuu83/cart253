@@ -7,20 +7,10 @@
 
 "use strict";
 
-// A pallette object that holds 6 colors
-let palette = {
-    c1: undefined,
-    c2: undefined,
-    c3: undefined,
-    c4: undefined,
-    c5: undefined,
-    c6: undefined
-}
-
 // A State object that holds the current state
 // Might use this to cycle through and display poetry
-let possiblestates = ["monochromatic", "analogous", "complementary", "split-complementary", "double-complementary", "triadic"];
-let state = possiblestates[0];
+let possiblestates = ["monochromatic", "analogous", "complementary", "split-complementary", "double-complementary", "tetradic"];
+let state = possiblestates[5];
 
 // Some variables to generate random spheres
 let positions =[], scales = [], colors= [], xdetails = [], ydetails = [];
@@ -40,6 +30,21 @@ if (state === "monochromatic"){
 }
 else if (state === "analogous"){
     //Set colors to anologous theme
+    colorset = ["#FA3D8C", "#FA4D3D", "#FAAB3D"];
+}
+else if (state === "complementary"){
+    //Complementary theme
+    // Add more adjacent colors
+    colorset = ["#FA4D3D", "#3DEAFA"];
+}
+else if (state === "split-complementary"){
+    colorset = ["#FA4D3D", "#3DFAAB", "#3D8CFA"];
+}
+else if (state === "double-complementary"){
+    colorset = ["#FA4D3D", "#3DEAFA", "#4A7EED", "#EDB94A"];
+}
+else if (state === "tetradic"){
+    colorset = ["#FA4D3D", "#8CFA3D", "#3DEAFA", "#AB3DFA"]
 }
 
 
