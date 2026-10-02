@@ -48,7 +48,7 @@ A collection and showcase of various protoypes created Fall 2026
 ---
 ![Screenshot Pallette Swap](./assets/screenshots/palletteswap.png)
 
-[Palette Swap](./topics/prototypes/variables/3-paletteshift/index.html) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/variables/2-paletteshift/js/script.js)
+[Palette Swap](./topics/prototypes/variables/3-paletteshift/index.html) |Click the Image to cycle through different pallettes| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/variables/2-paletteshift/js/script.js)
 
 ## Reflective Journal Entries
 
