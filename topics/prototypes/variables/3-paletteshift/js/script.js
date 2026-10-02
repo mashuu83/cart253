@@ -38,6 +38,9 @@ let colorset = [];
 if (state === "monochromatic"){
     colorset = ["#C84133", "#FA4D3D", "#FF957F", "#CE6A58"]
 }
+else if (state === "analogous"){
+    //Set colors to anologous theme
+}
 
 
 /**
