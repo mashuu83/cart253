@@ -1,8 +1,8 @@
 /**
- * Palette Shift
+ * Palette Swap
  * Matthew Brandon Thompson
  * 
- * Draw a circle painting inspired by the works of Sonia Delauney which shifts between 6 scenes all having different color palettes
+ * Explore Color floating through a cosmic field of spheres
  */
 
 "use strict";
@@ -26,29 +26,6 @@ const howManySpheres = 15000;
 let colors = new Array(howManySpheres).fill(0);
 let colorset = [];
 chooseColorset();
-// Colorset with starting palette
-if (state === "monochromatic"){
-    colorset = ["#C84133", "#FA4D3D", "#FF957F", "#CE6A58"]
-}
-else if (state === "analogous"){
-    //Set colors to anologous theme
-    colorset = ["#FA3D8C", "#FA4D3D", "#FAAB3D"];
-}
-else if (state === "complementary"){
-    //Complementary theme
-    // Add more adjacent colors
-    colorset = ["#FA4D3D", "#3DEAFA"];
-}
-else if (state === "split-complementary"){
-    colorset = ["#FA4D3D", "#3DFAAB", "#3D8CFA"];
-}
-else if (state === "double-complementary"){
-    colorset = ["#FA4D3D", "#3DEAFA", "#4A7EED", "#EDB94A"];
-}
-else if (state === "tetradic"){
-    colorset = ["#FA4D3D", "#8CFA3D", "#3DEAFA", "#AB3DFA"]
-}
-
 
 /**
  * Draw a canvas here, 720p
