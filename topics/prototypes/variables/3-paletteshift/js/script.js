@@ -9,8 +9,9 @@
 
 // A State object that holds the current state
 // Might use this to cycle through and display poetry
+let currentstate = 0;
 let possiblestates = ["monochromatic", "analogous", "complementary", "split-complementary", "double-complementary", "tetradic"];
-let state = possiblestates[5];
+let state = possiblestates[currentstate];
 
 // Some variables to generate random spheres
 let positions =[], scales = [], colors= [], xdetails = [], ydetails = [];
@@ -50,29 +51,12 @@ else if (state === "tetradic"){
 
 /**
  * Draw a canvas here, 720p
+ * 
 */
 function setup() {
     createCanvas(1280, 720, WEBGL);
-    
-    //Fill the arrays with random values
-    for (let i = 0; i < howManySpheres; i++) {
-    //Create 3 random values for each entry to be the x,y,z axis
-    positions.push(createVector(
-      random(-width / 2, width / 2),
-      random(-height / 2, height / 2),
-      random(-width / 2, width / 2)
-    ));
-    // Create random scale values
-    scales.push(random(minSize, maxSize));
-    
-    // Seems to break the renderer so removing for now
-    // Create random detail levels
-    //xdetails.push(random(minDetailx, maxDetailx));
-    //ydetails.push(random(minDetaily, maxDetaily));
-    
-    // Choose a random color for each cube
-    setColors();
-  }
+    // Create all the circles
+    createCircles();
 }
 
 /**
@@ -80,7 +64,8 @@ function setup() {
 */
 function draw() {
     //Set color function based on state
-    
+    // let state = possiblestates[currentstate];
+
     //?? setColors();
     //Doing this in draw makes the colors flash, no bueno
 
@@ -118,11 +103,40 @@ function draw() {
     rotate(angle, axis);
   }
 
-    //Check for mouse click, move to the next scene and change the colors
+}
 
+//Check for mouse click, move to the next scene and change the colors
+function mousePressed() {
+    // Code to run.
+    // Go next state by changing index
+    currentstate += 1;
+    state = possiblestates[currentstate];
+    console.log("current state is " + state);
+    createCircles();
 }
 
 function setColors(){
     //Check the state and set the palette accordingly
     colors.push(random(colorset));
+}
+
+function createCircles(){
+    for (let i = 0; i < howManySpheres; i++) {
+    //Create 3 random values for each entry to be the x,y,z axis
+    positions.push(createVector(
+      random(-width / 2, width / 2),
+      random(-height / 2, height / 2),
+      random(-width / 2, width / 2)
+    ));
+    // Create random scale values
+    scales.push(random(minSize, maxSize));
+    
+    // Seems to break the renderer so removing for now
+    // Create random detail levels
+    //xdetails.push(random(minDetailx, maxDetailx));
+    //ydetails.push(random(minDetaily, maxDetaily));
+    
+    // Choose a random color for each cube
+    setColors();
+}
 }
