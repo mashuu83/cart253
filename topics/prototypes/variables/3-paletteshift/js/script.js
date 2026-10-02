@@ -14,7 +14,7 @@ let possiblestates = ["monochromatic", "analogous", "complementary", "split-comp
 let state = possiblestates[currentstate];
 
 // Some variables to generate random spheres
-let positions =[], scales = [], colors= [], xdetails = [], ydetails = [];
+let positions =[], scales = []; //xdetails = [], ydetails = [];
 
 // Potentially add random detail levels
 // let minDetailx = 1, maxDetailx = 20, minDetaily = 1, maxDetaily = 20;
@@ -23,8 +23,9 @@ let minSize = 0.03, maxSize = .25;
 
 // How many spheres to Draw
 const howManySpheres = 15000;
-
+let colors = new Array(howManySpheres).fill(0);
 let colorset = [];
+chooseColorset();
 // Colorset with starting palette
 if (state === "monochromatic"){
     colorset = ["#C84133", "#FA4D3D", "#FF957F", "#CE6A58"]
@@ -110,8 +111,13 @@ function mousePressed() {
     // Code to run.
     // Go next state by changing index
     currentstate += 1;
+    if (currentstate === 6){
+        currentstate = 0;
+    }
     state = possiblestates[currentstate];
     console.log("current state is " + state);
+    chooseColorset();
+    //clear();
     createCircles();
 }
 
@@ -137,6 +143,31 @@ function createCircles(){
     //ydetails.push(random(minDetaily, maxDetaily));
     
     // Choose a random color for each cube
-    setColors();
+    colors[i] = random(colorset);
+    //setColors();
+    }
+}
+
+function chooseColorset(){
+if (state === "monochromatic"){
+    colorset = ["#C84133", "#FA4D3D", "#FF957F", "#CE6A58"]
+}
+else if (state === "analogous"){
+    //Set colors to anologous theme
+    colorset = ["#FA3D8C", "#FA4D3D", "#FAAB3D"];
+}
+else if (state === "complementary"){
+    //Complementary theme
+    // Add more adjacent colors
+    colorset = ["#FA4D3D", "#3DEAFA"];
+}
+else if (state === "split-complementary"){
+    colorset = ["#FA4D3D", "#3DFAAB", "#3D8CFA"];
+}
+else if (state === "double-complementary"){
+    colorset = ["#FA4D3D", "#3DEAFA", "#4A7EED", "#EDB94A"];
+}
+else if (state === "tetradic"){
+    colorset = ["#FA4D3D", "#8CFA3D", "#3DEAFA", "#AB3DFA"]
 }
 }
