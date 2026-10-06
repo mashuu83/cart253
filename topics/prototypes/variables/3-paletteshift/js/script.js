@@ -7,6 +7,8 @@
 
 "use strict";
 
+let font = undefined;
+
 // A State object that holds the current state
 // Might use this to cycle through and display poetry
 let currentstate = 0;
@@ -22,10 +24,10 @@ let positions =[], scales = []; //xdetails = [], ydetails = [];
 // Potentially add random detail levels
 // let minDetailx = 1, maxDetailx = 20, minDetaily = 1, maxDetaily = 20;
 
-let minSize = 0.03, maxSize = .25; 
+let minSize = 0.1, maxSize = .6; 
 
 // How many spheres to Draw
-const howManySpheres = 15000;
+const howManySpheres = 5000;
 let colors = new Array(howManySpheres).fill(0);
 let colorset = [];
 chooseColorset();
@@ -34,8 +36,13 @@ chooseColorset();
  * Draw a canvas here, 720p
  * 
 */
-function setup() {
+async function setup() {
     createCanvas(1280, 720, WEBGL);
+    //Load and set the font 
+    font = await loadFont('./assets/fonts/Inconsolata.otf');
+    fill('white');
+    textFont(font);
+    
     // Create all the circles
     createCircles();
 }
@@ -53,10 +60,11 @@ function draw() {
     //set Background based on state
     
     background(0);
+    noStroke();
     
     //Add Camera controls
-    orbitControl();
-    noStroke();
+    //orbitControl();
+    
     // Add lights
     lights();
     
@@ -78,10 +86,14 @@ function draw() {
     // Clear out all the data for the next loop
     pop();
     // Slow rotation
-    let axis = [1, 1, 0];
-    let angle = frameCount * 0.00000003;
-    rotate(angle, axis);
-    //text('testing', 0, 0);
+    // let axis = [1, 1, 0];
+    // let angle = frameCount * 0.00000003;
+    // rotate(angle, axis);
+    push();
+    textSize(12)
+    translate(0,50,600);
+    text(titleText, 0, 0);
+    pop();
     }
 
     
@@ -133,7 +145,6 @@ function createCircles(){
 function chooseColorset(){
 if (state === "monochromatic"){
     colorset = ["#C84133", "#FA4D3D", "#FF957F", "#CE6A58", "#FFA591", "#E55E4B"];
-    titleText = "monochromatic";
 }
 else if (state === "analogous"){
     //Set colors to anologous theme
@@ -153,4 +164,7 @@ else if (state === "double-complementary"){
 else if (state === "tetradic"){
     colorset = ["#FA4D3D", "#8CFA3D", "#3DEAFA", "#AB3DFA"]
 }
+
+//Set the text to be the state
+titleText = state;
 }
