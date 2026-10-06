@@ -13,6 +13,9 @@ let currentstate = 0;
 let possiblestates = ["monochromatic", "analogous", "complementary", "split-complementary", "double-complementary", "tetradic"];
 let state = possiblestates[currentstate];
 
+//Variable to hold title of current palette
+let titleText = undefined;
+
 // Some variables to generate random spheres
 let positions =[], scales = []; //xdetails = [], ydetails = [];
 
@@ -74,12 +77,14 @@ function draw() {
     sphere(20);
     // Clear out all the data for the next loop
     pop();
-    
     // Slow rotation
     let axis = [1, 1, 0];
     let angle = frameCount * 0.00000003;
     rotate(angle, axis);
-  }
+    //text('testing', 0, 0);
+    }
+
+    
 
 }
 
@@ -127,11 +132,12 @@ function createCircles(){
 
 function chooseColorset(){
 if (state === "monochromatic"){
-    colorset = ["#C84133", "#FA4D3D", "#FF957F", "#CE6A58"]
+    colorset = ["#C84133", "#FA4D3D", "#FF957F", "#CE6A58", "#FFA591", "#E55E4B"];
+    titleText = "monochromatic";
 }
 else if (state === "analogous"){
     //Set colors to anologous theme
-    colorset = ["#FA3D8C", "#FA4D3D", "#FAAB3D"];
+    colorset = ["#FC968D", "#CC0558", "#FA3D8C", "#FA4D3D", "#FAAB3D", "#FEBA63"];
 }
 else if (state === "complementary"){
     //Complementary theme
