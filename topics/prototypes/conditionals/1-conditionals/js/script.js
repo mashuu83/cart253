@@ -17,7 +17,9 @@ let ghost = {
     image:undefined,
     scaredImage:undefined,
     speed:1,
-    size:50
+    size:50,
+    fill:"white",
+    scaredFill:"red"
 }
 
 //How Many Ghosts to draw
@@ -56,12 +58,33 @@ function draw() {
     for (let i=0; i<howManyGhosts; i++){
         //Set the y position for the current ghost starting at the bottom of the screen and moving up in increments of "how far apart y"  + the sin value of the floating angle times the floating scale
         ghosts[i].y = ((height - (i * howFarApartY)) + sin(floatingAngle + (i * floatingSteps)) * floatingScale);
+        
         //Set the x position for each ghost starting at the left of the screen and going in increments of "how far apart x"
         ghosts[i].x = i * howFarApartX;
-        //Draw the ghost
+        
+        //Check if the mouse is overtop of a ghost and set the color accordingly
+        //Is the distance between the mouse position and the ghost less than half of the size of the ghost?
+        const d = dist(mouseX, mouseY, ghosts[i].x, ghosts[i].y);
+        const overlap = (d < ghosts[i].size/2);
+        //If they overlap, scared fill (or image) otherwise default fill (or image)
+        if (overlap){
+            fill(ghosts[i].scaredFill);
+        }
+        else {
+            fill(ghosts[i].fill);
+        }
+        
+        // Draw the ghost
         ellipse(ghosts[i].x, ghosts[i].y, ghosts[i].size);
+        
         //Increment the floating positions
         floatingAngle += floatingSpeed;
+    }
+
+    //check if the mouse is overtop of a ghost and change the color
+    for (let i=0; i<howManyGhosts; i++){
+        
+
     }
 
 }
