@@ -95,9 +95,6 @@ function draw() {
     text(titleText, 0, 0);
     pop();
     }
-
-    
-
 }
 
 //Check for mouse click, move to the next scene and change the colors
