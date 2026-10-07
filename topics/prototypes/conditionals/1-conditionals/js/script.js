@@ -19,7 +19,11 @@ let ghost = {
     speed:1,
     size:50,
     fill:"white",
-    scaredFill:"red"
+    scaredFill:"red",
+    floatingAngle:0,
+    floatingScale:50,
+    floatingSpeed:0.05,
+    floatingSteps:0.25
 }
 
 //How Many Ghosts to draw
@@ -29,8 +33,8 @@ const howManyGhosts = 10;
 let howFarApartY = undefined;
 let howFarApartX = undefined;
 
-// Adding a variable to potentially introduce randomness into the spacing of the ghosts -- CURRENTLY UNUSED
-const randomVariance = 10;
+// Adding a variable to potentially introduce randomness into the spacing of the ghosts
+const spacingVariance = 10;
 const sizeVariance = 15;
 
 // Declare an array of ghost objects and fill with empty ghosts
@@ -39,12 +43,6 @@ for (let i = 0; i < howManyGhosts; i++){
     // The syntax of this was explained by my roomate, though I don't fully undertand the need for the {...} yet
     ghosts.push({...ghost});
 }
-
-//Define the variables to be used for the ghosts movement
-let floatingAngle = 0;
-let floatingScale = 50;
-let floatingSpeed = 0.005;
-let floatingSteps = 0.25;
 
 /**
  * Add a Canvas 720p
@@ -74,8 +72,9 @@ function draw() {
     
     //Run a loop based on how many ghosts and draw them
     for (let i=0; i<howManyGhosts; i++){
+        
         //Set the y position for the current ghost starting at the bottom of the screen and moving up in increments of "how far apart y"  + the sin value of the floating angle times the floating scale (Math adapted from example cited in intro comment)
-        ghosts[i].y = ((height - (i * howFarApartY)) + sin(floatingAngle + (i * floatingSteps)) * floatingScale);
+        ghosts[i].y = ((height - (i * howFarApartY)) + sin(ghosts[i].floatingAngle + (i * ghosts[i].floatingSteps)) * ghosts[i].floatingScale);
         
         //Set the x position for each ghost starting at the left of the screen and going in increments of "how far apart x"
         ghosts[i].x = i * howFarApartX;
@@ -91,7 +90,7 @@ function draw() {
             ghosts[i].scared = false;
         }
         
-        //Set the fill (or image) based on the ghosts scared state
+        //Set the fill (or image) based on the ghosts scared state --UPDATE WITH IMAGES
         if (ghosts[i].scared){
             fill(ghosts[i].scaredFill);
         }
@@ -99,11 +98,18 @@ function draw() {
             fill(ghosts[i].fill);
         }
         
+        // //Move Ghosts horizontally -- NEED TO RE-EXAMINE
+        // ghosts[i].x += frameCount * ghosts[i].speed;
+        // if (ghosts[i].x > width){
+        //     ghosts[i].speed = -ghosts[i].speed;
+        // }
+        
         // Draw the ghost
         ellipse(ghosts[i].x, ghosts[i].y, ghosts[i].size);
         
         //Increment the floating positions (From example cited in intro comment)
-        floatingAngle += floatingSpeed;
+        ghosts[i].floatingAngle += ghosts[i].floatingSpeed;
+
     }
 
 }
