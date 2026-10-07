@@ -31,6 +31,7 @@ let howFarApartX = undefined;
 
 // Adding a variable to potentially introduce randomness into the spacing of the ghosts -- CURRENTLY UNUSED
 const randomVariance = 10;
+const sizeVariance = 15;
 
 // Declare an array of ghost objects and fill with empty ghosts
 const ghosts = [];
@@ -47,11 +48,21 @@ let floatingSteps = 0.25;
 
 /**
  * Add a Canvas 720p
+ * Define the spacing between ghosts dynamically based on the size of the canvas and how many * ghosts are being drawn
 */
 function setup() {
+    //Create the canvas
     createCanvas(1280, 720);
+    
+    //Set the distances between ghosts dynamically
     howFarApartY = height / howManyGhosts;
     howFarApartX = width / howManyGhosts;
+
+    //Randomly vary the sizes of the ghosts
+    //For each ghost add or subtract a random number based on size variance from the ghosts size
+    for (let i=0; i<howManyGhosts; i++){
+        ghosts[i].size += random(-sizeVariance, sizeVariance);
+    }
 }
 
 /**
