@@ -12,7 +12,8 @@ let ghost = {
     x:0,
     y:0,
     scared:false,
-    image:undefined
+    image:undefined,
+    scaredImage:undefined
 }
 
 /**
