@@ -91,7 +91,7 @@ function draw() {
     // rotate(angle, axis);
     push();
     textSize(12)
-    translate(0,50,600);
+    translate(0,50,650);
     text(titleText, 0, 0);
     pop();
     }
@@ -144,16 +144,16 @@ function createCircles(){
 
 function chooseColorset(){
 if (state === "monochromatic"){
-    colorset = ["#C84133", "#FA4D3D", "#FF957F", "#CE6A58", "#FFA591", "#E55E4B"];
+    colorset = ["#FA4D3D", "#C84133",  "#FF957F", "#CE6A58", "#FFA591", "#E55E4B"];
 }
 else if (state === "analogous"){
     //Set colors to anologous theme
-    colorset = ["#FC968D", "#CC0558", "#FA3D8C", "#FA4D3D", "#FAAB3D", "#FEBA63"];
+    colorset = ["#FA4D3D", "#FC968D", "#CC0558", "#FA3D8C",  "#FAAB3D", "#FEBA63"];
 }
 else if (state === "complementary"){
     //Complementary theme
     // Add more adjacent colors
-    colorset = ["#FA4D3D", "#3DEAFA"];
+    colorset = ["#FA4D3D", "#C84133",  "#FF957F", "#3DEAFA", "#05BBCC", "#8DF3FC"];
 }
 else if (state === "split-complementary"){
     colorset = ["#FA4D3D", "#3DFAAB", "#3D8CFA"];
@@ -167,4 +167,7 @@ else if (state === "tetradic"){
 
 //Set the text to be the state
 titleText = state;
+
+//reset the camera
+//camera(0, 0, 800);
 }
