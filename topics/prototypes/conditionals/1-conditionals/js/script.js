@@ -16,14 +16,14 @@ let ghost = {
     scared:false,
     image:undefined,
     scaredImage:undefined,
-    speed:1
+    speed:1,
+    size:50
 }
 
 //How Many Ghosts to draw
 const howManyGhosts = 10;
 const howFarApartY = 60;
 const howFarApartX = 150;
-const howBig = 50;
 
 // Declare an array of ghost objects and fill with empty ghosts
 const ghosts = [];
@@ -36,7 +36,7 @@ for (let i = 0; i < howManyGhosts; i++){
 let floatingAngle = 0;
 let floatingScale = 50;
 let floatingSpeed = 0.005;
-
+let floatingSteps = 0.25;
 
 /**
  * Add a Canvas 720p
@@ -49,14 +49,18 @@ function setup() {
  * Draw several cute ghosts which float around
 */
 function draw() {
-    //Draw a new background each frame
+    //Redraw the background each frame
     background(0);
     
-    for (let i=1; i<howManyGhosts; i++){
-        // Determine the y position based on 
-        let yPosition = ((height - (i * howFarApartY)) + sin(floatingAngle + (i * .25)) * floatingScale);
-        let xPosition = i * howFarApartX;
-        ellipse(xPosition, yPosition, howBig);
+    //Run a loop based on how many ghosts and draw them
+    for (let i=0; i<howManyGhosts; i++){
+        //Set the y position for the current ghost starting at the bottom of the screen and moving up in increments of "how far apart y"  + the sin value of the floating angle times the floating scale
+        ghosts[i].y = ((height - (i * howFarApartY)) + sin(floatingAngle + (i * floatingSteps)) * floatingScale);
+        //Set the x position for each ghost starting at the left of the screen and going in increments of "how far apart x"
+        ghosts[i].x = i * howFarApartX;
+        //Draw the ghost
+        ellipse(ghosts[i].x, ghosts[i].y, ghosts[i].size);
+        //Increment the floating positions
         floatingAngle += floatingSpeed;
     }
 
