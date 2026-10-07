@@ -2,7 +2,7 @@
  * Ghost Scare
  * Matthew Thompson
  * 
- * A small interactive demo where cute ghosts float around the screen but are terrified of mouse clicks and will flee from the clicked position
+ * A small interactive demo where cute ghosts float around the screen but are scred of the mouse and change color or image when hovered over
  * 
  * Uses modified animation effect taken from online example at: https://editor.p5js.org/meganmckissack/sketches/kRmOxI7sG
  */
@@ -24,8 +24,13 @@ let ghost = {
 
 //How Many Ghosts to draw
 const howManyGhosts = 10;
-const howFarApartY = 60;
-const howFarApartX = 150;
+
+//Declare variables which will be set in setup function based on how many ghosts
+let howFarApartY = undefined;
+let howFarApartX = undefined;
+
+// Adding a variable to potentially introduce randomness into the spacing of the ghosts -- CURRENTLY UNUSED
+const randomVariance = 10;
 
 // Declare an array of ghost objects and fill with empty ghosts
 const ghosts = [];
@@ -45,6 +50,8 @@ let floatingSteps = 0.25;
 */
 function setup() {
     createCanvas(1280, 720);
+    howFarApartY = height / howManyGhosts;
+    howFarApartX = width / howManyGhosts;
 }
 
 /**
@@ -56,18 +63,25 @@ function draw() {
     
     //Run a loop based on how many ghosts and draw them
     for (let i=0; i<howManyGhosts; i++){
-        //Set the y position for the current ghost starting at the bottom of the screen and moving up in increments of "how far apart y"  + the sin value of the floating angle times the floating scale
+        //Set the y position for the current ghost starting at the bottom of the screen and moving up in increments of "how far apart y"  + the sin value of the floating angle times the floating scale (Math adapted from example cited in intro comment)
         ghosts[i].y = ((height - (i * howFarApartY)) + sin(floatingAngle + (i * floatingSteps)) * floatingScale);
         
         //Set the x position for each ghost starting at the left of the screen and going in increments of "how far apart x"
         ghosts[i].x = i * howFarApartX;
         
-        //Check if the mouse is overtop of a ghost and set the color accordingly
+        //Check if the mouse is overtop of a ghost and set the scared state
         //Is the distance between the mouse position and the ghost less than half of the size of the ghost?
         const d = dist(mouseX, mouseY, ghosts[i].x, ghosts[i].y);
-        const overlap = (d < ghosts[i].size/2);
-        //If they overlap, scared fill (or image) otherwise default fill (or image)
-        if (overlap){
+        if(d < ghosts[i].size/2){
+            // If so, set the ghost to scared
+            ghosts[i].scared = true;
+        }
+        else{
+            ghosts[i].scared = false;
+        }
+        
+        //Set the fill (or image) based on the ghosts scared state
+        if (ghosts[i].scared){
             fill(ghosts[i].scaredFill);
         }
         else {
@@ -77,14 +91,8 @@ function draw() {
         // Draw the ghost
         ellipse(ghosts[i].x, ghosts[i].y, ghosts[i].size);
         
-        //Increment the floating positions
+        //Increment the floating positions (From example cited in intro comment)
         floatingAngle += floatingSpeed;
-    }
-
-    //check if the mouse is overtop of a ghost and change the color
-    for (let i=0; i<howManyGhosts; i++){
-        
-
     }
 
 }
