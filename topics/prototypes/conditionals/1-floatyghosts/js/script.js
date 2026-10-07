@@ -2,7 +2,7 @@
  * Ghost Scare
  * Matthew Thompson
  * 
- * A small interactive demo where cute ghosts float around the screen but are scred of the mouse and change color or image when hovered over
+ * A small interactive demo where cute ghosts float around the screen but are scared of the mouse and change color or image when hovered over
  * 
  * Uses modified animation effect taken from online example at: https://editor.p5js.org/meganmckissack/sketches/kRmOxI7sG
  */
