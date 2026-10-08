@@ -19,7 +19,7 @@ let circle = {
 }
 
 let rectangle = {
-    x:100,
+    x:200,
     y:200,
     h:100,
     w:200,
@@ -28,7 +28,7 @@ let rectangle = {
     brightness:95
 }
 
-let circleFadeSpeed = .75, rectangleFadeSpeed = .75;
+let circleFadeSpeed = 1, rectangleFadeSpeed = 1;
 
 /**
  * Draw the Canvas
@@ -38,6 +38,9 @@ function setup() {
 
     //Set the color mode to HSB
     colorMode(HSB);
+
+    //Set the rectangle mode to centered to check for mouseover
+    rectMode(CENTER);
 
     //Drawing the background in setup so that the draw refreshes leave trails
     //Kind of a golden yellow color in HSB
@@ -59,11 +62,12 @@ function draw() {
 
     //Fade the shapes in and out (to indicate to the user the portion that is draggable)
     circle.saturation -= circleFadeSpeed;
-    if (circle.saturation < 50 || circle.saturation > 99){
+    //Invert the fade speed when the saturation is below 50 or above 99
+    if (circle.saturation < 40 || circle.saturation > 99){
         circleFadeSpeed *= -1;
     }
     rectangle.saturation -= rectangleFadeSpeed;
-    if (rectangle.saturation < 50 || rectangle.saturation > 99){
+    if (rectangle.saturation < 40 || rectangle.saturation > 99){
         rectangleFadeSpeed *= -1;
     }
 }
@@ -82,7 +86,7 @@ function drawRectangle(){
     push();
     noStroke();
     fill(rectangle.hue, rectangle.saturation, rectangle.brightness);
-    rect(rectangle.x, rectangle.y, rectangle.h, rectangle.w);
+    rect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
     pop();
 }
 
@@ -91,9 +95,19 @@ function mouseDragged(){
     // Check if mouse is over the circle
     const d = dist(mouseX, mouseY, circle.x, circle.y);
     if (d < circle.size/2){
+        //Update the shape position to match the mouse
         circle.x = mouseX;
         circle.y = mouseY;
+        //Keep the color consistent while dragging
         circle.saturation = 99;
     }
-
+    // Check if mouse is over the rectangle
+    //Set RectOverlap to true if the mouse is inside all 4 sides of the rectangle
+    const rectOverlap = ((mouseX > (rectangle.x - (rectangle.w / 2))) && (mouseX < (rectangle.x + (rectangle.w / 2))) && (mouseY > (rectangle.y - (rectangle.h / 2))) && (mouseY < (rectangle.y + (rectangle.h / 2))));
+    //If overlapping is true then update color and position
+    if (rectOverlap){
+        rectangle.x = mouseX;
+        rectangle.y = mouseY;
+        rectangle.saturation = 99;
+    }
 }

@@ -59,12 +59,16 @@ A collection and showcase of various protoypes created Fall 2026
 [Floaty Ghosts](./topics/prototypes/conditionals/1-floatyghosts/index.html) |Use the mouse cursor to scare the ghosts!| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/1-floatyghosts/js/script.js)
 
 ---
+![Screenshot Shape Trails](./assets/screenshots/shapetrails.png)
 
-Shape Trails
+
+[Shape Trails](./topics/prototypes/conditionals/2-shapetrails/index.html)| Drag the shapes around the canvas to leave trails | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/2-shapetrails/js/script.js)
+
+---
 
 ## Reflective Journal Entries
 
-[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3)
+[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3) | [Week 4 Reflection (COnditionals)](https://mashuu83.github.io/cart253/topics/journal/journal4)
 
 ### Attributions
 Header Image taken from https://x.com/monmons137/header_photo
