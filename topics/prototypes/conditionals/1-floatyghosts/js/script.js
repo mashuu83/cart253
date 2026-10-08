@@ -26,6 +26,9 @@ let ghost = {
     floatingSteps:0.25
 }
 
+//Declare a sound variable
+let waterBloop = undefined;
+
 //How Many Ghosts to draw
 const howManyGhosts = 10;
 
@@ -47,11 +50,16 @@ for (let i = 0; i < howManyGhosts; i++){
 /** 
  * Add a Canvas 720p
  * Define the spacing between ghosts dynamically based on the size of the canvas and how many * ghosts are being drawn
+ * Load the sound for the project
 */
-function setup() {
+async function setup() {
+    
     //Create the canvas
     createCanvas(1280, 720);
     
+    //Load the sound file
+    waterBloop = await loadSound('./assets/sounds/wb.mp3');
+
     //Set the distances between ghosts dynamically
     howFarApartY = height / howManyGhosts;
     howFarApartX = width / howManyGhosts;
@@ -63,6 +71,12 @@ function setup() {
 
         //Set the starting x position for each ghost starting at the left of the screen and going in increments of "how far apart x"
         ghosts[i].x = ghosts[i].size + (i * howFarApartX);
+
+        //Reverse the direction of half the ghosts at random
+        let r = random(0, 1);
+        if (r > 0.5){
+            ghosts[i].speed *= -1;
+        }
     }
 }
 
@@ -103,9 +117,10 @@ function draw() {
         //Move Ghosts horizontally
         ghosts[i].x += ghosts[i].speed;
         
-        //Reverse ghost direction if it reaches EITHER edge of the screen (|| is OR)
+        //Reverse ghost direction if it reaches EITHER edge of the screen (|| is OR) and play bouncing sound
         if (ghosts[i].x > width || ghosts[i].x < 0){
             ghosts[i].speed = -ghosts[i].speed;
+            waterBloop.play();
         }
     
         // Draw the ghosts
