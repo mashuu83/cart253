@@ -14,6 +14,7 @@
 //Declare the variables to be used in the sketch
 let panoramaSky = undefined;
 let yourPrize = undefined;
+let shinyState = undefined;
 
 let shinyPlanet = {
     x: 0,
@@ -46,5 +47,81 @@ function draw() {
 
     //Make the image itelf the light source
     imageLight(panoramaSky);
+
+}
+
+/**
+ * When the mouse is clicked, set a random state
+ */
+function mousePressed() {
+    let r = random();
+    if (r < 0.45) {
+        bronzeState();
+    }
+    else if (r >= 0.45 && r < 0.75) {
+        silverState();
+    }
+    else if (r >= 0.75 && r < 0.9) {
+        goldState();
+    }
+    if (r >= 0.9) {
+        diamondState();
+    };
+}
+
+/**
+ * When State becomes diamond, set some stuff and draw a planet
+ */
+function diamondState() {
+    shinyState = "diamond";
+    shinyText = "Wow, That's *&^%'n Shiny";
+    shinyPlanet.metalness = 100;
+    drawPlanet();
+
+    //Test Line
+    console.log("Diamond Click");
+}
+
+/**
+ * When State becomes gold, set some stuff and draw a planet
+ */
+function goldState() {
+    shinyState = "gold";
+    shinyText = "Very Shiny! Alright!!";
+    shinyPlanet.metalness = 70;
+    drawPlanet();
+
+    //Test Line
+    console.log("Gold Click");
+}
+
+/**
+ * When State becomes silver, set some stuff and draw a planet
+ */
+function silverState() {
+    shinyState = "silver";
+    shinyText = "Kinda shiny, I dig it";
+    shinyPlanet.metalness = 45;
+    drawPlanet();
+
+    //Test Line
+    console.log("Silver Click");
+}
+
+/**
+ * When State becomes bronze, set some stuff and draw a planet
+ */
+function bronzeState() {
+    shinyState = "bronze";
+    shinyText = "It's a little shiny, I guess";
+    shinyPlanet.metalness = 20;
+    drawPlanet();
+
+    //Test Line
+    console.log("Bronze Click");
+}
+
+//--TODO--
+function drawPlanet() {
 
 }
