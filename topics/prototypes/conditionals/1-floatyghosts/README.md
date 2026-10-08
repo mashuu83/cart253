@@ -12,8 +12,9 @@ A small interactive demo where floating ghosts get scared if the user mouses ove
 
 This project uses [p5.js](https://p5js.org).
 Uses modified animation effect taken from online example at: https://editor.p5js.org/meganmckissack/sketches/kRmOxI7sG
-Sound is:
+Sounds are:
 waterbloop.mp3 by kstargio -- https://freesound.org/s/611642/ -- License: Creative Commons 
+Cartoony Scream - Character Knocked Out (1 of 3) by el_boss -- https://freesound.org/s/751700/ -- License: Creative Commons
 
 ## License
 

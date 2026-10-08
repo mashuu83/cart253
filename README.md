@@ -50,6 +50,11 @@ A collection and showcase of various protoypes created Fall 2026
 
 [Palette Swap](./topics/prototypes/variables/3-paletteshift/index.html) |Click the Image to cycle through different palettes| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/variables/3-paletteshift/js/script.js)
 
+---
+## Conditionals Prototypes - Week 4
+
+[Floaty Ghosts](./topics/prototypes/conditionals/1-floatyghosts/index.html)
+
 ## Reflective Journal Entries
 
 [Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3)

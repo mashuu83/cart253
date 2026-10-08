@@ -26,8 +26,9 @@ let ghost = {
     floatingSteps:0.25
 }
 
-//Declare a sound variable
+//Declare sound variables
 let waterBloop = undefined;
+let lilScream = undefined;
 
 //How Many Ghosts to draw
 const howManyGhosts = 10;
@@ -57,8 +58,9 @@ async function setup() {
     //Create the canvas
     createCanvas(1280, 720);
     
-    //Load the sound file
+    //Load the sound files
     waterBloop = await loadSound('./assets/sounds/wb.mp3');
+    lilScream = await loadSound('./assets/sounds/scream.wav');
 
     //Set the distances between ghosts dynamically
     howFarApartY = height / howManyGhosts;
@@ -102,6 +104,7 @@ function draw() {
             // If so, set the ghost to scared and reverse direction?
             ghosts[i].scared = true;
             ghosts[i].speed *= -1;
+            lilScream.play();
         }
         else{
             ghosts[i].scared = false;
