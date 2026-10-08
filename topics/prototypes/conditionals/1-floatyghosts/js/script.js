@@ -14,7 +14,6 @@ let ghost = {
     y: 0,
     scared: false,
     image: undefined,
-    scaredImage: undefined,
     speed: 2.5,
     size: 50,
     fill: "white",
