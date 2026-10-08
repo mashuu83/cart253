@@ -16,7 +16,7 @@ let ghost = {
     scared:false,
     image:undefined,
     scaredImage:undefined,
-    speed:1,
+    speed:2.5,
     size:50,
     fill:"white",
     scaredFill:"red",
@@ -33,7 +33,7 @@ const howManyGhosts = 10;
 let howFarApartY = undefined;
 let howFarApartX = undefined;
 
-// Adding a variable to potentially introduce randomness into the spacing of the ghosts
+// Adding a variable to introduce randomness into the spacing of the ghosts
 const spacingVariance = 10;
 const sizeVariance = 15;
 
@@ -44,7 +44,7 @@ for (let i = 0; i < howManyGhosts; i++){
     ghosts.push({...ghost});
 }
 
-/**
+/** 
  * Add a Canvas 720p
  * Define the spacing between ghosts dynamically based on the size of the canvas and how many * ghosts are being drawn
 */
@@ -57,9 +57,12 @@ function setup() {
     howFarApartX = width / howManyGhosts;
 
     //Randomly vary the sizes of the ghosts
-    //For each ghost add or subtract a random number based on size variance from the ghosts size
+    //For each ghost size add or subtract a random number based on size variance
     for (let i=0; i<howManyGhosts; i++){
         ghosts[i].size += random(-sizeVariance, sizeVariance);
+
+        //Set the starting x position for each ghost starting at the left of the screen and going in increments of "how far apart x"
+        ghosts[i].x = ghosts[i].size + (i * howFarApartX);
     }
 }
 
@@ -70,14 +73,13 @@ function draw() {
     //Redraw the background each frame
     background(0);
     
-    //Run a loop based on how many ghosts and draw them
+    //Run a loop based on how many ghosts
     for (let i=0; i<howManyGhosts; i++){
         
         //Set the y position for the current ghost starting at the bottom of the screen and moving up in increments of "how far apart y"  + the sin value of the floating angle times the floating scale (Math adapted from example cited in intro comment)
         ghosts[i].y = ((height - (i * howFarApartY)) + sin(ghosts[i].floatingAngle + (i * ghosts[i].floatingSteps)) * ghosts[i].floatingScale);
         
-        //Set the x position for each ghost starting at the left of the screen and going in increments of "how far apart x"
-        ghosts[i].x = i * howFarApartX;
+       
         
         //Check if the mouse is overtop of a ghost and set the scared state
         //Is the distance between the mouse position and the ghost less than half of the size of the ghost?
@@ -90,7 +92,7 @@ function draw() {
             ghosts[i].scared = false;
         }
         
-        //Set the fill (or image) based on the ghosts scared state --UPDATE WITH IMAGES
+        //Set the fill (or image) based on the ghosts scared state -- COULD UPDATE WITH IMAGES
         if (ghosts[i].scared){
             fill(ghosts[i].scaredFill);
         }
@@ -98,18 +100,19 @@ function draw() {
             fill(ghosts[i].fill);
         }
         
-        // //Move Ghosts horizontally -- NEED TO RE-EXAMINE
-        // ghosts[i].x += frameCount * ghosts[i].speed;
-        // if (ghosts[i].x > width){
-        //     ghosts[i].speed = -ghosts[i].speed;
-        // }
+        //Move Ghosts horizontally
+        ghosts[i].x += ghosts[i].speed;
         
-        // Draw the ghost
+        //Reverse ghost direction if it reaches EITHER edge of the screen (|| is OR)
+        if (ghosts[i].x > width || ghosts[i].x < 0){
+            ghosts[i].speed = -ghosts[i].speed;
+        }
+    
+        // Draw the ghosts
         ellipse(ghosts[i].x, ghosts[i].y, ghosts[i].size);
         
         //Increment the floating positions (From example cited in intro comment)
         ghosts[i].floatingAngle += ghosts[i].floatingSpeed;
-
     }
 
 }
