@@ -24,9 +24,9 @@ let shinyPlanet = {
     z: 0,
     shininess: 200,
     metalness: 0,
-    specularness: 50,
+    specularness: 100,
     fill: "black",
-    size: 250,
+    size: 200,
 }
 
 /**
@@ -85,7 +85,7 @@ function diamondState() {
     shinyState = "diamond";
     shinyText = "Wow, That's *&^%'n Shiny";
     shinyPlanet.shininess = 200;
-    shinyPlanet.metalness = 100;
+    shinyPlanet.metalness = 200;
 
     //Test Line
     consoleTest();
@@ -98,7 +98,7 @@ function goldState() {
     shinyState = "gold";
     shinyText = "Very Shiny! Alright!!";
     shinyPlanet.shininess = 150;
-    shinyPlanet.metalness = 70;
+    shinyPlanet.metalness = 150;
 
     //Test Line
     consoleTest();
@@ -111,7 +111,7 @@ function silverState() {
     shinyState = "silver";
     shinyText = "Kinda shiny, I dig it";
     shinyPlanet.shininess = 80;
-    shinyPlanet.metalness = 30;
+    shinyPlanet.metalness = 100;
 
     //Test Line
     consoleTest();
@@ -124,7 +124,7 @@ function bronzeState() {
     shinyState = "bronze";
     shinyText = "It's a little shiny, I guess";
     shinyPlanet.shininess = 25;
-    shinyPlanet.metalness = 1;
+    shinyPlanet.metalness = 75;
 
     //Test Line
     consoleTest();
