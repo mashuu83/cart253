@@ -62,7 +62,7 @@ A collection and showcase of various protoypes created Fall 2026
 ![Screenshot Shape Trails](./assets/screenshots/shapetrails.png)
 
 
-[Shape Trails](./topics/prototypes/conditionals/2-shapetrails/index.html)| Drag the shapes around the canvas to leave trails | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/2-shapetrails/js/script.js)
+[Shape Trails](./topics/prototypes/conditionals/2-shapetrails/index.html)| Drag the shapes around the canvas to leave trails, The flashing shape indicates the draggable area | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/2-shapetrails/js/script.js)
 
 ---
 
