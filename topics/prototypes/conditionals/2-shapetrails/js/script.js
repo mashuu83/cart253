@@ -6,7 +6,6 @@
  * 
  * KNOWN BUGS - Both shapes can be dragged together, common if you move the circle over the rectangle while dragging. Workaround: Click an area of the rectangle outside the circle to move it independently again
  */
-
 "use strict";
 //Define Objects and variables for use in the sketch
 let circle = {
