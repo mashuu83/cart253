@@ -15,15 +15,18 @@
 let panoramaSky = undefined;
 let yourPrize = undefined;
 let shinyState = undefined;
+let shinyText = undefined;
 
+//The Planet object that will be drawn on click
 let shinyPlanet = {
     x: 0,
     y: 0,
     z: 0,
-    shininess: 50,
-    metalness: 50,
-    specularness: 100,
-    fill: "white",
+    shininess: 200,
+    metalness: 0,
+    specularness: 50,
+    fill: "black",
+    size: 250,
 }
 
 /**
@@ -33,7 +36,6 @@ async function setup() {
     panoramaSky = await loadImage('./assets/images/noirlab2430b.jpg');
     createCanvas(1280, 720, WEBGL);
 }
-
 
 /**
  * Draws the Panorama Sky and enables camera controls
@@ -47,7 +49,13 @@ function draw() {
 
     //Make the image itelf the light source
     imageLight(panoramaSky);
+    lights();
 
+    //Draw the planet?
+    drawPlanet();
+
+    //--TODO-- Draw the text? Need to import font for WEBGL
+    //text(shinyText);
 }
 
 /**
@@ -71,15 +79,16 @@ function mousePressed() {
 
 /**
  * When State becomes diamond, set some stuff and draw a planet
+ * --TODO ADD FILL COLORS IN EACH CONDITION--
  */
 function diamondState() {
     shinyState = "diamond";
     shinyText = "Wow, That's *&^%'n Shiny";
+    shinyPlanet.shininess = 200;
     shinyPlanet.metalness = 100;
-    drawPlanet();
 
     //Test Line
-    console.log("Diamond Click");
+    consoleTest();
 }
 
 /**
@@ -88,11 +97,11 @@ function diamondState() {
 function goldState() {
     shinyState = "gold";
     shinyText = "Very Shiny! Alright!!";
+    shinyPlanet.shininess = 150;
     shinyPlanet.metalness = 70;
-    drawPlanet();
 
     //Test Line
-    console.log("Gold Click");
+    consoleTest();
 }
 
 /**
@@ -101,11 +110,11 @@ function goldState() {
 function silverState() {
     shinyState = "silver";
     shinyText = "Kinda shiny, I dig it";
-    shinyPlanet.metalness = 45;
-    drawPlanet();
+    shinyPlanet.shininess = 80;
+    shinyPlanet.metalness = 30;
 
     //Test Line
-    console.log("Silver Click");
+    consoleTest();
 }
 
 /**
@@ -114,14 +123,31 @@ function silverState() {
 function bronzeState() {
     shinyState = "bronze";
     shinyText = "It's a little shiny, I guess";
-    shinyPlanet.metalness = 20;
-    drawPlanet();
+    shinyPlanet.shininess = 25;
+    shinyPlanet.metalness = 1;
 
     //Test Line
-    console.log("Bronze Click");
+    consoleTest();
 }
 
-//--TODO--
+//Set the various material values based on the state and draw the planet
 function drawPlanet() {
+    push();
+    noStroke();
+    //fill(shinyPlanet.fill);
+    specularMaterial(shinyPlanet.specularness);
+    shininess(shinyPlanet.shininess);
+    metalness(shinyPlanet.metalness);
+    //--TODO-- Temporary values
+    //translate(100, 100, -100);
+    //Draw the dang thing
+    sphere(shinyPlanet.size);
+    pop();
+}
 
+/**
+ * Print a testing line to the console
+ */
+function consoleTest() {
+    console.log("Current State is " + shinyState);
 }
