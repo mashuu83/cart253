@@ -11,6 +11,7 @@ A small interactive demo where floating ghosts get scared if the user mouses ove
 ## Attribution
 
 This project uses [p5.js](https://p5js.org).
+Uses modified animation effect taken from online example at: https://editor.p5js.org/meganmckissack/sketches/kRmOxI7sG
 
 ## License
 
