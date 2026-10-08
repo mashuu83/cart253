@@ -31,7 +31,7 @@ let waterBloop = undefined;
 let lilScream = undefined;
 
 //How Many Ghosts to draw
-const howManyGhosts = 10;
+const howManyGhosts = 12;
 
 //Declare variables which will be set in setup function based on how many ghosts
 let howFarApartY = undefined;
@@ -94,8 +94,6 @@ function draw() {
         
         //Set the y position for the current ghost starting at the bottom of the screen and moving up in increments of "how far apart y"  + the sin value of the floating angle times the floating scale (Math adapted from example cited in intro comment)
         ghosts[i].y = ((height - (i * howFarApartY)) + sin(ghosts[i].floatingAngle + (i * ghosts[i].floatingSteps)) * ghosts[i].floatingScale);
-        
-       
         
         //Check if the mouse is overtop of a ghost and set the scared state
         //Is the distance between the mouse position and the ghost less than half of the size of the ghost?
