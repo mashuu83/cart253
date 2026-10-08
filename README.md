@@ -54,7 +54,9 @@ A collection and showcase of various protoypes created Fall 2026
 
 ## Conditionals Prototypes - Week 4
 
-[Floaty Ghosts](./topics/prototypes/conditionals/1-floatyghosts/index.html)
+![Screenshot Floaty Ghosts](./assets/screenshots/floatyghosts.png)
+
+[Floaty Ghosts](./topics/prototypes/conditionals/1-floatyghosts/index.html) |Use the mouse cursor to scare the ghosts!| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/1-floatyghosts/js/script.js)
 
 ## Reflective Journal Entries
 
