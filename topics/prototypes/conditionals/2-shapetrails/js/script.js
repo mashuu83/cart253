@@ -3,6 +3,8 @@
  * Matthew Thompson
  * 
  * Drag the shapes around the canvas to leave colorful trails
+ * 
+ * KNOWN BUGS - Both shapes can be dragged together, common if you move the circle over the rectangle while dragging. Workaround: Click an area of the rectangle outside the circle to move it independently again
  */
 
 "use strict";
@@ -101,13 +103,12 @@ function mouseDragged(){
         //Keep the color consistent while dragging
         circle.saturation = 99;
     }
-    // Check if mouse is over the rectangle
-    //Set RectOverlap to true if the mouse is inside all 4 sides of the rectangle
-    const rectOverlap = ((mouseX > (rectangle.x - (rectangle.w / 2))) && (mouseX < (rectangle.x + (rectangle.w / 2))) && (mouseY > (rectangle.y - (rectangle.h / 2))) && (mouseY < (rectangle.y + (rectangle.h / 2))));
-    //If overlapping is true then update color and position
-    if (rectOverlap){
+    // Check if mouse is over the rectangle by comparing mouse position with all 4 sides
+    if (mouseX > rectangle.x - rectangle.w / 2 && mouseX < rectangle.x + rectangle.w / 2 && mouseY > rectangle.y - rectangle.h / 2 && mouseY < rectangle.y + rectangle.h / 2){
+        //Update the shape position to match the mouse
         rectangle.x = mouseX;
         rectangle.y = mouseY;
+        //Keep the color consistent while dragging
         rectangle.saturation = 99;
     }
 }
