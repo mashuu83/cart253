@@ -99,8 +99,9 @@ function draw() {
         //Is the distance between the mouse position and the ghost less than half of the size of the ghost?
         const d = dist(mouseX, mouseY, ghosts[i].x, ghosts[i].y);
         if(d < ghosts[i].size/2){
-            // If so, set the ghost to scared
+            // If so, set the ghost to scared and reverse direction?
             ghosts[i].scared = true;
+            ghosts[i].speed *= -1;
         }
         else{
             ghosts[i].scared = false;
