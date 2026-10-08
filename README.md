@@ -11,7 +11,7 @@ A collection and showcase of various protoypes created Fall 2026
 ## In Class Challenges
 
 [Week 1 - Version Control](https://mashuu83.github.io/cart253/topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](https://mashuu83.github.io/cart253/topics/weekly-challenges/instructions-challenge/index.html) | 
-[Week 3 - Mr Furious](https://mashuu83.github.io/cart253/topics/weekly-challenges/variables-challenge/index.html) | [Week 4 - Moving Puck](https://mashuu83.github.io/cart253/topics/weekly-challenges/conditionals-challenge/index.html)
+[Week 3 - Mr Furious](https://mashuu83.github.io/cart253/topics/weekly-challenges/variables-challenge/index.html) | [Week 4 - Moving Puck](https://mashuu83.github.io/cart253/topics/weekly-challenges/conditionals-challenge/index.html) | [Week 5 - The Only Move is Not to Play](./topics/weekly-challenges/events-challenge/index.html)
 
 ## Instructions Prototypes - Week 2
 
