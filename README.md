@@ -13,7 +13,7 @@ A collection and showcase of various protoypes created Fall 2026
 [Week 1 - Version Control](https://mashuu83.github.io/cart253/topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](https://mashuu83.github.io/cart253/topics/weekly-challenges/instructions-challenge/index.html) | 
 [Week 3 - Mr Furious](https://mashuu83.github.io/cart253/topics/weekly-challenges/variables-challenge/index.html) | [Week 4 - Moving Puck](https://mashuu83.github.io/cart253/topics/weekly-challenges/conditionals-challenge/index.html) | [Week 5 - The Only Move is Not to Play](./topics/weekly-challenges/events-challenge/index.html)
 
-## Instructions Prototypes - Week 2
+## Week 2 Sketches - Instructions
 
 ![Screenshot fcnsr](./assets/screenshots/Screenshot%20fcnsr.png)
 
@@ -33,8 +33,7 @@ A collection and showcase of various protoypes created Fall 2026
 
 ---
 
-## Variables Prototypes - Week 3
-<!-- Can I insert a GIF as my screenshot here I wonder? -->
+## Week 3 Sketches - Variables
 
 ![Gif Screenshot findthecube](./assets/screenshots/findthecube.gif)
 
@@ -52,7 +51,7 @@ A collection and showcase of various protoypes created Fall 2026
 
 ---
 
-## Conditionals Prototypes - Week 4
+## Week 4 Sketches - Conditionals
 
 ![Screenshot Floaty Ghosts](./assets/screenshots/floatyghosts.png)
 
