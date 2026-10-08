@@ -1,24 +1,36 @@
 /**
- * Title of Project
- * Author Name
+ * Panorama something something?
+ * Matthew Thompson
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Starting with the panorama() function in p5 and seeing where that ends up taking me...
  */
 
 "use strict";
 
-/**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
-*/
-function setup() {
+//Declare the variables to be used in the sketch
+let panoramaSky = undefined;
 
+/**
+ * Loads images, Draws the Canvas and sets WEBGL Mode
+*/
+async function setup() {
+    panoramaSky = await loadImage('./assets/images/noirlab2430b.jpg');
+    createCanvas(1280, 720, WEBGL);
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draws the Panorama Sky and enables camera controls
 */
 function draw() {
+    //Draws the Panorama
+    panorama(panoramaSky);
+
+    //Add mouse camera controls
+    orbitControl();
+
+    //Make the image itelf the light source
+    imageLight(panoramaSky);
+
 
 }
