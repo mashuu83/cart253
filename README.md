@@ -65,6 +65,8 @@ A collection and showcase of various protoypes created Fall 2026
 [Shape Trails](./topics/prototypes/conditionals/2-shapetrails/index.html)| Drag the shapes around the canvas to leave trails, The flashing shape indicates the draggable area | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/2-shapetrails/js/script.js)
 
 ---
+![Screenshot Shiny Planet](./assets/screenshots/shinyplanet.png) 
+[Shiny Planet](./topics/prototypes/conditionals/3-shinyplanet/index.html) | Click to see how Shiny your planet will be, click again to retry | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/3-shinyplanet/js/script.js)
 
 ## Reflective Journal Entries
 
