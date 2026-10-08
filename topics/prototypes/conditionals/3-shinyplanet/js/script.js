@@ -13,9 +13,10 @@
 
 //Declare the variables to be used in the sketch
 let panoramaSky = undefined;
-let yourPrize = undefined;
 let shinyState = undefined;
-let shinyText = undefined;
+let shinyFont = undefined;
+let shinyText = "Click to Shine";
+const wordsColor = "white";
 
 //The Planet object that will be drawn on click
 let shinyPlanet = {
@@ -35,6 +36,9 @@ let shinyPlanet = {
 async function setup() {
     panoramaSky = await loadImage('./assets/images/noirlab2430b.jpg');
     createCanvas(1280, 720, WEBGL);
+
+    //Load the Font
+    shinyFont = await loadFont('./assets/fonts/SF_Cartoonist_Hand.ttf');
 }
 
 /**
@@ -54,8 +58,8 @@ function draw() {
     //Draw the planet?
     drawPlanet();
 
-    //--TODO-- Draw the text? Need to import font for WEBGL
-    //text(shinyText);
+    //Make some text happen
+    drawText();
 }
 
 /**
@@ -150,4 +154,16 @@ function drawPlanet() {
  */
 function consoleTest() {
     console.log("Current State is " + shinyState);
+}
+
+/**
+ * Set the details and Draw the text
+ */
+function drawText() {
+    push();
+    fill(wordsColor);
+    textFont(shinyFont);
+    textSize(50);
+    text(shinyText, 200, 200);
+    pop();
 }
