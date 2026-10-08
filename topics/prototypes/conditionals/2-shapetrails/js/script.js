@@ -8,9 +8,7 @@
  */
 
 "use strict";
-
 //Define Objects and variables for use in the sketch
-
 let circle = {
     x:400,
     y:400,
@@ -19,7 +17,6 @@ let circle = {
     saturation:95,
     brightness:95,
 }
-
 let rectangle = {
     x:200,
     y:200,
@@ -29,39 +26,28 @@ let rectangle = {
     saturation:95,
     brightness:95
 }
-
 let circleFadeSpeed = 1, rectangleFadeSpeed = 1;
-
 /**
  * Draw the Canvas
 */
 function setup() {
     createCanvas(1280, 720);
-
     //Set the color mode to HSB
     colorMode(HSB);
-
     //Set the rectangle mode to centered to check for mouseover
     rectMode(CENTER);
-
     //Drawing the background in setup so that the draw refreshes leave trails
     //Kind of a golden yellow color in HSB
     background(50, 73, 94);
-
 }
-
-
 /**
  * Draw the Shapes
 */
 function draw() {
-    
     //Draw a Rectangle
     drawRectangle();
-    
     //Draw a Circle
     drawCircle();
-
     //Fade the shapes in and out (to indicate to the user the portion that is draggable)
     circle.saturation -= circleFadeSpeed;
     //Invert the fade speed when the saturation is below 50 or above 99
@@ -73,9 +59,7 @@ function draw() {
         rectangleFadeSpeed *= -1;
     }
 }
-
 //Define functions used in sketch
-
 function drawCircle(){
     push();
     noStroke();
@@ -83,7 +67,6 @@ function drawCircle(){
     ellipse(circle.x, circle.y, circle.size);
     pop();
 }
-
 function drawRectangle(){
     push();
     noStroke();
@@ -91,7 +74,6 @@ function drawRectangle(){
     rect(rectangle.x, rectangle.y, rectangle.w, rectangle.h);
     pop();
 }
-
 // While Mouse is being dragged, check if the mouse is over a shape, and if so, update the position of that shape
 function mouseDragged(){
     // Check if mouse is over the circle
