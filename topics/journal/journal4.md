@@ -6,4 +6,6 @@ Enjoyed working on my projects a lot this week. For floaty ghosts, I was trying 
 
 Dragging shapes was all about seeing if I could drag multiple shapes around to leave paint trails, very similar to some early paintbrush examples that we looked at, but seeing if I could make 'multiple' brushes work. I experimented with the HSB color mode in this one for the first time, because I noticed after dragging the shapes around, it could sometimes be hard to determine where the 'end' of the shape was to continue drawing, so I wanted the shape to flash or look highlighted in some way. I really like the look of the pulsing saturation that I ended up with. Even though I don't think this is the most amazing or polished sketch, I can definitely see myself using the pulsing logic regularly as I really like the visual effect. It's very satisfying to feel like each little sketch contributes something to a toolbox of things I can use in future projects. 
 
---TODO after sketch 3--
+*Update from classroom*
+
+When testing my links in class, it seems like the sounds are causing the sketch to crash in Firefox (I had this crash happen once in Vivaldi at home, but after I refreshed the error no longer occured. It seems to happen with every sound in Firefox.) This is a bit dissapointing because I think the sounds are really silly. However, they aren't the main focus of 'playing' with the ghosts, so i have commented them out until I can troubleshoot further with help.
