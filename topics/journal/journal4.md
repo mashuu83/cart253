@@ -8,6 +8,7 @@ Dragging shapes was all about seeing if I could drag multiple shapes around to l
 
 For the final sketch, I was browsing the p5 references and wanted to try out the panorama() function, which led me to discovering my favorite parameter documentation so far:
 ![Metalness](../../assets/screenshots/metalness.png)
+So I played around with a "lucky" planet, to explore probability and different material properties. I'm not super thrilled with how it turned out, but I think it's been a very useful experiment, and was able to practice loading fonts, a "skymap" and see how different material paramaters like shininess and metalness behave.
 
 
 *Update from classroom*
