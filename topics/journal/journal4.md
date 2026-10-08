@@ -2,4 +2,8 @@
 
 *October 8, 2026*
 
---TODO--
+Enjoyed working on my projects a lot this week. For floaty ghosts, I was trying to learn how to make something move along a sin wave, so I checked out an example p5 project which had some circles moving up and down, and thought it would make for a fun "ghosty" floating movement. Getting my ghosts to move up and down turned out to be the easy part, horizontal movement for some reason ended up being much more complicated; I had to do a lot of troubleshooting and debugging, but that's the nature of the beast, I suppose. At one point I added a single line into the function when the ghosts are being moused over, to reverse their direction. This single change really made the whole sketch 'click' for me. The ghosts behavior now was very playful and fun, so of course I wanted some silly sounds to fit the vibe. I don't think I quite nailed the sounds yet, but it was fun learning how to load sounds into a p5 sketch and use them. I'm really delighted with how this one turned out, it just feels FUN to play around with in the silliest way.
+
+Dragging shapes was all about seeing if I could drag multiple shapes around to leave paint trails, very similar to some early paintbrush examples that we looked at, but seeing if I could make 'multiple' brushes work. I experimented with the HSB color mode in this one for the first time, because I noticed after dragging the shapes around, it could sometimes be hard to determine where the 'end' of the shape was to continue drawing, so I wanted the shape to flash or look highlighted in some way. I really like the look of the pulsing saturation that I ended up with. Even though I don't think this is the most amazing or polished sketch, I can definitely see myself using the pulsing logic regularly as I really like the visual effect. It's very satisfying to feel like each little sketch contributes something to a toolbox of things I can use in future projects. 
+
+--TODO after sketch 3--
