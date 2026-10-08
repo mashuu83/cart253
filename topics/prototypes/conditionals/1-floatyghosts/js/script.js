@@ -85,7 +85,7 @@ function draw() {
             ghosts[i].scared = true;
             ghosts[i].speed *= -1;
             ////Commenting out the scream sound because it seems to be crashing the sketch in Firefox (was working in Vivaldi)
-            lilScream.play();
+            //lilScream.play();
         }
         else {
             ghosts[i].scared = false;
@@ -103,7 +103,7 @@ function draw() {
         if (ghosts[i].x > width || ghosts[i].x < 0) {
             ghosts[i].speed = -ghosts[i].speed;
             //Commenting out the bloop sound because it seems to be crashing the sketch in Firefox (was working in Vivaldi)
-            waterBloop.play();
+            //waterBloop.play();
         }
         // Draw the ghosts
         ellipse(ghosts[i].x, ghosts[i].y, ghosts[i].size);
