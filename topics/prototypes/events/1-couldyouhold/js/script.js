@@ -12,6 +12,7 @@
 let currentText = {
     string: "Request Incoming....",
     size: 48,
+    smallerSize: 36,
     font: 'Courier New',
     fill: "white",
     alignment: undefined,
@@ -21,11 +22,16 @@ let currentText = {
 
 let backgroundColor = "#669999";
 
+let timerDelay = 3 * 1000; // 3 Seconds
+
 /**
  * Create The Canvas 720p
 */
 function setup() {
     createCanvas(1280, 720);
+
+    // Start a Timer to make a request after specified seconds
+    setTimeout(updateText, timerDelay);
 }
 
 /**
@@ -43,4 +49,16 @@ function draw() {
     //Draw the string with the current position
     text(currentText.string, currentText.x, currentText.y);
     pop();
+}
+
+// Define the update text function, choose a random key and ask the user to press it
+function updateText() {
+    //Choose a random Key (use floor?)
+    // Move the text slightly
+    currentText.x = currentText.x + random(-50, 50);
+    currentText.y = currentText.y + random(-30, 30);
+    //Make the text smaller to fit
+    currentText.size = smallerSize;
+    // Request that the user hold the specified Key
+    currentText.string = "Could you please press and hold the ";
 }
