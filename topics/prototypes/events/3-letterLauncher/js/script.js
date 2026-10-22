@@ -20,16 +20,18 @@ let cannon = {
 
 //Bullet Object
 let bullet = {
+    // Starting from the top/middle of the Cannon
     pos: {
-        x: 0,
-        y: 0,
+        x: 640 + (cannon.w / 2) - 15,
+        y: 720 - (cannon.h),
     },
     velocity: {
         x: 1,
-        y: 1,
+        y: 5,
     },
     color: 'white',
     character: 'M',
+    size: 30,
 }
 
 /**
@@ -55,17 +57,30 @@ function draw() {
     pop();
 
     moveBullet();
+
+    //Draw the Bullet
+    push();
+    //Temporary Circle
+    //ellipse(bullet.pos.x, bullet.pos.y, bullet.size);
+    fill(bullet.color);
+    textSize(bullet.size);
+    text(bullet.character, bullet.pos.x, bullet.pos.y);
+    pop();
+
 }
 
 //On Key Press, generate a bullet then fire it!
 function keyPressed() {
-    generateBullet();
+    generateBullet(key);
+    //Reset the bullet position
+    bullet.pos.y = 720 - cannon.h;
+    bullet.pos.x = 640 + (cannon.w / 2) - 10;
 }
 
-function generateBullet() {
-
+function generateBullet(key) {
+    bullet.character = key;
 }
 
 function moveBullet() {
-
+    bullet.pos.y -= bullet.velocity.y;
 }
