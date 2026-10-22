@@ -86,6 +86,7 @@ function keyPressed() {
         currentText.x = currentText.x + random(-50, 50);
         currentText.y = currentText.y + random(-30, 30);
         currentText.string = "Thank you ....";
+        setTimeout(updateText, timerDelay);
     }
     else {
         currentText.size = 64;
