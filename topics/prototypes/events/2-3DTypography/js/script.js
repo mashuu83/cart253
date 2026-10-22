@@ -8,7 +8,7 @@
 "use strict";
 
 // Create some empty objects to hold the fonts
-let bitCount, creepster, fascinate, kablammo, schoolbell, silkscreen;
+let bitCount, creepster, fascinate, kablammo, schoolbell, silkscreen, inconsolata;
 
 // Define a Layer to sit above and hold the buttons
 let buttonLayer = undefined;
@@ -25,7 +25,7 @@ let userText = {
     size: 36,
     string: "Testerino",
     color: 'white',
-    strokeWeight: 4,
+    strokeWeight: 1,
 }
 
 let textOptions = {
@@ -42,7 +42,9 @@ let textModel = undefined;
 async function setup() {
     createCanvas(1280, 720, WEBGL);
     // Load in the font objects
-    bitCount = await loadFont('./assets/fonts/BitcountInk.ttf');
+    inconsolata = await loadFont('./assets/fonts/Inconsolata.ttf')
+    //This one doesnt turn 3D well, removing it
+    //bitCount = await loadFont('./assets/fonts/BitcountInk.ttf');
     creepster = await loadFont('./assets/fonts/Creepster-Regular.ttf');
     fascinate = await loadFont('./assets/fonts/Fascinate-Regular.ttf');
     kablammo = await loadFont('./assets/fonts/Kablammo-Regular.ttf');
@@ -53,12 +55,15 @@ async function setup() {
     buttonLayer = createGraphics(width, height);
 
     // Will set user font with buttons
-    userText.font = kablammo;
+    userText.font = inconsolata;
 
     //Create the text model
     textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
     textModel.clearColors();
     textModel.normalize();
+
+    //Should be able to pull that stuff into a function, but wasn't working...
+    //createModel();
 
     //Set the background color (add a skybox here later?)
     background(bgColor);
@@ -82,7 +87,62 @@ function draw() {
 
 }
 
+// Create the model Function
+// CURRENTLY UNUSED
+function createModel() {
+    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+    textModel.clearColors();
+    textModel.normalize();
+}
 
+// The Button functions
+function inconsolataClicked() {
+    userText.font = inconsolata;
+    console.log("Inconsolata Clicked");
+    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+    textModel.clearColors();
+    textModel.normalize();
+}
+
+function creepsterClicked() {
+    userText.font = creepster;
+    console.log("Creepster Clicked");
+    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+    textModel.clearColors();
+    textModel.normalize();
+}
+
+function fascinateClicked() {
+    userText.font = fascinate;
+    console.log("Fascinate Clicked");
+    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+    textModel.clearColors();
+    textModel.normalize();
+}
+
+function kablammoClicked() {
+    userText.font = kablammo;
+    console.log("Kablammo Clicked");
+    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+    textModel.clearColors();
+    textModel.normalize();
+}
+
+function schoolbellClicked() {
+    userText.font = schoolbell;
+    console.log("Schoolbell Clicked");
+    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+    textModel.clearColors();
+    textModel.normalize();
+}
+
+function silkscreenClicked() {
+    userText.font = silkscreen;
+    console.log("Silkscreen Clicked");
+    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+    textModel.clearColors();
+    textModel.normalize();
+}
 // Going to try moving the buttons into my HTML Instead to see if that is easier
 // LEAVING THIS FOR POSTERITY
 
