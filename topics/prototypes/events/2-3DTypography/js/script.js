@@ -53,7 +53,7 @@ async function setup() {
     buttonLayer = createGraphics(width, height);
 
     // Will set user font with buttons
-    userText.font = silkscreen;
+    userText.font = kablammo;
 
     //Create the text model
     textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
@@ -79,7 +79,7 @@ function draw() {
     scale(min(width, height) / 300);
     //The Actual Draw part
     model(textModel);
-    pop();
+    //pop();
 
     // FROM GOOGLE: Clear and Render your 2D UI Buffer
     // buttonLayer.clear(); // Keeps the buffer background transparent
