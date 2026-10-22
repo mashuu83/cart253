@@ -56,7 +56,7 @@ function draw() {
 // Define the update text function, choose a random key and ask the user to press it
 function updateText() {
     //Choose a random Key (use floor?)
-    requestedKey = floor(random(97, 122));
+    requestedKey = floor(random(65, 90));
     //Turn the Code into a String
     requestedKeyString = String.fromCharCode(requestedKey);
     // Request that the user hold the specified Key
@@ -68,4 +68,30 @@ function updateText() {
     currentText.size = currentText.smallerSize;
 }
 
-// Lowercase ASCII are 97-122
+// Lowercase ASCII are 97-122, Uppercase are 65-90
+
+//Check if ANY key is released and restart the program
+function keyReleased() {
+    currentText.size = 64;
+    currentText.string = "Please don't let go....."
+    //restart the program after 3 seconds
+    setTimeout(setup, 3000);
+}
+
+//Check if the proper key is pressed and then request another key
+function keyPressed() {
+    if (keyCode === requestedKey) {
+        currentText.size = 64;
+        //Shift text a little
+        currentText.x = currentText.x + random(-50, 50);
+        currentText.y = currentText.y + random(-30, 30);
+        currentText.string = "Thank you ....";
+    }
+    else {
+        currentText.size = 64;
+        //Shift text a little
+        currentText.x = currentText.x + random(-50, 50);
+        currentText.y = currentText.y + random(-30, 30);
+        currentText.string = "Not that one...."
+    }
+}
