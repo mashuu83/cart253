@@ -83,9 +83,9 @@ A collection and showcase of various protoypes created Fall 2026
 
 ---
 
-![Screenshot Letter Cannon](./assets/screenshots/pleasehold.png)
+![Screenshot Letter Cannon](./assets/screenshots/lettercannon.png)
 
-[Letter Cannon](https://mashuu83.github.io/cart253/topics/prototypes/events/3-letterLauncher/index.html) |Can the program ever be satisfied?| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/events/3-letterLauncher/js/script.js)
+[Letter Cannon](https://mashuu83.github.io/cart253/topics/prototypes/events/3-letterLauncher/index.html) |Press a Key to launch it from the Cannon| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/events/3-letterLauncher/js/script.js)
 
 ---
 

@@ -13,3 +13,4 @@
 Add checkboxes/sliders/options for size, color, extrusion
 --Focus this time is on the click events
 
+Sketch 3, wanted to use the convert keycode but wasn't necessary, could just call it directly, a bit anticlimactic but ideas for improvements
