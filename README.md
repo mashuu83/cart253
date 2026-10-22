@@ -10,8 +10,7 @@ A collection and showcase of various protoypes created Fall 2026
 
 ## In Class Challenges
 
-[Week 1 - Version Control](https://mashuu83.github.io/cart253/topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](https://mashuu83.github.io/cart253/topics/weekly-challenges/instructions-challenge/index.html) | 
-[Week 3 - Mr Furious](https://mashuu83.github.io/cart253/topics/weekly-challenges/variables-challenge/index.html) | [Week 4 - Moving Puck](https://mashuu83.github.io/cart253/topics/weekly-challenges/conditionals-challenge/index.html) | [Week 5 - The Only Move is Not to Play](./topics/weekly-challenges/events-challenge/index.html) | [Week 6 - Bouncy Bonanza](./topics/weekly-challenges/6-functions-challenge/index.html)
+[Week 1 - Version Control](https://mashuu83.github.io/cart253/topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](https://mashuu83.github.io/cart253/topics/weekly-challenges/instructions-challenge/index.html) | [Week 3 - Mr Furious](https://mashuu83.github.io/cart253/topics/weekly-challenges/variables-challenge/index.html) | [Week 4 - Moving Puck](https://mashuu83.github.io/cart253/topics/weekly-challenges/conditionals-challenge/index.html) | [Week 5 - The Only Move is Not to Play](./topics/weekly-challenges/events-challenge/index.html) | [Week 6 - Bouncy Bonanza](./topics/weekly-challenges/6-functions-challenge/index.html)
 
 ## Week 2 Sketches - Instructions
 
@@ -75,6 +74,18 @@ A collection and showcase of various protoypes created Fall 2026
 ![Screenshot Please Hold](./assets/screenshots/pleasehold.png)
 
 [Could You Hold This For Me?](https://mashuu83.github.io/cart253/topics/prototypes/events/1-couldyouhold/index.html) |Can the program ever be satisfied?| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/events/1-couldyouhold/js/script.js)
+
+---
+
+![Screenshot Please Hold](./assets/screenshots/pleasehold.png)
+
+[3D Typography](https://mashuu83.github.io/cart253/topics/prototypes/events/1-couldyouhold/index.html) |Can the program ever be satisfied?| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/events/1-couldyouhold/js/script.js)
+
+---
+
+![Screenshot Please Hold](./assets/screenshots/pleasehold.png)
+
+[Letter Blaster](https://mashuu83.github.io/cart253/topics/prototypes/events/1-couldyouhold/index.html) |Can the program ever be satisfied?| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/events/1-couldyouhold/js/script.js)
 
 ---
 

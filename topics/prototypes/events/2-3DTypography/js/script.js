@@ -1,23 +1,22 @@
 /**
- * Title of Project
- * Author Name
+ * 3D Typography
+ * Matthew Thompson
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * An exploration of various fonts in 3D Space
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * Draw a nice juicy OpenGL Canvas, Load in the fonts
 */
 function setup() {
-
+    createCanvas(1280, 720, WEBGL)
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draw the 3D text
 */
 function draw() {
 
