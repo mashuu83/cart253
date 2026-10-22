@@ -9,10 +9,13 @@
 
 //Cannon Object
 let cannon = {
-    x: 100,
+    base: 80,
     w: 50,
     h: 200,
-    angle: 90
+    angle: 90,
+    color: 'deeppink',
+    strokeWeight: 2,
+    stroke: 'white',
 }
 
 //Bullet Object
@@ -41,4 +44,28 @@ function setup() {
 */
 function draw() {
     background(0);
+
+    //Draw the Cannon
+    push();
+    strokeWeight(cannon.strokeWeight);
+    stroke(cannon.stroke);
+    fill(cannon.color);
+    rect(width / 2, height - cannon.h, cannon.w, cannon.h);
+    ellipse((width / 2) + (cannon.w / 2), height, cannon.base);
+    pop();
+
+    moveBullet();
+}
+
+//On Key Press, generate a bullet then fire it!
+function keyPressed() {
+    generateBullet();
+}
+
+function generateBullet() {
+
+}
+
+function moveBullet() {
+
 }
