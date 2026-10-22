@@ -68,9 +68,28 @@ A collection and showcase of various protoypes created Fall 2026
 
 [Shiny Planet](https://mashuu83.github.io/cart253/topics/prototypes/conditionals/3-shinyplanet/index.html) | Click to see how Shiny your planet will be, click again to retry | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/3-shinyplanet/js/script.js) |
 
+---
+
+## Week 5 Sketches - Events
+
+![Screenshot Please Hold](./assets/screenshots/pleasehold.png)
+
+[Could You Hold This For Me?](https://mashuu83.github.io/cart253/topics/prototypes/conditionals/1-floatyghosts/index.html) |Can the program ever be satisfied?| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/1-floatyghosts/js/script.js)
+
+---
+![Screenshot Shape Trails](./assets/screenshots/shapetrails.png)
+
+
+[Shape Trails](https://mashuu83.github.io/cart253/topics/prototypes/conditionals/2-shapetrails/index.html)| Drag the shapes around the canvas to leave trails, The flashing shape indicates the draggable area | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/2-shapetrails/js/script.js)
+
+---
+![Screenshot Shiny Planet](./assets/screenshots/shinyplanet.png)
+
+[Shiny Planet](https://mashuu83.github.io/cart253/topics/prototypes/conditionals/3-shinyplanet/index.html) | Click to see how Shiny your planet will be, click again to retry | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/conditionals/3-shinyplanet/js/script.js) |
+
 ## Reflective Journal Entries
 
-[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3) | [Week 4 Reflection (Conditionals)](https://mashuu83.github.io/cart253/topics/journal/journal4)
+[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3) | [Week 4 Reflection (Conditionals)](https://mashuu83.github.io/cart253/topics/journal/journal4) | [Week 5 Reflection (Events)](https://mashuu83.github.io/cart253/topics/journal/journal4)
 
 ### Attributions
 Header Image taken from https://x.com/monmons137/header_photo
