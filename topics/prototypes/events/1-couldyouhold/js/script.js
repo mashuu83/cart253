@@ -23,7 +23,7 @@ let backgroundColor = "#669999";
 
 let timerDelay = 4 * 1000; // In Seconds
 
-let requestedKey = 80;
+let requestedKey = 80, requestedKeyString = undefined;
 
 
 /**
@@ -58,14 +58,14 @@ function updateText() {
     //Choose a random Key (use floor?)
     requestedKey = floor(random(97, 122));
     //Turn the Code into a String
-    let requestedKeyString = string.fromCharCode(requestedKey);
+    requestedKeyString = String.fromCharCode(requestedKey);
     // Request that the user hold the specified Key
-    currentText.string = "Could you please hold " + requestedKeyString + " for me?";
+    currentText.string = "Could you please hold '" + requestedKeyString + "' for me?";
     // Move the text slightly
     currentText.x = currentText.x + random(-50, 50);
     currentText.y = currentText.y + random(-30, 30);
     //Make the text smaller to fit
-    currentText.size = smallerSize;
+    currentText.size = currentText.smallerSize;
 }
 
 // Lowercase ASCII are 97-122
