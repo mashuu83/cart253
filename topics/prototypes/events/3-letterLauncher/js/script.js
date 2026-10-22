@@ -1,24 +1,44 @@
 /**
- * Title of Project
- * Author Name
+ * Letter Cannon
+ * Matthew Thompson
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * Use the mouse to aim a cannon and press any key to launch that character
  */
 
 "use strict";
 
-/**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
-*/
-function setup() {
-
+//Cannon Object
+let cannon = {
+    x: 100,
+    w: 50,
+    h: 200,
+    angle: 90
 }
 
+//Bullet Object
+let bullet = {
+    pos: {
+        x: 0,
+        y: 0,
+    },
+    velocity: {
+        x: 1,
+        y: 1,
+    },
+    color: 'white',
+    character: 'M',
+}
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draw a 720p canvas
+*/
+function setup() {
+    createCanvas(1280, 720);
+}
+
+/**
+ * Draw Cannon and Characters
 */
 function draw() {
-
+    background(0);
 }
