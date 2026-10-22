@@ -17,7 +17,7 @@ let userText = {
     y: 0,
     z: 0,
     size: 36,
-    string: "Testing",
+    string: "Testerino",
     color: 'white',
 }
 
@@ -28,7 +28,12 @@ async function setup() {
     createCanvas(1280, 720, WEBGL);
     // Load in the font objects
     bitCount = await loadFont('./assets/fonts/BitcountInk.ttf');
-    userText.font = bitCount;
+    creepster = await loadFont('./assets/fonts/Creepster-Regular.ttf');
+    fascinate = await loadFont('./assets/fonts/Fascinate-Regular.ttf');
+    kablammo = await loadFont('./assets/fonts/Kablammo-Regular.ttf');
+    schoolbell = await loadFont('./assets/fonts/Schoolbell-Regular.ttf');
+    silkscreen = await loadFont('./assets/fonts/Silkscreen-Regular.ttf');
+    userText.font = silkscreen;
     background(0);
 }
 
