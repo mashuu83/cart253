@@ -79,37 +79,43 @@ function draw() {
     scale(min(width, height) / 300);
     //The Actual Draw part
     model(textModel);
-    //pop();
 
-    // FROM GOOGLE: Clear and Render your 2D UI Buffer
-    // buttonLayer.clear(); // Keeps the buffer background transparent
-    // buttonLayer.noStroke();
-
-    // // UI Background Panel
-    // buttonLayer.fill(0, 0, 0, 150);
-    // buttonLayer.rect(10, 10, 220, 80, 5);
-
-    // // UI Text
-    // buttonLayer.fill(255);
-    // buttonLayer.textSize(16);
-    // buttonLayer.text("Engine Status: Active", 25, 40);
-    // buttonLayer.textSize(12);
-    // buttonLayer.text(`Frame Count: ${frameCount}`, 25, 65);
-
-    // // 3. Project the 2D Buffer onto the WebGL Canvas
-    // // Disabling depth lets us draw on top without clipping through 3D geometry
-    // // hint(DISABLE_DEPTH_TEST);
-
-    // push();
-    // resetMatrix(); // Reset camera matrix to screen coordinates
-    // // Move to top-left corner of the WebGL clip space
-    // translate(-width / 2, -height / 2);
-    // image(buttonLayer, 0, 0);
-    // pop();
-
-    // hint(ENABLE_DEPTH_TEST); // Re-enable depth for the next frame's 3D render
-    //END OF COPIED SECTION
 }
+
+
+// Going to try moving the buttons into my HTML Instead to see if that is easier
+// LEAVING THIS FOR POSTERITY
+
+// // FROM GOOGLE: Clear and Render your 2D UI Buffer
+// buttonLayer.clear(); // Keeps the buffer background transparent
+// buttonLayer.noStroke();
+
+// // UI Background Panel
+// buttonLayer.fill(0, 0, 0, 150);
+// buttonLayer.rect(10, 10, 220, 80, 5);
+
+// // UI Text
+// buttonLayer.fill(255);
+// buttonLayer.textSize(16);
+// buttonLayer.text("Engine Status: Active", 25, 40);
+// buttonLayer.textSize(12);
+// buttonLayer.text(`Frame Count: ${frameCount}`, 25, 65);
+
+// // 3. Project the 2D Buffer onto the WebGL Canvas
+// // Disabling depth lets us draw on top without clipping through 3D geometry
+// // hint(DISABLE_DEPTH_TEST);
+
+// push();
+// // Can I disable the camera for this part?
+// resetMatrix(); // Reset camera matrix to screen coordinates
+// // Move to top-left corner of the WebGL clip space
+// translate(-width / 2, -height / 2);
+// image(buttonLayer, 0, 0);
+// pop();
+
+// hint(ENABLE_DEPTH_TEST); // Re-enable depth for the next frame's 3D render
+// END OF COPIED SECTION
+
 
 // //Define the function to render the text
 // function drawText(userText) {
