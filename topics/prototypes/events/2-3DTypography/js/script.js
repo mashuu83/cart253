@@ -10,6 +10,9 @@
 // Create some empty objects to hold the fonts
 let bitCount, creepster, fascinate, kablammo, schoolbell, silkscreen;
 
+// Define a Layer to sit above and hold the buttons
+let buttonLayer = undefined;
+
 //Various Settings
 let bgColor = 'black';
 
@@ -26,7 +29,7 @@ let userText = {
 }
 
 let textOptions = {
-    extrude: 2,
+    extrude: 0,
     sampleFactor: 2
 }
 
@@ -45,6 +48,11 @@ async function setup() {
     kablammo = await loadFont('./assets/fonts/Kablammo-Regular.ttf');
     schoolbell = await loadFont('./assets/fonts/Schoolbell-Regular.ttf');
     silkscreen = await loadFont('./assets/fonts/Silkscreen-Regular.ttf');
+
+    // Make transparent 2d later here
+    buttonLayer = createGraphics(width, height);
+
+    // Will set user font with buttons
     userText.font = silkscreen;
 
     //Create the text model
@@ -67,11 +75,42 @@ function draw() {
     //Draw the 3D Model
     fill(userText.color);
     strokeWeight(userText.strokeWeight);
+    // Investigate the workings of this section - Copied from p5.js example
     scale(min(width, height) / 300);
     //The Actual Draw part
     model(textModel);
+    pop();
 
+    // FROM GOOGLE: Clear and Render your 2D UI Buffer
+    // buttonLayer.clear(); // Keeps the buffer background transparent
+    // buttonLayer.noStroke();
+
+    // // UI Background Panel
+    // buttonLayer.fill(0, 0, 0, 150);
+    // buttonLayer.rect(10, 10, 220, 80, 5);
+
+    // // UI Text
+    // buttonLayer.fill(255);
+    // buttonLayer.textSize(16);
+    // buttonLayer.text("Engine Status: Active", 25, 40);
+    // buttonLayer.textSize(12);
+    // buttonLayer.text(`Frame Count: ${frameCount}`, 25, 65);
+
+    // // 3. Project the 2D Buffer onto the WebGL Canvas
+    // // Disabling depth lets us draw on top without clipping through 3D geometry
+    // // hint(DISABLE_DEPTH_TEST);
+
+    // push();
+    // resetMatrix(); // Reset camera matrix to screen coordinates
+    // // Move to top-left corner of the WebGL clip space
+    // translate(-width / 2, -height / 2);
+    // image(buttonLayer, 0, 0);
+    // pop();
+
+    // hint(ENABLE_DEPTH_TEST); // Re-enable depth for the next frame's 3D render
+    //END OF COPIED SECTION
 }
+
 // //Define the function to render the text
 // function drawText(userText) {
 //     textFont(userText.font);
