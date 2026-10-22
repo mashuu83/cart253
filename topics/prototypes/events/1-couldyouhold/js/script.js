@@ -15,14 +15,16 @@ let currentText = {
     smallerSize: 36,
     font: 'Courier New',
     fill: "white",
-    alignment: undefined,
     x: 100,
-    y: 100
+    y: 200,
 }
 
 let backgroundColor = "#669999";
 
-let timerDelay = 3 * 1000; // 3 Seconds
+let timerDelay = 4 * 1000; // In Seconds
+
+let requestedKey = 80;
+
 
 /**
  * Create The Canvas 720p
@@ -54,11 +56,16 @@ function draw() {
 // Define the update text function, choose a random key and ask the user to press it
 function updateText() {
     //Choose a random Key (use floor?)
+    requestedKey = floor(random(97, 122));
+    //Turn the Code into a String
+    let requestedKeyString = string.fromCharCode(requestedKey);
+    // Request that the user hold the specified Key
+    currentText.string = "Could you please hold " + requestedKeyString + " for me?";
     // Move the text slightly
     currentText.x = currentText.x + random(-50, 50);
     currentText.y = currentText.y + random(-30, 30);
     //Make the text smaller to fit
     currentText.size = smallerSize;
-    // Request that the user hold the specified Key
-    currentText.string = "Could you please press and hold the ";
 }
+
+// Lowercase ASCII are 97-122
