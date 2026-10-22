@@ -69,7 +69,6 @@ async function setup() {
     background(bgColor);
 }
 
-
 /**
  * Draw the 3D text
 */
@@ -84,18 +83,17 @@ function draw() {
     scale(min(width, height) / 300);
     //The Actual Draw part
     model(textModel);
-
 }
 
 // Create the model Function
-// CURRENTLY UNUSED
+// CURRENTLY UNUSED - Need to refactor
 function createModel() {
     textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
     textModel.clearColors();
     textModel.normalize();
 }
 
-// The Button functions
+// The Button functions -- TO REFACTOR
 function inconsolataClicked() {
     userText.font = inconsolata;
     console.log("Inconsolata Clicked");
@@ -143,6 +141,17 @@ function silkscreenClicked() {
     textModel.clearColors();
     textModel.normalize();
 }
+
+//Update the Text from the Input Box
+function updateText() {
+    const textBox = document.getElementById('userText');
+    userText.string = textBox.value;
+    console.log("Update Clicked - content was " + textBox.value);
+    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+    textModel.clearColors();
+    textModel.normalize();
+}
+
 // Going to try moving the buttons into my HTML Instead to see if that is easier
 // LEAVING THIS FOR POSTERITY
 
