@@ -77,9 +77,9 @@ A collection and showcase of various protoypes created Fall 2026
 
 ---
 
-![Screenshot Please Hold](./assets/screenshots/pleasehold.png)
+![Screenshot 3D Text Fun](./assets/screenshots/3DText.png)
 
-[3D Typography](https://mashuu83.github.io/cart253/topics/prototypes/events/1-couldyouhold/index.html) |Can the program ever be satisfied?| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/events/1-couldyouhold/js/script.js)
+[3D Typography](https://mashuu83.github.io/cart253/topics/prototypes/events/2-3DTypography/index.html) |Play Around with Text in 3D Space! Left-Drag to Orbit, Right-Drag to Pan, Scroll to Resize. Use buttons to update text and Font| [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/events/2-3DTypography/js/script.js)
 
 ---
 
