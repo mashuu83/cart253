@@ -2,15 +2,15 @@
 
 *October 22, 2026*
 
---Struggles with week off
---Logistical Issues
+Reading week wasn't really super helpful for me personally, I moved recently and don't have a good workspace at home, so mainly need to work using the Lab PC's which was difficult during reading week (even though the school was open), it mostly just made me lose my momentum from the semester having an "extra" week off.
 
---Sketch 1 using String class and deciding when it makes sense to stop
+For my first sketch this week, I wanted to have the program ask the user to hold down a random key, this was a fun puzzle to implement, I used the random function to get a random number in the range of the ASCII letters, then used a function to convert that into a string of the character. One problem I ran into was that the function I needed to use started with a capital letter, which confused me. Pippin gave a good explanation, but I'm looking forward to understanding object principles better over the upcoming semesters and having a better grasp on this...
+The behavior will keep asking for new keys as long as you keep holding them down, but resets when any key is released. Basically, it can never be satisfied, which is a fun interaction (well, fun for a certain kind of person.)
 
---Sketch 2 experimenting along with CART 214 typography exploration
---Sketch 2 trying other layers then moving to HTML
---Refactor not working, will do as a sketch for next week
-Add checkboxes/sliders/options for size, color, extrusion
---Focus this time is on the click events
+For Sketch 2, I wanted to combine an exploration of typography for CART 214, where this weeks assignment is to take an existing project and explore different implementations of typography. While I was browsing the p5 reference I saw a funciton called textToModel() which sounded like it would be really fun to play with (and it is!)
+When I implemented the 3D text and only render the background in Setup, I really liked the effect of the trails of text you could create by manipulating the camera controls. Adding visible controls (buttons) to change the font would end up being the most time-consuming aspect of this sketch. I tried some solutions where I created another UI Buffer to render alongside the 3D image, but the camera orbit controls will also affect this element no matter the order in which they are drawn or layered, so I ended up with a much simple (albeit uglier) implementation directly in HTML. This allowed me to explore events triggered from the HTML file and not the js directly. 
+There is a ton of re-used code in the current implementation of this sketch, so as I get more comfortable with using parameters with funcitons, I would like to refactor and clean up this project, which would also give me a chance to add some more functionality like allowing the user to edit things like size, color, and extrusiton.
 
-Sketch 3, wanted to use the convert keycode but wasn't necessary, could just call it directly, a bit anticlimactic but ideas for improvements
+For Sketch 3 I was imagining a cannon which shot out letters as you pressed them on the keyboard. I have a rather basic implementation of this working now, but as we learn about arrays, I would like to be able to have more than one bullet visible at a time, as well as maybe changing the angle/trajectory of the cannon and bullets (maybe using some *shudder* calculus to draw arcs). I was planning to implement the clever String (capital S) function from sketch 1 again for the cannon, but that turned out to be unnecessary because I was just using a basic text draw for the bullets and the 'key' information was built in to the kepressed() event.
+
+Really enjoying the sketches I have made so far, and feeling excited about iterating on them, hope that I can set up a more comfortable space to do coding at home soon. 
