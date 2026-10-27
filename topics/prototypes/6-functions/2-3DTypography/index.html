@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+  <title>3D Type V2</title>
+
+  <!-- CSS stylesheet(s) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <!-- Library script(s) -->
+
+  <!-- p5.min.js is the main p5 library -->
+  <script src="js/libraries/p5.min.js"></script>
+  <!-- p5.sound.min.js allows us to use sound -->
+  <script src="js/libraries/p5.sound.min.js"></script>
+
+  <!-- My script(s) -->
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="userText">
+    <input type="submit" value="Update Text" onclick="updateText()">
+    <!-- Ideally put a flexible space here, should be easy but time is limited -->
+    <label>Change Font:</label>
+    <button type="button" onclick="inconsolataClicked()">Inconsolata</button>
+    <button type="button" onclick="creepsterClicked()">Creepster</button>
+    <button type="button" onclick="fascinateClicked()">Fascinate</button>
+    <button type="button" onclick="kablammoClicked()">Kablammo</button>
+    <button type="button" onclick="schoolbellClicked()">Schoolbell</button>
+    <button type="button" onclick="silkscreenClicked()">Silkscreen</button>
+    <label>THICCEN:</label>
+    <input type="checkbox" id="embossed" name="embossed" value="Emboss">
+  </div>
+
+</body>
+
+</html>

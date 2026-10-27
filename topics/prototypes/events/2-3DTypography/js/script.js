@@ -63,6 +63,7 @@ async function setup() {
     textModel.normalize();
 
     //Should be able to pull that stuff into a function, but wasn't working...
+    //I think there may have been an existing funtion called createModel and it didn't like this name
     //createModel();
 
     //Set the background color (add a skybox here later?)
