@@ -87,11 +87,11 @@ function draw() {
 
 // Create the model Function
 // CURRENTLY UNUSED - Need to refactor
-function createModel() {
-    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-    textModel.clearColors();
-    textModel.normalize();
-}
+// function createModel() {
+//     textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
+//     textModel.clearColors();
+//     textModel.normalize();
+// }
 
 // The Button functions -- TO REFACTOR
 function inconsolataClicked() {
