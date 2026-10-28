@@ -15,6 +15,7 @@ let buttonLayer = undefined;
 
 //Various Settings
 let bgColor = 'black';
+let extrusionValue = 2;
 
 // Create a userText object
 let userText = {
@@ -71,16 +72,11 @@ function draw() {
     //Give camera controls
     orbitControl();
 
+    //Draw the Model
     draw3DText(userText.color, userText.strokeWeight, userText.scale);
-    //Draw the 3D Model
-    // fill(userText.color);
-    // strokeWeight(userText.strokeWeight);
-    // // Investigate the workings of this section - Copied from p5.js example
-    // scale(min(width, height) / 300);
-    // //The Actual Draw part
-    // model(textModel);
 }
 
+// Define the function to draw the model with the user's settings
 function draw3DText(color, weight, scaling){
     push();
     fill(color);
@@ -90,61 +86,48 @@ function draw3DText(color, weight, scaling){
     pop();
 }
 
-// Create the model Function
-// CURRENTLY UNUSED - Need to refactor
-// function makeModel() {
-//     textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-//     textModel.clearColors();
-//     textModel.normalize();
-// }
-
-// The Button functions -- TO REFACTOR
-function inconsolataClicked() {
-    userText.font = fontInconsolata;
-    console.log("Inconsolata Clicked");
+// Define the function to make a new model
+function makeNewModel(){
     textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
     textModel.clearColors();
     textModel.normalize();
+}
+
+// The Button functions
+function inconsolataClicked() {
+    userText.font = fontInconsolata;
+    console.log("Inconsolata Clicked");
+    makeNewModel();
 }
 
 function creepsterClicked() {
     userText.font = fontCreepster;
     console.log("Creepster Clicked");
-    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-    textModel.clearColors();
-    textModel.normalize();
+    makeNewModel();
 }
 
 function fascinateClicked() {
     userText.font = fontFascinate;
     console.log("Fascinate Clicked");
-    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-    textModel.clearColors();
-    textModel.normalize();
+    makeNewModel();
 }
 
 function kablammoClicked() {
     userText.font = fontKablammo;
     console.log("Kablammo Clicked");
-    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-    textModel.clearColors();
-    textModel.normalize();
+    makeNewModel();
 }
 
 function schoolbellClicked() {
     userText.font = fontSchoolbell;
     console.log("Schoolbell Clicked");
-    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-    textModel.clearColors();
-    textModel.normalize();
+    makeNewModel();
 }
 
 function silkscreenClicked() {
     userText.font = fontSilkscreen;
     console.log("Silkscreen Clicked");
-    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-    textModel.clearColors();
-    textModel.normalize();
+    makeNewModel();
 }
 
 //Update the Text from the Input Box
@@ -152,20 +135,23 @@ function updateText() {
     const textBox = document.getElementById('userText');
     userText.string = textBox.value;
     console.log("Update Clicked - content was " + textBox.value);
-    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-    textModel.clearColors();
-    textModel.normalize();
+    makeNewModel();
 }
 
-function makeNewModel(){
-    textModel = userText.font.textToModel(userText.string, userText.x, userText.y, textOptions);
-    textModel.clearColors();
-    textModel.normalize();
+//Check if the thicken checkbox has updated and then add or remove embossing
+function thickenChanged(){
+    console.log("Thicken was changed");
+    //Check if the box is clicked .checked is a boolean value
+    if (document.getElementById('embossed').checked){
+        //Add the embossing to the text
+        textOptions.extrude = extrusionValue;
+        makeNewModel();
+        console.log("Was Selected");
+    }
+    else {
+        //remove the embossing
+        console.log("was unselected");
+        textOptions.extrude = 0;
+        makeNewModel();
+    }
 }
-
-// //Define the function to render the text
-// function drawText(userText) {
-//     textFont(userText.font);
-//     textSize(userText.size);
-//     text(userText.string, userText.x, userText.y);
-// }
