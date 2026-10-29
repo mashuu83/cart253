@@ -16,7 +16,7 @@ let tama = {
         h:250,
         w:200
     },
-    shellColor:'pink',
+    //shellColor:'pink',
     frame:{
         size:100,
         color:'lightblue',
@@ -39,6 +39,7 @@ let tama = {
        delay: 360 *1000 // In Seconds 
     },
     buttonA:{
+        name:"A",
         x:0,
         y:0,
         size:undefined,
@@ -46,6 +47,7 @@ let tama = {
         onClick:undefined,
     },
      buttonB:{
+        name:"B",
         x:0,
         y:0,
         size:undefined,
@@ -53,6 +55,7 @@ let tama = {
         onClick:undefined,
     },
      buttonC:{
+        name:"C",
         x:0,
         y:0,
         size:undefined,
@@ -121,18 +124,10 @@ function mouseClicked(){
     console.log("Mouse Clicked");
     // Give the player a coin for clicking
     player.coins.amount += 1;
-    //Check if Button A was clicked
-    if(mouseOnA){
-        console.log("A Clicked");
-    }
-    //Check if Button B was clicked
-    if(mouseOnB){
-        console.log("B Clicked");
-    }
-    //Check if Button C was clicked
-    if(mouseOnC){
-        console.log("C Clicked");
-    }
+    whichButton(tama.buttonA);
+    whichButton(tama.buttonB);
+    whichButton(tama.buttonC);
+
 }
 
 // Define the funciton for drawing a Tama Object
@@ -162,4 +157,13 @@ function drawTama(){
     ellipse(tama.shell.x - (tama.shell.w/4), tama.shell.y + (tama.shell.h/5), tama.buttonB.size);
     //Right Button
     ellipse(tama.shell.x + (tama.shell.w/4), tama.shell.y + (tama.shell.h/5), tama.buttonC.size);
+}
+
+//Define the function to check which button
+function whichButton(_button){
+    let d = dist(mouseX, mouseY, (tama.shell.x+_button.x), (tama.shell.y+_button.y))
+    if (d<_button.size/2){
+        console.log("This " + _button.name + " got clicked");
+        _button.onClick();
+    }
 }

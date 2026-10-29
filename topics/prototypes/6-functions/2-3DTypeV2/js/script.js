@@ -100,7 +100,9 @@ function inconsolataClicked() {
     makeNewModel();
 }
 
-function creepsterClicked() {
+function creepsterClicked(name) {
+    console.log("First");
+    console.log();
     userText.font = fontCreepster;
     console.log("Creepster Clicked");
     makeNewModel();
