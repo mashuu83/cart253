@@ -103,7 +103,7 @@ A collection and of various protoypes created Fall 2026
 
 ---
 
-![Screenshot Skecth 3](./assets//screenshots/)
+![Screenshot Sketch 3](./assets//screenshots/)
 
 [Sketch 3](link)
 
