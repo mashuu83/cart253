@@ -7,18 +7,24 @@
 
 "use strict";
 
-//Declare an Array of Tamas
+//TODO: Declare an Array of Tamas
 
-//Load in a very retro font
+//TODO: Load in a very retro font
 
-//Make a Message object to be drawn in the frame
+//TODO: Make a Message object to be drawn in the frame
+let message = {
+    x:0,
+    y:0,
+    size:16,
+    color:'black'
+}
 
 //Define the Tama object
 let tama = {
     shell: {
         color:'pink',
-        x:250,
-        y:200,
+        x:200,
+        y:250,
         h:250,
         w:200
     },
@@ -30,14 +36,17 @@ let tama = {
         image:undefined
     },
     happiness:{
+       //TODO: PUT EMOJIS AS LABELS
        value:100,
        color:'green',
-       delay: 30 *1000 // In Seconds 
+       delay: 30 *1000, // In Seconds 
+       label: "H: ",
     },
     hunger:{
        value:100,
        color:'red',
-       delay: 120 *1000 // In Seconds 
+       delay: 120 *1000, // In Seconds 
+       label: "F: ",
     },
     cleanliness:{
        value:100,
@@ -97,6 +106,8 @@ let player = {
 function setup() {
     createCanvas(500, 700);
 
+    //TODO: Determine sizes for Frame
+
     //Set the values for the button positions based on the parent tama object
     //Determine Size
     let buttonSize = tama.shell.w / 6;
@@ -125,7 +136,7 @@ function draw() {
     //Draw the background
     background("black");
 
-    //Show how many coins the player has
+    //Show the player Stats
     displayStats(player.coins, player.coins.amount);
     displayStats(player.friendship, player.friendship.amount);
 
@@ -145,13 +156,10 @@ function displayStats(stat, amount){
 
 // Define actions for when the player clicked
 function mouseClicked(){
-    console.log("Mouse Clicked");
-    // Give the player a coin for clicking
-    player.coins.amount += 1;
-    whichButton(tama.buttonA);
-    whichButton(tama.buttonB);
-    whichButton(tama.buttonC);
-
+    //On mouse click run the wasIClicked function and send it each button
+    wasIClicked(tama.buttonA);
+    wasIClicked(tama.buttonB);
+    wasIClicked(tama.buttonC);
 }
 
 // Define the funciton for drawing a Tama Object
@@ -184,7 +192,7 @@ function drawTama(){
 }
 
 //Define the function to check which button
-function whichButton(_button){
+function wasIClicked(_button){
     let d = dist(mouseX, mouseY, _button.x, _button.y);
     if (d<_button.size/2){
         console.log("The " + _button.name + " button got clicked");
