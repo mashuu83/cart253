@@ -12,9 +12,16 @@ let fontMicro5 = undefined;
 
 //TODO: Declare an Array of Tamas
 
-//An interaction message to tell the player what is happening
-let interactionMessage = undefined;
+//TODO: Check if Values Reach 0 and Do Stuff
 
+//An interaction message to tell the player what is happening
+let interactionMessage = {
+    x: 10,
+    y:360,
+    size:48,
+    string:"Use Buttons to Play/Feed/Clean",
+    color:'white'
+}
 
 //Define the Tama object
 let tama = {
@@ -25,30 +32,25 @@ let tama = {
         h:250,
         w:200
     },
-    //shellColor:'pink',
     frame:{
         size:100,
         color:'lightblue',
         rounding:20,
-        // image:undefined
     },
     happiness:{
-       //TODO: PUT EMOJIS AS LABELS
+       //??TODO: PUT EMOJIS AS LABELS
        value:100,
-       color:'green',
-       delay: 10 *1000, // In Seconds 
+       delay: 1 *1000, // In Seconds 
        label: "H: ",
     },
     hunger:{
        value:100,
-       color:'red',
-       delay: 20 *1000, // In Seconds 
+       delay: 2 *1000, // In Seconds 
        label: "F: ",
     },
     cleanliness:{
        value:100,
-       color:'grey',
-       delay: 30 *1000, // In Seconds
+       delay: 3 *1000, // In Seconds
        label: "C: " 
     },
     buttonA:{
@@ -106,6 +108,9 @@ let player = {
 /**
  * Create a Canvas - Portrait Ratio for Mobile
  * iPhone Duo is 1.4:1 so trying 500x700
+ * Load Retro font
+ * Determine positions for tama elements based on shell position
+ * Start countdown timers for stats
 */
 async function setup() {
     createCanvas(500, 700);
@@ -156,14 +161,17 @@ function draw() {
 
     //Draw the Tama object
     drawTama();
+
+    //Draw the Interaction Message
+    drawMessage();
 }
 
 //The function to decrement the stats based on their timers
 function runTimer(stat){
     //Lower the stat by 1
     stat.value -=1;
-    //Run again after the delay
-    setTimeout(runTimer(stat), stat.delay);
+    //Run again after the delay, need to pass the parameter for the function after the delay
+    setTimeout(runTimer, stat.delay, stat);
 }
 
 //The functions to display the players Stats
@@ -201,7 +209,7 @@ function drawTama(){
     square(tama.shell.x, tama.shell.y- (tama.shell.h/8), tama.frame.size, tama.frame.rounding);
     pop();
 
-    // Draw message on screen
+    // Draw message on frame
     push();
     noStroke();
     fill(tama.message.color);
@@ -211,18 +219,12 @@ function drawTama(){
     pop();
     
     // 3 Circular buttons
-    push();
-    noStroke();
-    //Center Button
-    fill(tama.buttonA.color);
-    ellipse(tama.buttonA.x, tama.buttonA.y, tama.buttonA.size);
-    //Left Button
-    ellipse(tama.buttonB.x, tama.buttonB.y, tama.buttonB.size);
-    //Right Button
-    ellipse(tama.buttonC.x, tama.buttonC.y, tama.buttonC.size);
+    drawButton(tama.buttonA);
+    drawButton(tama.buttonB);
+    drawButton(tama.buttonC);
 }
 
-//Define the function to check which button
+//Define the function to check which button was pressed then run that function
 function wasIClicked(_button){
     let d = dist(mouseX, mouseY, _button.x, _button.y);
     if (d<_button.size/2){
@@ -231,15 +233,52 @@ function wasIClicked(_button){
     }
 }
 
+//Function to draw a button
+function drawButton(_button){
+    push();
+    noStroke();
+    fill(_button.color);
+    ellipse(_button.x, _button.y, _button.size);
+    pop();
+}
+
 //What Happens when the buttons are clicked
 function pressedA(){
     console.log("A Was pressed");
+    tama.happiness.value = 100;
+    //TODO Add variables for reward values
+    player.coins.amount += 1;
+    player.friendship.amount += 1;
+    updateMessage("Happiness Refilled \nGain 1 Coin\nGain 1 Friendship");
 }
 
 function pressedB(){
     console.log("B Was pressed");
+    tama.hunger.value = 100;
+    player.coins.amount += 2;
+    player.friendship.amount += 2;
+    updateMessage("Hunger Refilled \nGain 2 Coins\nGain 2 Friendship");
 }
 
 function pressedC(){
     console.log("C Was pressed");
+    tama.cleanliness.value = 100;
+    player.coins.amount += 3;
+    player.friendship.amount += 3;
+    updateMessage("Tama Cleaned! \nGain 3 Coins\nGain 3 Friendship");
+}
+
+//Display a message to the user
+function updateMessage(_message){
+    interactionMessage.string = _message;
+}
+
+function drawMessage(){
+    push();
+    fill(interactionMessage.color);
+    noStroke();
+    textFont(fontMicro5);
+    textSize(interactionMessage.size);
+    text(interactionMessage.string, interactionMessage.x, interactionMessage.y);
+    pop();
 }
