@@ -89,6 +89,10 @@ A collection and of various protoypes created Fall 2026
 
 ---
 
+## Week 6 Sketches - Functions
+
+---
+
 ## Reflective Journal Entries
 
 [Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3) | [Week 4 Reflection (Conditionals)](https://mashuu83.github.io/cart253/topics/journal/journal4) | [Week 5 Reflection (Events)](https://mashuu83.github.io/cart253/topics/journal/journal5)
