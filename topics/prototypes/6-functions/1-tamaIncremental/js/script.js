@@ -31,7 +31,7 @@ let tama = {
         size:100,
         color:'lightblue',
         rounding:20,
-        image:undefined
+        // image:undefined
     },
     happiness:{
        //TODO: PUT EMOJIS AS LABELS
@@ -49,7 +49,8 @@ let tama = {
     cleanliness:{
        value:100,
        color:'grey',
-       delay: 360 *1000 // In Seconds 
+       delay: 360 *1000, // In Seconds
+       label: "C: " 
     },
     buttonA:{
         name:"A",
@@ -79,7 +80,7 @@ let tama = {
     x:100,
     y:100,
     size:24,
-    color:'white',
+    color:'black',
     }
 }
 
@@ -114,6 +115,10 @@ async function setup() {
     fontMicro5 = await loadFont('assets/fonts/Micro5.ttf');
 
     //TODO: Determine sizes for Frame
+
+    //Determine Location for Message Box
+    tama.message.x = tama.shell.x - tama.frame.size/2 + tama.frame.size*.1;
+    tama.message.y = tama.shell.y - tama.frame.size/2 - 8;
 
     //Set the values for the button positions based on the parent tama object
     //Determine Size
@@ -192,7 +197,7 @@ function drawTama(){
     fill(tama.message.color);
     textFont(fontMicro5);
     textSize(tama.message.size);
-    text(tama.happiness.label, tama.message.x, tama.message.y);
+    text((tama.happiness.label + tama.happiness.value + "     \n" + tama.hunger.label + tama.hunger.value + "     \n" + tama.cleanliness.label + tama.cleanliness.value + "     "), tama.message.x, tama.message.y);
     pop();
     
     // 3 Circular buttons
