@@ -26,6 +26,27 @@ let tama = {
     buttonSize:35,
     buttonColor:'yellow',
     state:undefined,
+    buttonA:{
+        x:0,
+        y:0,
+        size:35,
+        color:'yellow',
+        onClick:undefined,
+    },
+     buttonB:{
+        x:0,
+        y:0,
+        size:35,
+        color:'yellow',
+        onClick:undefined,
+    },
+     buttonC:{
+        x:0,
+        y:0,
+        size:35,
+        color:'yellow',
+        onClick:undefined,
+    }
 }
 
 //Define a player object
@@ -38,6 +59,11 @@ let player = {
         fontColor:'yellow'
     }
 }
+
+//Boolean states to determine if the mouse is over a button
+let mouseOnA = false;
+let mouseOnB = false;
+let mouseOnC = false;
 
 /**
  * Create a Canvas - Portrait Ratio for Mobile
@@ -60,6 +86,8 @@ function draw() {
 
     //Draw the Tama object
     drawTama();
+
+    //Check if the mouse is over any Buttons
 }
 
 //The function to display the players coin count
@@ -78,10 +106,17 @@ function mouseClicked(){
     // Give the player a coin for clicking
     player.coins.amount += 1;
     //Check if Button A was clicked
-
+    if(mouseOnA){
+        console.log("A Clicked");
+    }
     //Check if Button B was clicked
-
-    //Check if Button B was clicked
+    if(mouseOnB){
+        console.log("B Clicked");
+    }
+    //Check if Button C was clicked
+    if(mouseOnC){
+        console.log("C Clicked");
+    }
 }
 
 // Define the funciton for drawing a Tama Object
@@ -98,7 +133,7 @@ function drawTama(){
     noStroke();
     fill(tama.frameColor);
     rectMode(CENTER);
-    square(tama.x, tama.y-20, tama.frameSize, tama.frameRounding);
+    square(tama.x, tama.y- (tama.h/8), tama.frameSize, tama.frameRounding);
     pop();
     
     // 3 Circular buttons
@@ -106,9 +141,9 @@ function drawTama(){
     noStroke();
     fill(tama.buttonColor);
     //Center Button
-    ellipse(tama.x, tama.y+80, tama.buttonSize);
+    ellipse(tama.x, tama.y + (tama.h/3), tama.buttonSize);
     //Left Button
-    ellipse(tama.x - 45, tama.y +60, tama.buttonSize);
+    ellipse(tama.x - (tama.w/4), tama.y + (tama.h/5), tama.buttonSize);
     //Right Button
-    ellipse(tama.x + 45, tama.y + 60, tama.buttonSize);
+    ellipse(tama.x + (tama.w/4), tama.y + (tama.h/5), tama.buttonSize);
 }
