@@ -7,6 +7,12 @@
 
 "use strict";
 
+//Declare an Array of Tamas
+
+//Load in a very retro font
+
+//Make a Message object to be drawn in the frame
+
 //Define the Tama object
 let tama = {
     shell: {
@@ -44,7 +50,7 @@ let tama = {
         y:0,
         size:undefined,
         color:'yellow',
-        onClick:undefined,
+        onClick:pressedA,
     },
      buttonB:{
         name:"B",
@@ -52,7 +58,7 @@ let tama = {
         y:0,
         size:undefined,
         color:'yellow',
-        onClick:undefined,
+        onClick:pressedB,
     },
      buttonC:{
         name:"C",
@@ -60,7 +66,7 @@ let tama = {
         y:0,
         size:undefined,
         color:'yellow',
-        onClick:undefined,
+        onClick:pressedC,
     }
 }
 
@@ -68,10 +74,19 @@ let tama = {
 let player = {
     coins:{
         amount:0,
-        x:360,
+        x:350,
         y:50,
         fontSize:24,
-        fontColor:'yellow'
+        fontColor:'yellow',
+        label:"Coins: "
+    },
+    friendship:{
+        amount:0,
+        x:350,
+        y:90,
+        fontSize:24,
+        fontColor:'hotpink',
+        label:"Friendship: "
     }
 }
 
@@ -89,9 +104,17 @@ function setup() {
     tama.buttonA.size = buttonSize;
     tama.buttonB.size = buttonSize;
     tama.buttonC.size = buttonSize;
-    //Determine Left
-    //Determine Center
-    //Determine Right
+    //Determine Left (Absolute)
+    tama.buttonA.x = tama.shell.x - (tama.shell.w / 4);
+    tama.buttonA.y = tama.shell.y + (tama.shell.h / 4);
+    //Determine Center (Absolute)
+    tama.buttonB.x = tama.shell.x;
+    tama.buttonB.y = tama.shell.y + (tama.shell.h/ 3);
+    //Determine Right (Absolute)
+    tama.buttonC.x = tama.shell.x + (tama.shell.w / 4);
+    tama.buttonC.y = tama.shell.y + (tama.shell.h / 4);
+
+    // TODO: Set timeouts for stats to change
 }
 
 
@@ -103,19 +126,20 @@ function draw() {
     background("black");
 
     //Show how many coins the player has
-    displayCoins(player.coins.amount);
+    displayStats(player.coins, player.coins.amount);
+    displayStats(player.friendship, player.friendship.amount);
 
     //Draw the Tama object
     drawTama();
 }
 
-//The function to display the players coin count
-function displayCoins(amount){
+//The functions to display the players Stats
+function displayStats(stat, amount){
     push();
-    fill(player.coins.fontColor);
+    fill(stat.fontColor);
     noStroke();
-    textSize(player.coins.fontSize);
-    text("Coins: " + amount, player.coins.x, player.coins.y);
+    textSize(stat.fontSize);
+    text(stat.label + amount, stat.x, stat.y);
     pop();
 }
 
@@ -152,18 +176,31 @@ function drawTama(){
     noStroke();
     //Center Button
     fill(tama.buttonA.color);
-    ellipse(tama.shell.x, tama.shell.y + (tama.shell.h/3), tama.buttonA.size);
+    ellipse(tama.buttonA.x, tama.buttonA.y, tama.buttonA.size);
     //Left Button
-    ellipse(tama.shell.x - (tama.shell.w/4), tama.shell.y + (tama.shell.h/5), tama.buttonB.size);
+    ellipse(tama.buttonB.x, tama.buttonB.y, tama.buttonB.size);
     //Right Button
-    ellipse(tama.shell.x + (tama.shell.w/4), tama.shell.y + (tama.shell.h/5), tama.buttonC.size);
+    ellipse(tama.buttonC.x, tama.buttonC.y, tama.buttonC.size);
 }
 
 //Define the function to check which button
 function whichButton(_button){
-    let d = dist(mouseX, mouseY, (tama.shell.x+_button.x), (tama.shell.y+_button.y))
+    let d = dist(mouseX, mouseY, _button.x, _button.y);
     if (d<_button.size/2){
-        console.log("This " + _button.name + " got clicked");
+        console.log("The " + _button.name + " button got clicked");
         _button.onClick();
     }
+}
+
+//What Happens when the buttons are clicked
+function pressedA(){
+    console.log("A Was pressed");
+}
+
+function pressedB(){
+    console.log("B Was pressed");
+}
+
+function pressedC(){
+    console.log("C Was pressed");
 }
