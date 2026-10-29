@@ -7,17 +7,15 @@
 
 "use strict";
 
+//Declare a font object
+let fontMicro5 = undefined;
+
 //TODO: Declare an Array of Tamas
 
 //TODO: Load in a very retro font
 
 //TODO: Make a Message object to be drawn in the frame
-let message = {
-    x:0,
-    y:0,
-    size:16,
-    color:'black'
-}
+
 
 //Define the Tama object
 let tama = {
@@ -76,6 +74,12 @@ let tama = {
         size:undefined,
         color:'yellow',
         onClick:pressedC,
+    },
+    message: {
+    x:100,
+    y:100,
+    size:24,
+    color:'white',
     }
 }
 
@@ -103,8 +107,11 @@ let player = {
  * Create a Canvas - Portrait Ratio for Mobile
  * iPhone Duo is 1.4:1 so trying 500x700
 */
-function setup() {
+async function setup() {
     createCanvas(500, 700);
+
+    //Load font
+    fontMicro5 = await loadFont('assets/fonts/Micro5.ttf');
 
     //TODO: Determine sizes for Frame
 
@@ -177,6 +184,15 @@ function drawTama(){
     fill(tama.frame.color);
     rectMode(CENTER);
     square(tama.shell.x, tama.shell.y- (tama.shell.h/8), tama.frame.size, tama.frame.rounding);
+    pop();
+
+    // Draw message on screen
+    push();
+    noStroke();
+    fill(tama.message.color);
+    textFont(fontMicro5);
+    textSize(tama.message.size);
+    text(tama.happiness.label, tama.message.x, tama.message.y);
     pop();
     
     // 3 Circular buttons
