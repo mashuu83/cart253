@@ -7,7 +7,7 @@
 
 //Define an array of balls
 let balls = [];
-let ball1 = undefined; // Will create it with createBall()
+//let ball1 = undefined; // Will create it with createBall()
 
 /**
  * Create the canvas and the ball
@@ -16,7 +16,7 @@ function setup() {
   // Create the canvas
   createCanvas(400, 400);
   // Create the ball
-  ball1 = createBall();
+  balls.push(createBall());
 }
 
 /**
@@ -46,9 +46,13 @@ function createBall() {
 function draw() {
   background("#87ceeb");
   
-  moveBall(ball1);
-  bounceBall(ball1);
-  drawBall(ball1);
+  //This is a FOR OF loop which goes through each entry in an array
+  for (let ball of balls){
+  moveBall(ball);
+  bounceBall(ball);
+  drawBall(ball);
+  }
+
 }
 
 /**
