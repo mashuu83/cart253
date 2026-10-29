@@ -26,8 +26,9 @@ function createBall() {
   // Create a ball object with appropriate properties
   const newBall = {
     // Position and dimensions
-    x: 200,
-    y: 200,
+    //Set the dimensions to be the mouse position
+    x: mouseX,
+    y: mouseY,
     size: 20,
     // Colour
     fill: "#000000",
@@ -37,6 +38,12 @@ function createBall() {
       y: random(-5, 5)
     }
   };
+  
+  //DEPRECATED - Did in definition instead
+  //Create the ball at the mouse position
+  //newBall.x = mouseX;
+  //newBall.y = mouseY;
+  
   return newBall;
 }
 
@@ -91,4 +98,9 @@ function drawBall(_ball) {
   fill(_ball.fill);
   ellipse(_ball.x, _ball.y, _ball.size);
   pop();
+}
+
+//Add balls on click
+function mouseClicked(){
+    balls.push(createBall());
 }
