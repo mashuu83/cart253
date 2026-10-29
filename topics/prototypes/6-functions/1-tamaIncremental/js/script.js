@@ -12,17 +12,16 @@ let fontMicro5 = undefined;
 
 //TODO: Declare an Array of Tamas
 
-//TODO: Load in a very retro font
-
-//TODO: Make a Message object to be drawn in the frame
+//An interaction message to tell the player what is happening
+let interactionMessage = undefined;
 
 
 //Define the Tama object
 let tama = {
     shell: {
         color:'pink',
-        x:200,
-        y:250,
+        x:160,
+        y:180,
         h:250,
         w:200
     },
@@ -37,19 +36,19 @@ let tama = {
        //TODO: PUT EMOJIS AS LABELS
        value:100,
        color:'green',
-       delay: 30 *1000, // In Seconds 
+       delay: 10 *1000, // In Seconds 
        label: "H: ",
     },
     hunger:{
        value:100,
        color:'red',
-       delay: 120 *1000, // In Seconds 
+       delay: 20 *1000, // In Seconds 
        label: "F: ",
     },
     cleanliness:{
        value:100,
        color:'grey',
-       delay: 360 *1000, // In Seconds
+       delay: 30 *1000, // In Seconds
        label: "C: " 
     },
     buttonA:{
@@ -88,7 +87,7 @@ let tama = {
 let player = {
     coins:{
         amount:0,
-        x:350,
+        x:310,
         y:50,
         fontSize:24,
         fontColor:'yellow',
@@ -96,7 +95,7 @@ let player = {
     },
     friendship:{
         amount:0,
-        x:350,
+        x:310,
         y:90,
         fontSize:24,
         fontColor:'hotpink',
@@ -137,7 +136,10 @@ async function setup() {
     tama.buttonC.x = tama.shell.x + (tama.shell.w / 4);
     tama.buttonC.y = tama.shell.y + (tama.shell.h / 4);
 
-    // TODO: Set timeouts for stats to change
+    // Set timeouts for stats to change
+    runTimer(tama.cleanliness);
+    runTimer(tama.happiness);
+    runTimer(tama.hunger);
 }
 
 
@@ -154,6 +156,14 @@ function draw() {
 
     //Draw the Tama object
     drawTama();
+}
+
+//The function to decrement the stats based on their timers
+function runTimer(stat){
+    //Lower the stat by 1
+    stat.value -=1;
+    //Run again after the delay
+    setTimeout(runTimer(stat), stat.delay);
 }
 
 //The functions to display the players Stats
