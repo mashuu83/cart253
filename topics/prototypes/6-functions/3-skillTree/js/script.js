@@ -10,22 +10,8 @@
 //An Array for the skill buttons
 let skillButtons = [];
 
-//Define the objects that will be used for the game
-// let skillButton = {
-//     name:undefined,
-//     available:false,
-//     owned:false,
-//     //The Skill Cost in various currencies
-//     costG:0,
-//     costW:0,
-//     costM:0,
-//     costC:0,
-//     x:100,
-//     y:100,
-//     size:50,
-//     activeColor:"green",
-//     passiveColor:"grey"
-// }
+//Constants for certain settings
+const costTextSize = 14;
 
 let inventory = {
     x:50,
@@ -41,9 +27,9 @@ let inventory = {
     crystalColor:'hotpink'
 }
 
-
 /**
  * Create A Canvas, back on my 720p bullshit
+ * Create all of the buttons for the skill tree
 */
 function setup() {
     createCanvas(1280, 720);
@@ -56,6 +42,8 @@ function setup() {
     newButton("magic staff", 0, 0, 0, 10, 700, 100, 150);
     newButton("castle", 500, 100, 100, 100, 900, 100, 150);
     //The AI is suggesting autocompletes now for the new buttons with uncanny accuracy, I thought I had turned it off, but apparently not yet.
+    //Ok I am working on my windows PC at home now and the AI is definitely off
+    newButton("farmer", 60, 5, 5, 5, 1100, 100, 150);
 }
 
 /**
@@ -83,7 +71,7 @@ function draw() {
             _button.passiveColor = "grey";
         }
     }
-    //TURNING OFF THE AI BULLSHIT IMMEDIATELY, I DONT WANT IT TO AUTOCOMPLETE MY CODE, I WANT TO LEARN HOW TO CODE, NOT HAVE IT DO IT FOR ME (The AI actually wrote that)
+    //TURNING OFF THE AI BS IMMEDIATELY, I DONT WANT IT TO AUTOCOMPLETE MY CODE, I WANT TO LEARN HOW TO CODE, NOT HAVE IT DO IT FOR ME (The AI actually wrote that!)
 }
 
 function displayInventory(){
@@ -119,13 +107,14 @@ function newButton(_name, _gCost, _wCost, _mCost, _cCost, _x, _y, _size){
     x:_x,
     y:_y,
     size:_size,
-    activeColor:"green",
+    activeColor:"lightgreen",
     passiveColor:"grey"
     }
     skillButtons.push(button);
 }
 
 function drawSkill(_button){
+    //Draw the Circle
     push();
     noStroke();
     fill(_button.passiveColor);
@@ -136,6 +125,27 @@ function drawSkill(_button){
     textAlign(CENTER, CENTER);
     textSize(16);
     text(_button.name, 0, -15);
-    //TODO: Check if values are not zero and then display on button
+    
+    //Check if values are not zero and then display on button
+    if (_button.costG > 0){
+        textSize(costTextSize);
+        fill(inventory.goldColor);
+        text(_button.costG, -30, 15);
+    }
+    if (_button.costW > 0){
+        textSize(costTextSize);
+        fill(inventory.woodColor);
+        text(_button.costW, 30, 15);
+    }
+    if (_button.costM > 0){
+        textSize(costTextSize);
+        fill(inventory.metalColor);
+        text(_button.costM, -30, 35);
+    }
+    if (_button.costC > 0){
+        textSize(costTextSize);
+        fill(inventory.crystalColor);
+        text(_button.costC, 30, 35);
+    }
     pop();
 }
