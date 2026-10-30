@@ -12,6 +12,8 @@ let skillButtons = [];
 
 //Constants for certain settings
 const costTextSize = 14;
+const activeButtonColor = 'lightgreen';
+const passiveButtonColor = 'lightgrey';
 
 let inventory = {
     x:50,
@@ -19,12 +21,16 @@ let inventory = {
     textSize: 48,
     gold:100,
     goldColor:'yellow',
+    goldRate: 1 * 1000, // In seconds
     wood:100,
     woodColor:'brown',
+    woodRate: 5 * 1000,
     metal:100,
     metalColor:'grey',
+    metalRate: 10 * 1000,
     crystals:100,
-    crystalColor:'hotpink'
+    crystalColor:'hotpink',
+    crystalRate: 30 * 1000
 }
 
 /**
@@ -71,7 +77,7 @@ function draw() {
                 _button.passiveColor = _button.activeColor;
         } 
         else {
-            _button.passiveColor = "grey";
+            _button.passiveColor = passiveButtonColor;
         }
     }
     //TURNING OFF THE AI BS IMMEDIATELY, I DONT WANT IT TO AUTOCOMPLETE MY CODE, I WANT TO LEARN HOW TO CODE, NOT HAVE IT DO IT FOR ME (The AI actually wrote that!)
@@ -110,8 +116,8 @@ function newButton(_name, _gCost, _wCost, _mCost, _cCost, _x, _y, _size){
     x:_x,
     y:_y,
     size:_size,
-    activeColor:"lightgreen",
-    passiveColor:"grey"
+    activeColor:activeButtonColor,
+    passiveColor:passiveButtonColor,
     }
     skillButtons.push(button);
 }
@@ -155,6 +161,7 @@ function drawSkill(_button){
 
 //TODO - Add automatic timers to slowly increase the materials (Can use functionality from Tama Sketch)
 
+
 //TODO - Add clicking function to the buttons
 function mouseClicked(){
     for (const _button of skillButtons){
@@ -175,6 +182,7 @@ function checkClick(_button){
     }
 }
 
+// Define what happens when a skill is purchased
 function purchaseSkill(_button){
     //Subtract the costs from inventory
     inventory.gold -= _button.costG;
