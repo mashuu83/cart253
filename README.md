@@ -91,21 +91,21 @@ A collection and of various protoypes created Fall 2026
 
 ## Week 6 Sketches - Functions
 
-![Screenshot Tama Incremental](./assets//screenshots/)
+![Screenshot Tama Incremental](./assets//screenshots/tamaIncremental.png)
 
-[Tama Incremental](link)
-
----
-
-![Screenshot 3D Text V2](./assets//screenshots/)
-
-[3D Text V2](link)
+[Tama Incremental](https://mashuu83.github.io/cart253/topics/prototypes/6-functions/1-tamaIncremental/index.html) | The Tama's states decrease over time, use the buttons to refill them | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/6-functions/1-tamaIncremental/js/script.js)
 
 ---
 
-![Screenshot Sketch 3](./assets//screenshots/)
+![Screenshot 3D Text V2](./assets//screenshots/3DTypeV2.png)
 
-[Sketch 3](link)
+[3D Type V2](https://mashuu83.github.io/cart253/topics/prototypes/6-functions/2-3DTypeV2/index.html) | Like the 3D text toy above, now with all new THICCEN technology and refactored code! | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/6-functions/2-3DTypeV2/js/script.js)
+
+---
+
+![Screenshot Skill Tree](./assets//screenshots/skillTree.png)
+
+[Skill Tree](https://mashuu83.github.io/cart253/topics/prototypes/6-functions/3-skillTree/index.html) | Exploring functions with parameters to create skill buttons for a skill tree, limited funcitonality (for now) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/6-functions/3-skillTree/js/script.js)
 
 
 ## Reflective Journal Entries
