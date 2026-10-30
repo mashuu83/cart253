@@ -7,3 +7,7 @@ This week felt great! So far in the course I felt like I have been reminding/ref
 I like my refactor of the 3D text toy, I plan to add some CSS Styling to the buttons and some javascript to check for screen size and adjust the canvas accordingly so that it can be enjoyed better on mobile.
 
 I feel like the work I put into the Tama sketch will get me a lot of the way towards an incremental style game that I'm excited to try making
+
+Today when I came into the lab I lost a fair bit of time because all of my settings had been reset comepletely, had to re-sign in to icloud and firefox and github desktop, had to change back to dark mode and fix the mouse settings, and had to re install the two extenstions. Apparently as part of this, the AI features in VS Code got turned back on, I pressed something accidentally while I was coding because at one point unexpectedly and AI agent autocompleted a comment with *exactly* what I was about to write as a TODO, except the agent put in the code for me. I allowed the autofill with very clear commenting and then made a comment about going to turn off the AI now, which the AI *also autompleted* I did not like it AT ALL.
+
+Working on the skill buttons has also been really satisfying, I am very short on time (I will really try to stop working so last minute) but I wanted to practice mastery of using parameters for my funciton, and I'm happy to report that I (successfuly) wrote a function which takes in 8 parameters and I feel like my understanding is getting a lot better, it's a great feeling!
