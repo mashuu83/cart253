@@ -65,9 +65,12 @@ function draw() {
     //THIS PARAGRAPH WAS AI AGENT DID IT
     //Check if player can afford the skill buttons and change their color accordingly
     for (const _button of skillButtons){
-        if (inventory.gold >= _button.costG && inventory.wood >= _button.costW && inventory.metal >= _button.costM && inventory.crystals >= _button.costC){
-            _button.passiveColor = _button.activeColor;
-        } else {
+        if (inventory.gold >= _button.costG && inventory.wood >= _button.costW && inventory.metal >= _button.costM && inventory.crystals >= _button.costC && _button.owned === false){
+            //I added this line myself from home, post AI scare, might be useful as I try to expand the functionality
+                _button.available = true;
+                _button.passiveColor = _button.activeColor;
+        } 
+        else {
             _button.passiveColor = "grey";
         }
     }
@@ -148,4 +151,38 @@ function drawSkill(_button){
         text(_button.costC, 30, 35);
     }
     pop();
+}
+
+//TODO - Add automatic timers to slowly increase the materials (Can use functionality from Tama Sketch)
+
+//TODO - Add clicking function to the buttons
+function mouseClicked(){
+    for (const _button of skillButtons){
+        checkClick(_button);
+    }
+}
+
+function checkClick(_button){
+    let d = dist(mouseX, mouseY, _button.x, _button.y);
+    //Check if the mouse is over the button
+    if (d < _button.size / 2){
+        console.log("The " + _button.name + " was clicked");
+        //Check if the button is available and then do the thing if so
+        if(_button.available){
+            //Do the thing that should happen when it's clicked
+            purchaseSkill(_button);
+        }
+    }
+}
+
+function purchaseSkill(_button){
+    //Subtract the costs from inventory
+    inventory.gold -= _button.costG;
+    inventory.wood -= _button.costW;
+    inventory.metal -= _button.costM;
+    inventory.crystals -= _button.costC;
+    
+    //Deactivate the button (and change color)
+    _button.owned = true;
+    _button.available = false;
 }
