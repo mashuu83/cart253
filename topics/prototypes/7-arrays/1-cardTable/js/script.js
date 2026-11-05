@@ -25,6 +25,9 @@ let cardDeck= [];
 //     textOffsetY:0
 // }
 
+//TRY -- Making draggable cards using DIVS
+let draggableCards = [];
+
 /**
  * Create the Canvas and the Cards
 */
@@ -33,8 +36,8 @@ function setup() {
 
     //Create the Cards
     //(Card text, x, y, w, h, text color, size, card color, text offsetx, y)
-    newCard("Super\nMario\nBrothers", 100, 100, 120, 80, "black", 12, "white", 0, -35);
-    newCard("Doom", 200, 100, 120, 80, "white", 16, "red", 0, -35);
+    newCard("Super\nMario\nBrothers", 100, 150, 120, 80, "black", 12, "white", 0, -35);
+    newCard("Doom", 200, 150, 120, 80, "white", 16, "red", 0, -35);
 }
 
 
@@ -44,10 +47,10 @@ function setup() {
 function draw() {
     background("lightgreen");
 
-    //Draw the Cards
-    for (const _card of cardDeck){
-        displayCard(_card);
-    }
+    //Draw the Cards -- Commenting out for now
+    // for (const _card of cardDeck){
+    //     displayCard(_card);
+    // }
 }
 
 // Define the functions which will be used in the sketch
@@ -69,6 +72,24 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor, _textOf
     }
     //Add the card to the deck
     cardDeck.push(card);
+    
+    //TTRY and make a draggable element using DIV - This works!
+    let draggableCard;
+    //TRYING - Does this name the Div or create the content? (It creates the content)
+    draggableCard = createDiv(card.text);
+    draggableCard.position(card.x, card.y);
+    //TRYING - Make sure size takes h, w in that order (It was w, h)
+    draggableCard.size(card.w, card.h);
+    //If these works pull these numbers out into variables
+    draggableCard.style('font-size', card.textSize);
+    draggableCard.style('font-family', 'Comic Sans MS');
+    draggableCard.style('background', card.bgColor);
+    draggableCard.style('padding', '5px');
+    //Make the card Draggable
+    draggableCard.draggable();
+
+    //Add the draggable card into the Array
+    draggableCards.push(draggableCard);
 }
 
 //Display the cards
