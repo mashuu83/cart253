@@ -43,7 +43,7 @@ let gameNames = [
     "Gran\nTurismo"
 ];
 
-//Some Text to be permanent on the table
+//Some "Starter" Text to be permanent on the table
 let tableText = {
     message:"My Game is Like...",
     size:36,
@@ -63,16 +63,21 @@ function setup() {
     //Create the Cards
     //(Card text, x, y, w, h, text color, size, card color)
     //Game Cards are Tall
-    newCard(gameNames[0], 100, 150, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[1], 105, 155, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[2], 110, 160, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[3], 115, 165, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[4], 120, 170, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[5], 125, 175, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[6], 130, 180, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[7], 135, 185, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[8], 140, 190, 120, 80, "black", 10, "#CE1836");
-    newCard(gameNames[9], 145, 195, 120, 80, "black", 10, "#CE1836");
+    //Use a loop which is as long as the game names
+    for (let i=0; i<= gameNames.length -1; i++){
+        newCard(gameNames[i], 100 + (i*5), 150 + (i*5), 120, 80, "black", 10, "#CE1836");
+    }
+    
+    // newCard(gameNames[0], 100, 150, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[1], 105, 155, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[2], 110, 160, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[3], 115, 165, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[4], 120, 170, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[5], 125, 175, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[6], 130, 180, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[7], 135, 185, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[8], 140, 190, 120, 80, "black", 10, "#CE1836");
+    // newCard(gameNames[9], 145, 195, 120, 80, "black", 10, "#CE1836");
     
     newCard("Doom", 300, 150, 120, 80, "black", 16, "#CE1836");
     newCard("Doom", 305, 155, 120, 80, "black", 16, "#CE1836");
