@@ -16,7 +16,8 @@ const gameCardSettings = {
     h:120,
     w:80,
     bg:"red",
-    stroke:"black"
+    stroke:"black",
+    secondStackOffset:250
 }
 const connectorCardSettings = {
     x:250,
@@ -27,7 +28,7 @@ const connectorCardSettings = {
     stroke:"white"
 }
 const twistCardSettings = {
-    x:450,
+    x:700,
     y:100,
     h:85,
     w:85,
@@ -43,7 +44,7 @@ let tableText = {
     size:36,
     color:"#EDB92E",
     x:100,
-    y:600
+    y:450
 }
 
 //Array to hold the cards
@@ -64,7 +65,61 @@ let gameNames = [
     "Ms.\nPac-Man",
     "Tetris",
     "Hide\nAnd\nSeek",
-    "Gran\nTurismo"
+    "Gran\nTurismo",
+    "Pong",
+    "Space\nInvaders",
+    "Donkey\nKong",
+    "Monkey\nBall",
+    "Zelda",
+    "Bubble\nBobble",
+    "Punch\nOut",
+    "Mega\nMan",
+    "Golden\nAxe",
+    "Prince\nof\nPersia",
+    "SimCity",
+    "Civiliz-\nation",
+    "Lemmings",
+    "Mario\nKart",
+    "Doom",
+    "Myst",
+    "King's\nQuest",
+    "Star\nFox",
+    "Final\nFantasy",
+    "Warcraft",
+    "Worms",
+    "Nights\nInto\nDreams",
+    "PaRappa\nthe\nRapper",
+    "Pokemon",
+    "Castlevania",
+    "Metroid",
+    "Diablo",
+    "Tactics\nOgre",
+    "Crash\nBandicoot",
+    "Metal\nGear\nSolid",
+    "Panzer\nDragoon",
+    "Crazy\nTaxi",
+    "Shenmue",
+    "Tony\nHawk",
+    "Jet\nSet\nRadio",
+    "The\nSims",
+    "Devil\nMay\nCry",
+    "Ico",
+    "Rez",
+    "Elder\nScrolls",
+    "Kingdom\nHearts",
+    "Wario\nWare",
+    "Grand\nTheft\nAuto",
+    "Wii\nSports",
+    "Peggle",
+    "Rock\nBand",
+    "Border-\nLands",
+    "Heavy\nRain",
+    "Minecraft",
+    "Stanley\nParable",
+    "Magic\nthe\nGathering",
+    "Rocket\nLeague",
+    "Stardew\nValley",
+    "Hades"
 ];
 
 let twistNames = [
@@ -109,14 +164,20 @@ function setup() {
     //Shuffle the list of names - Using Fisher-Yates function from google
     mixUp(gameNames);
     mixUp(twistNames);
+    mixUp(connectorNames);
     
     //Create the Cards
     //(Card text, x, y, h, w, text color, size, card color)
     //Use a loop which is as long as the name lists
     
-    //Game Cards
-    for (let i=0; i<= gameNames.length -1; i++){
+    let halfTheCards = floor(gameNames.length/2);
+    //Game Cards -- Make two stacks, this is first half
+    for (let i=0; i< halfTheCards; i++){
         newCard(gameNames[i], gameCardSettings.x + (i*stackOffset), gameCardSettings.y + (i*stackOffset), gameCardSettings.h, gameCardSettings.w, gameCardSettings.stroke, 10, gameCardSettings.bg);
+    }
+
+    for (let i=halfTheCards; i<= gameNames.length -1; i++){
+        newCard(gameNames[i], gameCardSettings.secondStackOffset + gameCardSettings.x + (i*stackOffset), gameCardSettings.y - (halfTheCards*stackOffset) + (i*stackOffset), gameCardSettings.h, gameCardSettings.w, gameCardSettings.stroke, 10, gameCardSettings.bg);
     }
     
     //Connecting Cards 
@@ -151,6 +212,7 @@ function draw() {
 //Create a new card object and add it to the Deck
 function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor){
     //Define a card using all the parameters
+    // This entire part could be removed, but maybe it will be used in the future
     const card= {
         text:_text,
         x:_x,
@@ -194,7 +256,8 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor){
 function mixUp(_array){
     // Loop from the back of the array down to the second element
     for (let i = _array.length - 1; i > 0; i--) {
-    // Pick a random position from 0 to i
+    
+        // Pick a random position from 0 to i
     const j = Math.floor(Math.random() * (i + 1));
     
     // Swap elements array[i] and array[j] 
