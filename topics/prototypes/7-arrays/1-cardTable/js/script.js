@@ -32,7 +32,9 @@ function setup() {
     createCanvas(1280, 720);
 
     //Create the Cards
-    newCard("Super Mario Brothers", 100, 100, 75, 60, "black", 36, "white", -20, 0);
+    //(Card text, x, y, w, h, text color, size, card color, text offsetx, y)
+    newCard("Super\nMario\nBrothers", 100, 100, 120, 80, "black", 12, "white", 0, -35);
+    newCard("Doom", 200, 100, 120, 80, "white", 16, "red", 0, -35);
 }
 
 
@@ -43,7 +45,9 @@ function draw() {
     background("lightgreen");
 
     //Draw the Cards
-    
+    for (const _card of cardDeck){
+        displayCard(_card);
+    }
 }
 
 // Define the functions which will be used in the sketch
@@ -65,4 +69,33 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor, _textOf
     }
     //Add the card to the deck
     cardDeck.push(card);
+}
+
+//Display the cards
+function displayCard(_card){
+    //Draw the card to the canvas
+    push();
+    noStroke();
+    fill(_card.bgColor);
+    //Set the rectangle to be positioned relative to it's centre
+    rectMode(CENTER);
+    rect(_card.x, _card.y, _card.w, _card.h);
+    //Draw the Card Text
+    textAlign(CENTER, CENTER);
+    fill(_card.textColor);
+    textSize(_card.textSize);
+    text(_card.text, (_card.x + _card.textOffsetX), (_card.y + _card.textOffsetY));
+    pop();
+}
+
+//Check if/what card is being clicked when the mouse is pressed down,
+//Grab only the first card
+//Update the location of the card while the mouse is down
+//Drop the card on mouseUp, and move the card to the end of the array so that it gets drawn last
+function mouseDragged(){
+    for (const _card of cardDeck){
+        if (mouseX > _card.x-(_card.w/2) && mouseX < _card.x+(_card.w/2 )){
+
+        }
+    }
 }
