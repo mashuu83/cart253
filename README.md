@@ -112,6 +112,10 @@ A collection and of various protoypes created Fall 2026
 
 ## Week 7/8 Sketches - Arrays and Loops
 
+![Screenshot Elevator Pitch](./assets/screenshots/elevatorPitch.png)
+
+[Elevator Pitch](https://mashuu83.github.io/cart253/topics/prototypes/7-arrays/1-cardTable/index.html) | Drag the cards to create elevator pitches for new/fun/silly/amazing/ridiculous game ideas | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/7-arrays/1-cardTable/js/script.js)
+
 ---
 
 ## Reflective Journal Entries
