@@ -47,12 +47,42 @@ function setup() {
     //(Card text, x, y, w, h, text color, size, card color)
     //Game Cards are Tall
     newCard("Super\nMario\nBrothers", 100, 150, 120, 80, "black", 10, "#CE1836");
-    newCard("Doom", 200, 150, 120, 80, "black", 16, "#CE1836");
+    newCard("Super\nMario\nBrothers", 105, 155, 120, 80, "black", 10, "#CE1836");
+    newCard("Super\nMario\nBrothers", 110, 160, 120, 80, "black", 10, "#CE1836");
+    newCard("Super\nMario\nBrothers", 115, 165, 120, 80, "black", 10, "#CE1836");
+    newCard("Super\nMario\nBrothers", 120, 170, 120, 80, "black", 10, "#CE1836");
+    newCard("Super\nMario\nBrothers", 125, 175, 120, 80, "black", 10, "#CE1836");
+    newCard("Super\nMario\nBrothers", 130, 180, 120, 80, "black", 10, "#CE1836");
+    newCard("Super\nMario\nBrothers", 135, 185, 120, 80, "black", 10, "#CE1836");
+    newCard("Super\nMario\nBrothers", 140, 190, 120, 80, "black", 10, "#CE1836");
+    newCard("Super\nMario\nBrothers", 145, 195, 120, 80, "black", 10, "#CE1836");
+    
+    newCard("Doom", 300, 150, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 305, 155, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 310, 160, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 315, 165, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 320, 170, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 325, 175, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 330, 180, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 335, 185, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 340, 190, 120, 80, "black", 16, "#CE1836");
+    newCard("Doom", 345, 195, 120, 80, "black", 16, "#CE1836");
+
     //Connecting Cards are Wide
-    newCard("MEETS", 300, 150, 60, 100, "white", 24, "black");
-    newCard("BUT IT'S\nABOUT", 420, 150, 60, 100, "white", 24, "black");
+    newCard("MEETS", 500, 150, 60, 100, "white", 24, "black");
+    newCard("BUT IT'S\nABOUT", 720, 150, 60, 100, "white", 24, "black");
+    
     //Twist Cards are Square
-    newCard("MARSH-\nMALLOWS", 540, 150, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 940, 150, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 945, 155, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 950, 160, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 955, 165, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 960, 170, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 965, 175, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 970, 180, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 975, 185, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 980, 190, 85, 85, "#F85931", 4, "#EDB92E");
+    newCard("MARSH-\nMALLOWS", 985, 195, 85, 85, "#F85931", 4, "#EDB92E");
 }
 
 
