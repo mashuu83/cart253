@@ -108,9 +108,15 @@ A collection and of various protoypes created Fall 2026
 [Skill Tree](https://mashuu83.github.io/cart253/topics/prototypes/6-functions/3-skillTree/index.html) | Exploring functions with parameters to create skill buttons for a skill tree, limited funcitonality (for now) | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/6-functions/3-skillTree/js/script.js)
 
 
+---
+
+## Week 7 Sketches - Arrays
+
+---
+
 ## Reflective Journal Entries
 
-[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3) | [Week 4 Reflection (Conditionals)](https://mashuu83.github.io/cart253/topics/journal/journal4) | [Week 5 Reflection (Events)](https://mashuu83.github.io/cart253/topics/journal/journal5) | [Week 6 Reflection (Functions)](https://mashuu83.github.io/cart253/topics/journal/journal6)
+[Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3) | [Week 4 Reflection (Conditionals)](https://mashuu83.github.io/cart253/topics/journal/journal4) | [Week 5 Reflection (Events)](https://mashuu83.github.io/cart253/topics/journal/journal5) | [Week 6 Reflection (Functions)](https://mashuu83.github.io/cart253/topics/journal/journal6) | [Week 7 Reflection (Arrays)](https://mashuu83.github.io/cart253/topics/journal/journal7)
 
 ### Attributions
 Header Image taken from https://x.com/monmons137/header_photo
