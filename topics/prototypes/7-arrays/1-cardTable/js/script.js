@@ -12,20 +12,7 @@
 //Array to hold the cards
 let cardDeck= [];
 
-// let card = {
-//     text:"Card Text",
-//     x:0,
-//     y:0,
-//     h:0,
-//     w:0,
-//     textColor:"black",
-//     textSize:36,
-//     bgColor:"white",
-//     textOffsetX:-20,
-//     textOffsetY:0
-// }
-
-//TRY -- Making draggable cards using DIVS
+//TRY -- Making draggable cards using DIVS - Worked
 let draggableCards = [];
 
 //Make an Array with game names and choose a random one for each card (I know that it would be better to shuffle the array and then go in order... maybe there is a shuffle function?)
@@ -77,10 +64,10 @@ let tableText = {
 }
 
 /**
- * Create the Canvas and the Cards
+ * Create the Canvas and the Cards, Set the canvas to be the same size as the users window, to ensure that the elements are drawn as desired on the table
 */
 function setup() {
-    createCanvas(1280, 720);
+    createCanvas(windowWidth, windowHeight);
 
     //TODO Shuffle the card deck
     
@@ -178,31 +165,3 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor){
     draggableCards.push(draggableCard);
 }
 
-//Display the cards
-// function displayCard(_card){
-//     //Draw the card to the canvas
-//     push();
-//     noStroke();
-//     fill(_card.bgColor);
-//     //Set the rectangle to be positioned relative to it's centre
-//     rectMode(CENTER);
-//     rect(_card.x, _card.y, _card.w, _card.h);
-//     //Draw the Card Text
-//     textAlign(CENTER, CENTER);
-//     fill(_card.textColor);
-//     textSize(_card.textSize);
-//     text(_card.text, (_card.x + _card.textOffsetX), (_card.y + _card.textOffsetY));
-//     pop();
-// }
-
-//Check if/what card is being clicked when the mouse is pressed down,
-//Grab only the first card
-//Update the location of the card while the mouse is down
-//Drop the card on mouseUp, and move the card to the end of the array so that it gets drawn last
-// function mouseDragged(){
-//     for (const _card of cardDeck){
-//         if (mouseX > _card.x-(_card.w/2) && mouseX < _card.x+(_card.w/2 )){
-
-//         }
-//     }
-// }
