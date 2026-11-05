@@ -43,6 +43,30 @@ let gameNames = [
     "Gran\nTurismo"
 ];
 
+let twistNames = [
+    "Marshmallows",
+    "Clouds",
+    "Seals",
+    "Fortune\nCookies",
+    "City\nBuses",
+    "Cattle\nHerders",
+    "Flour-\nescent\nLights",
+    "High\nSchool\nLockers",
+    "Card-\nboard\nBoxes",
+    "Urban\nDistricts",
+    "Blades\nof\nGrass",
+    "Bubble\nGum",
+    "Dental\nSurgery",
+    "Roller\nCoasters",
+    "Screen\nPro-\ntectors",
+    "Office\nChairs",
+    "Crayons",
+    "Garden\nHerbs",
+    "Tea\nLeaves",
+    "Haunted\nHouses",
+    "Glass\nBlowing"
+]
+
 //Some "Starter" Text to be permanent on the table
 let tableText = {
     message:"My Game is Like...",
@@ -79,37 +103,19 @@ function setup() {
     // newCard(gameNames[8], 140, 190, 120, 80, "black", 10, "#CE1836");
     // newCard(gameNames[9], 145, 195, 120, 80, "black", 10, "#CE1836");
     
-    newCard("Doom", 300, 150, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 305, 155, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 310, 160, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 315, 165, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 320, 170, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 325, 175, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 330, 180, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 335, 185, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 340, 190, 120, 80, "black", 16, "#CE1836");
-    newCard("Doom", 345, 195, 120, 80, "black", 16, "#CE1836");
-
     //Connecting Cards are Wide
     newCard("MEETS", 500, 150, 60, 100, "white", 24, "black");
     newCard("BUT IT'S\nABOUT", 720, 150, 60, 100, "white", 24, "black");
     
     //Twist Cards are Square
-    newCard("MARSH-\nMALLOWS", 940, 150, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 945, 155, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 950, 160, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 955, 165, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 960, 170, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 965, 175, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 970, 180, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 975, 185, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 980, 190, 85, 85, "#F85931", 4, "#EDB92E");
-    newCard("MARSH-\nMALLOWS", 985, 195, 85, 85, "#F85931", 4, "#EDB92E");
+    for (let i=0; i <= twistNames.length - 1; i++){
+            newCard(twistNames[i], 900 + (i*5), 150 + (i*5), 85, 85, "#F85931", 4, "#EDB92E");
+    }
+
 }
 
-
 /**
- * Draw the Table and cards
+ * Draw the Table and Starter Text
 */
 function draw() {
     background("#009989");
