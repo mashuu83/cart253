@@ -20,8 +20,8 @@ const gameCardSettings = {
     secondStackOffset:250
 }
 const connectorCardSettings = {
-    x:250,
-    y:100,
+    x:300,
+    y:175,
     h:60,
     w:100,
     bg:"black",
