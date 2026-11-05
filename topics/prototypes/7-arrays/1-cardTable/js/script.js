@@ -94,8 +94,12 @@ function displayCard(_card){
 //Drop the card on mouseUp, and move the card to the end of the array so that it gets drawn last
 function mouseDragged(){
     for (const _card of cardDeck){
-        if (mouseX > _card.x-(_card.w/2) && mouseX < _card.x+(_card.w/2 )){
-
+        if (mouseX > _card.x-(_card.w/2) && mouseX < _card.x+(_card.w/2) && mouseY > _card.y-(_card.h/2) && mouseY < _card.y+(_card.h/2)){
+            //TODO Move card to top of stack so it is drawn last
+            //Move the card around
+            _card.x = mouseX;
+            _card.y = mouseY;
+            console.log("Card " + _card.text + " was dragged");
         }
     }
 }
