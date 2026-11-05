@@ -28,6 +28,15 @@ let cardDeck= [];
 //TRY -- Making draggable cards using DIVS
 let draggableCards = [];
 
+//Some Text to be permanent on the table
+let tableText = {
+    message:"My Game is Like...",
+    size:36,
+    color:"#EDB92E",
+    x:100,
+    y:600
+}
+
 /**
  * Create the Canvas and the Cards
 */
@@ -35,10 +44,15 @@ function setup() {
     createCanvas(1280, 720);
 
     //Create the Cards
-    //(Card text, x, y, w, h, text color, size, card color, text offsetx, y)
-    newCard("Super\nMario\nBrothers", 100, 150, 120, 80, "black", 10, "white", 0, -35);
-    newCard("Doom", 200, 150, 120, 80, "white", 16, "red", 0, -35);
-    newCard("MEETS", 300, 150, 60, 100, "white", 24, "black", 0, 0);
+    //(Card text, x, y, w, h, text color, size, card color)
+    //Game Cards are Tall
+    newCard("Super\nMario\nBrothers", 100, 150, 120, 80, "black", 10, "#CE1836");
+    newCard("Doom", 200, 150, 120, 80, "black", 16, "#CE1836");
+    //Connecting Cards are Wide
+    newCard("MEETS", 300, 150, 60, 100, "white", 24, "black");
+    newCard("BUT IT'S\nABOUT", 420, 150, 60, 100, "white", 24, "black");
+    //Twist Cards are Square
+    newCard("MARSH-\nMALLOWS", 540, 150, 85, 85, "#F85931", 4, "#EDB92E");
 }
 
 
@@ -46,7 +60,15 @@ function setup() {
  * Draw the Table and cards
 */
 function draw() {
-    background("lightgreen");
+    background("#009989");
+
+    //Display the table text
+    push();
+    noStroke();
+    fill(tableText.color);
+    textSize(tableText.size);
+    text(tableText.message, tableText.x, tableText.y);
+    pop();
 
     //Draw the Cards -- Commenting out for now
     // for (const _card of cardDeck){
@@ -57,7 +79,7 @@ function draw() {
 // Define the functions which will be used in the sketch
 
 //Create a new card object and add it to the Deck
-function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor, _textOffsetX, _textOffsetY){
+function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor){
     //Define a card using all the parameters
     const card= {
         text:_text,
@@ -68,8 +90,6 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor, _textOf
         textColor:_textColor,
         textSize:_textSize,
         bgColor:_bgColor,
-        textOffsetX: _textOffsetX,
-        textOffsetY: _textOffsetY
     }
     //Add the card to the deck
     cardDeck.push(card);
@@ -82,10 +102,13 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor, _textOf
     //TRYING - Make sure size takes h, w in that order (It was w, h)
     draggableCard.size(card.w, card.h);
     //If these works pull these numbers out into variables
-    //Not sure if font size is working correctly...
+    
+    //BUG -- Not sure if font size is working correctly...
     draggableCard.style('font-size', card.textSize);
     draggableCard.style('text-align', 'center');
     draggableCard.style('font-family', 'Comic Sans MS');
+    //TRY - Can I give the card a border? - WORKS, but is same color as text, I can live with that for now.
+    draggableCard.style('border-style', 'solid');
     //For HTML the 'Color' attribute is setting text color
     draggableCard.style('color', card.textColor);
     draggableCard.style('background', card.bgColor);
@@ -98,30 +121,30 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor, _textOf
 }
 
 //Display the cards
-function displayCard(_card){
-    //Draw the card to the canvas
-    push();
-    noStroke();
-    fill(_card.bgColor);
-    //Set the rectangle to be positioned relative to it's centre
-    rectMode(CENTER);
-    rect(_card.x, _card.y, _card.w, _card.h);
-    //Draw the Card Text
-    textAlign(CENTER, CENTER);
-    fill(_card.textColor);
-    textSize(_card.textSize);
-    text(_card.text, (_card.x + _card.textOffsetX), (_card.y + _card.textOffsetY));
-    pop();
-}
+// function displayCard(_card){
+//     //Draw the card to the canvas
+//     push();
+//     noStroke();
+//     fill(_card.bgColor);
+//     //Set the rectangle to be positioned relative to it's centre
+//     rectMode(CENTER);
+//     rect(_card.x, _card.y, _card.w, _card.h);
+//     //Draw the Card Text
+//     textAlign(CENTER, CENTER);
+//     fill(_card.textColor);
+//     textSize(_card.textSize);
+//     text(_card.text, (_card.x + _card.textOffsetX), (_card.y + _card.textOffsetY));
+//     pop();
+// }
 
 //Check if/what card is being clicked when the mouse is pressed down,
 //Grab only the first card
 //Update the location of the card while the mouse is down
 //Drop the card on mouseUp, and move the card to the end of the array so that it gets drawn last
-function mouseDragged(){
-    for (const _card of cardDeck){
-        if (mouseX > _card.x-(_card.w/2) && mouseX < _card.x+(_card.w/2 )){
+// function mouseDragged(){
+//     for (const _card of cardDeck){
+//         if (mouseX > _card.x-(_card.w/2) && mouseX < _card.x+(_card.w/2 )){
 
-        }
-    }
-}
+//         }
+//     }
+// }
