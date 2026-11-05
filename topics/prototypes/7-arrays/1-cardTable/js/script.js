@@ -36,8 +36,9 @@ function setup() {
 
     //Create the Cards
     //(Card text, x, y, w, h, text color, size, card color, text offsetx, y)
-    newCard("Super\nMario\nBrothers", 100, 150, 120, 80, "black", 12, "white", 0, -35);
+    newCard("Super\nMario\nBrothers", 100, 150, 120, 80, "black", 10, "white", 0, -35);
     newCard("Doom", 200, 150, 120, 80, "white", 16, "red", 0, -35);
+    newCard("MEETS", 300, 150, 60, 100, "white", 24, "black", 0, 0);
 }
 
 
@@ -73,7 +74,7 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor, _textOf
     //Add the card to the deck
     cardDeck.push(card);
     
-    //TTRY and make a draggable element using DIV - This works!
+    //TRY and make a draggable element using DIV - This works!
     let draggableCard;
     //TRYING - Does this name the Div or create the content? (It creates the content)
     draggableCard = createDiv(card.text);
@@ -81,11 +82,15 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor, _textOf
     //TRYING - Make sure size takes h, w in that order (It was w, h)
     draggableCard.size(card.w, card.h);
     //If these works pull these numbers out into variables
+    //Not sure if font size is working correctly...
     draggableCard.style('font-size', card.textSize);
+    draggableCard.style('text-align', 'center');
     draggableCard.style('font-family', 'Comic Sans MS');
+    //For HTML the 'Color' attribute is setting text color
+    draggableCard.style('color', card.textColor);
     draggableCard.style('background', card.bgColor);
     draggableCard.style('padding', '5px');
-    //Make the card Draggable
+    //Make the card Draggable - Works
     draggableCard.draggable();
 
     //Add the draggable card into the Array
