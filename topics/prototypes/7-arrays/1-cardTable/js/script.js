@@ -9,7 +9,45 @@
 
 // Define the objects and Variables which will be used in the Sketch
 
+// Settings Constants
+const gameCardSettings = {
+    x:50,
+    y:100,
+    h:120,
+    w:80,
+    bg:"red",
+    stroke:"black"
+}
+const connectorCardSettings = {
+    x:250,
+    y:100,
+    h:60,
+    w:100,
+    bg:"black",
+    stroke:"white"
+}
+const twistCardSettings = {
+    x:450,
+    y:100,
+    h:85,
+    w:85,
+    bg:"#EDB92E",
+    stroke:"#F85931"
+}
+//How offset the card stacks should be
+const stackOffset = 5;
+
+//Some "Starter" Text to be permanent on the table
+let tableText = {
+    message:"My Game is Like...",
+    size:36,
+    color:"#EDB92E",
+    x:100,
+    y:600
+}
+
 //Array to hold the cards
+//Not Currently used but want to keep in for future
 let cardDeck= [];
 
 //TRY -- Making draggable cards using DIVS - Worked
@@ -53,14 +91,14 @@ let twistNames = [
     "Glass\nBlowing"
 ]
 
-//Some "Starter" Text to be permanent on the table
-let tableText = {
-    message:"My Game is Like...",
-    size:36,
-    color:"#EDB92E",
-    x:100,
-    y:600
-}
+let connectorNames = [
+    "MEETS",
+    "BUT IT'S\nABOUT",
+    "FEATUR-\nING",
+    "EXCEPT\nIT'S ALL",
+    "HAD A\nBABY WITH",
+    "STARRING"
+]
 
 /**
  * Create the Canvas and the Cards, Set the canvas to be the same size as the users window, to ensure that the elements are drawn as desired on the table
@@ -68,32 +106,33 @@ let tableText = {
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
-    //TODO Shuffle the list of names
+    //Shuffle the list of names - Using Fisher-Yates function from google
     mixUp(gameNames);
     mixUp(twistNames);
     
     //Create the Cards
-    //(Card text, x, y, w, h, text color, size, card color)
-    //Use a loop which is as long as the game names
+    //(Card text, x, y, h, w, text color, size, card color)
+    //Use a loop which is as long as the name lists
     
-    //Game Cards are Tall
+    //Game Cards
     for (let i=0; i<= gameNames.length -1; i++){
-        newCard(gameNames[i], 50 + (i*5), 100 + (i*5), 120, 80, "black", 10, "#CE1836");
+        newCard(gameNames[i], gameCardSettings.x + (i*stackOffset), gameCardSettings.y + (i*stackOffset), gameCardSettings.h, gameCardSettings.w, gameCardSettings.stroke, 10, gameCardSettings.bg);
     }
     
-    //Connecting Cards are Wide
-    newCard("MEETS", 500, 150, 60, 100, "white", 24, "black");
-    newCard("BUT IT'S\nABOUT", 720, 150, 60, 100, "white", 24, "black");
+    //Connecting Cards 
+    for (let i=0; i<= connectorNames.length -1; i++){
+        newCard(connectorNames[i], connectorCardSettings.x + (i * stackOffset), connectorCardSettings.y + (i*stackOffset), connectorCardSettings.h, connectorCardSettings.w, connectorCardSettings.stroke, 10, connectorCardSettings.bg);
+    }
     
     //Twist Cards are Square
     for (let i=0; i <= twistNames.length - 1; i++){
-            newCard(twistNames[i], 900 + (i*5), 150 + (i*5), 85, 85, "#F85931", 4, "#EDB92E");
+            newCard(twistNames[i], twistCardSettings.x + (i*stackOffset), twistCardSettings.y + (i*stackOffset), twistCardSettings.h, twistCardSettings.w, twistCardSettings.stroke, 4, twistCardSettings.bg);
     }
 
 }
 
 /**
- * Draw the Table and Starter Text
+ * Draw the Table background and Starter Text
 */
 function draw() {
     background("#009989");
@@ -105,11 +144,6 @@ function draw() {
     textSize(tableText.size);
     text(tableText.message, tableText.x, tableText.y);
     pop();
-
-    //Draw the Cards -- Commenting out for now
-    // for (const _card of cardDeck){
-    //     displayCard(_card);
-    // }
 }
 
 // Define the functions which will be used in the sketch
