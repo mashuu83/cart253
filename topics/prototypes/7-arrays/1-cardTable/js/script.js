@@ -28,6 +28,21 @@ let cardDeck= [];
 //TRY -- Making draggable cards using DIVS
 let draggableCards = [];
 
+//Make an Array with game names and choose a random one for each card (I know that it would be better to shuffle the array and then go in order... maybe there is a shuffle function?)
+//TODO -- Add shuffling
+let gameNames = [
+    "Super\nMario\nBrothers",
+    "Portal",
+    "Sonic\nThe\nHedgehog",
+    "Street\nFighter",
+    "Tomb\nRaider",
+    "Wizardry",
+    "Ms.\nPac-Man",
+    "Tetris",
+    "Hide\nAnd\nSeek",
+    "Gran\nTurismo"
+];
+
 //Some Text to be permanent on the table
 let tableText = {
     message:"My Game is Like...",
@@ -43,19 +58,21 @@ let tableText = {
 function setup() {
     createCanvas(1280, 720);
 
+    //TODO Shuffle the card deck
+    
     //Create the Cards
     //(Card text, x, y, w, h, text color, size, card color)
     //Game Cards are Tall
-    newCard("Super\nMario\nBrothers", 100, 150, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 105, 155, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 110, 160, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 115, 165, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 120, 170, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 125, 175, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 130, 180, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 135, 185, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 140, 190, 120, 80, "black", 10, "#CE1836");
-    newCard("Super\nMario\nBrothers", 145, 195, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[0], 100, 150, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[1], 105, 155, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[2], 110, 160, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[3], 115, 165, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[4], 120, 170, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[5], 125, 175, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[6], 130, 180, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[7], 135, 185, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[8], 140, 190, 120, 80, "black", 10, "#CE1836");
+    newCard(gameNames[9], 145, 195, 120, 80, "black", 10, "#CE1836");
     
     newCard("Doom", 300, 150, 120, 80, "black", 16, "#CE1836");
     newCard("Doom", 305, 155, 120, 80, "black", 16, "#CE1836");
