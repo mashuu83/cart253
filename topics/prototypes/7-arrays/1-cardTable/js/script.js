@@ -54,7 +54,7 @@ let cardDeck= [];
 //TRY -- Making draggable cards using DIVS - Worked
 let draggableCards = [];
 
-//Make an Array with game names and choose a random one for each card (I know that it would be better to shuffle the array and then go in order... maybe there is a shuffle function?)
+//Make an Array with game names for the Game cards
 let gameNames = [
     "Super\nMario\nBrothers",
     "Portal",
@@ -170,7 +170,9 @@ function setup() {
     //(Card text, x, y, h, w, text color, size, card color)
     //Use a loop which is as long as the name lists
     
+    //Using this variable to make two stacks of cards
     let halfTheCards = floor(gameNames.length/2);
+    
     //Game Cards -- Make two stacks, this is first half
     for (let i=0; i< halfTheCards; i++){
         newCard(gameNames[i], gameCardSettings.x + (i*stackOffset), gameCardSettings.y + (i*stackOffset), gameCardSettings.h, gameCardSettings.w, gameCardSettings.stroke, 10, gameCardSettings.bg);
@@ -223,6 +225,7 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor){
         textSize:_textSize,
         bgColor:_bgColor,
     }
+    
     //Add the card to the deck
     cardDeck.push(card);
     
@@ -237,14 +240,18 @@ function newCard(_text, _x, _y, _h, _w, _textColor, _textSize, _bgColor){
     
     //BUG -- Not sure if font size is working correctly...
     draggableCard.style('font-size', card.textSize);
+    
     draggableCard.style('text-align', 'center');
     draggableCard.style('font-family', 'Comic Sans MS');
+    
     //TRY - Can I give the card a border? - WORKS, but is same color as text, I can live with that for now.
     draggableCard.style('border-style', 'solid');
+    
     //For HTML the 'Color' attribute is setting text color
     draggableCard.style('color', card.textColor);
     draggableCard.style('background', card.bgColor);
     draggableCard.style('padding', '5px');
+    
     //Make the card Draggable - Works
     draggableCard.draggable();
 
@@ -257,7 +264,7 @@ function mixUp(_array){
     // Loop from the back of the array down to the second element
     for (let i = _array.length - 1; i > 0; i--) {
     
-        // Pick a random position from 0 to i
+    // Pick a random position from 0 to i
     const j = Math.floor(Math.random() * (i + 1));
     
     // Swap elements array[i] and array[j] 
