@@ -7,6 +7,34 @@
 
 "use strict";
 
+//Define some Colors
+let donutColors = [
+    "#E893A6",
+    "#D7C9C9",
+    "#BEB692",
+    "#F1AD9A",
+    "#63383F"
+]
+
+let sprinkleColors = [
+    "#920C69",
+    "#CADD06",
+    "#03CCC5",
+    "#FC4A75",
+    "#F4B40B"
+]
+
+let sketchSettings = {
+    minDonuts: 100,
+    maxDonuts: 200,
+    minSprinkles: 50,
+    maxSprinkles: 100,
+    donutMinSize: 40,
+    donutMaxSize: 75,
+    sprinkleSize: 12
+}
+
+
 /**
  * Let's make a canvas! Not sure why I always default to 720p, nostalgia? Since this sketch is about dimensionality, lets go 3d this time
 */
@@ -19,5 +47,17 @@ function setup() {
  * Draw the sketch elements
 */
 function draw() {
+    background("black");
+    
+    //Camera Controls
+    orbitControl();
+    
+    //Galactic Donuts?
+    // Torus arguments: Radius, Hole Size, Number of edges for hole (default:24), Number of triangles which make the height (default:16)
+    push();
+    fill(donutColors[0]);
+    torus(50, 12, 12, 24);
+    pop();
+
 
 }
