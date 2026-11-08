@@ -31,8 +31,13 @@ let sketchSettings = {
     maxSprinkles: 100,
     donutMinSize: 40,
     donutMaxSize: 75,
-    sprinkleSize: 12
+    sprinkleSize: 12,
+    orbitWidth:450,
+    orbitHeight:150,
+    movementSpeed:0.01,
+    numberDonuts:50
 }
+
 
 
 /**
@@ -51,13 +56,30 @@ function draw() {
     
     //Camera Controls
     orbitControl();
+
+    //Experiment with changing frame rate
+    //frameRate(40);
     
+    //Get X, Y, Z Positions to experiment with Sin/Cos. Infinity Symbol?
+    //Not using Z
+    let x = sketchSettings.orbitWidth * cos(frameCount * sketchSettings.movementSpeed);
+    let y = sketchSettings.orbitHeight * sin(frameCount * (sketchSettings.movementSpeed * 2));
+
     //Galactic Donuts?
     // Torus arguments: Radius, Hole Size, Number of edges for hole (default:24), Number of triangles which make the height (default:16)
-    push();
-    fill(donutColors[0]);
-    torus(50, 12, 12, 24);
-    pop();
+    for (let i=0; i<sketchSettings.numberDonuts; i++){
+        push();
+        translate(x, y, 0);
+        noStroke();
+        fill(donutColors[0]);
+        torus(50, 27);
+        pop();
+        
+    }
 
+    //Galactic Sprinkle test
+    push();
+
+    pop();
 
 }
