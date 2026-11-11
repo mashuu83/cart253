@@ -118,12 +118,16 @@ A collection and of various protoypes created Fall 2026
 
 ---
 
-![Screenshot Galactic Donuts]
+![Screenshot Galactic Donuts](./assets/screenshots/spaceDonuts.png)
 
+[Galactic Donuts](https://mashuu83.github.io/cart253/topics/prototypes/7-arrays/2-multidimensional/index.html) | A calming animation of a galactic donut cluster, sit back and enjoy | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/2-multidimensional/js/script.js)
 
 ---
 
-![Screenshot Many Tamas]
+![Screenshot Many Tamas](./assets/screenshots/manyTamas.png)
+
+[Tama Incremental](https://mashuu83.github.io/cart253/topics/prototypes/7-arrays/3-manyTamas/index.html) | A work in progress for an Incremenetal/Idle game where you care for several virtual pets | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/2-multidimensional/js/script.js)
+
 
 ## Reflective Journal Entries
 
