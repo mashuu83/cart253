@@ -26,7 +26,7 @@ let sketchSettings = {
     orbitHeight:150,
     movementSpeed:0.01,
     numberDonuts:100,
-    cameraSpeed:1,
+    cameraSpeed:.0025,
 }
 
 //Array to hold the donuts
@@ -91,8 +91,8 @@ function draw() {
     }
 
     //Slowly Pan the camera around
-    let cameraX = width*2 * cos(frameCount * .005);
-    camera(cameraX, -width, (-width*2));
+    let cameraX = width*2 * cos(frameCount * sketchSettings.cameraSpeed);
+    camera(cameraX, -width, (width*2));
 
 }
 
