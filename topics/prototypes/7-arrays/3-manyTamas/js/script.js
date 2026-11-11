@@ -12,6 +12,7 @@ const howManyTamas = 18;
 //I know this is horrifically janky, but it was the best I could figure out at the moment, can definitly do this much simpler
 let positionsX = [0, 250, 250, 250, 250, 250, -1250, 250, 250, 250, 250, 250, -1250, 250, 250, 250, 250, 250];
 let positionsY = [0, 0, 0, 0, 0, 0, 300, 0, 0, 0, 0, 0, 300, 0, 0, 0, 0, 0];
+const tamaHeight = 220;
 
 //Declare a font object
 let fontMicro5 = undefined;
@@ -21,7 +22,7 @@ let allTamas = [];
 
 //An interaction message to tell the player what is happening
 let interactionMessage = {
-    x:1500,
+    x:1700,
     y:200,
     size:48,
     string:"Use Buttons to\nPlay/\nFeed/\nClean",
@@ -108,6 +109,11 @@ function draw() {
 
     //Draw the Interaction Message
     drawMessage();
+
+    push();
+    stroke('white');
+    text("Testing visible text", 1700, 400);
+    pop();
 }
 
 //The function to decrement the stats based on their timers
@@ -233,14 +239,15 @@ function drawMessage(){
 
 //Generate a Tama Object
 function generateTama(){
+    //Use the same color for all 3 buttons
     let buttonColorSet = random(buttonColors);
     let tama = {
     shell: {
         color:random(shellColors),
         x:160,
         y:180,
-        h:250,
-        w:200
+        h:tamaHeight,
+        w:tamaHeight *.8
     },
     frame:{
         size:100,
