@@ -28,7 +28,7 @@ let interactionMessage = {
     color:'white'
 }
 
-//Define a player object
+//Define a player object to hold inventory
 let player = {
     coins:{
         amount:0,
@@ -47,6 +47,11 @@ let player = {
         label:"Friendship: "
     }
 }
+
+//Color sets
+let shellColors = ['#F68009','#8E25F7','#F72525','#F725F7','#258EF7'];
+let frameColors = ['#8EFBE3','#8EE0FB','#EFFDBA','#BAD2FD'];
+let buttonColors = ['#F5EE1D','#1DF582','#1D24F5','#F51D90'];
 
 //TODO - Button objects
 
@@ -96,7 +101,7 @@ function draw() {
     //Draw the Tama objects
     for (let i=0; i<allTamas.length; i++){
         //Move to the next spot in the array
-        //Currently Manyally generated positions, but will do a 2D array for grid
+        //Currently Manually generated positions, but will do a 2D array for grid
         translate(positionsX[i], positionsY[i]);
         drawTama(i);
     }
@@ -215,6 +220,7 @@ function updateMessage(_message){
 }
 
 function drawMessage(){
+    //console.log(interactionMessage.string);
     push();
     fill(interactionMessage.color);
     noStroke();
@@ -227,9 +233,10 @@ function drawMessage(){
 
 //Generate a Tama Object
 function generateTama(){
+    let buttonColorSet = random(buttonColors);
     let tama = {
     shell: {
-        color:'pink',
+        color:random(shellColors),
         x:160,
         y:180,
         h:250,
@@ -237,7 +244,7 @@ function generateTama(){
     },
     frame:{
         size:100,
-        color:'lightblue',
+        color:random(frameColors),
         rounding:20,
     },
     happiness:{
@@ -261,7 +268,7 @@ function generateTama(){
         x:0,
         y:0,
         size:undefined,
-        color:'yellow',
+        color:buttonColorSet,
         onClick:pressedA,
     },
      buttonB:{
@@ -269,7 +276,7 @@ function generateTama(){
         x:0,
         y:0,
         size:undefined,
-        color:'yellow',
+        color:buttonColorSet,
         onClick:pressedB,
     },
      buttonC:{
@@ -277,7 +284,7 @@ function generateTama(){
         x:0,
         y:0,
         size:undefined,
-        color:'yellow',
+        color:buttonColorSet,
         onClick:pressedC,
     },
     message: {
