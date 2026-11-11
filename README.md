@@ -118,6 +118,13 @@ A collection and of various protoypes created Fall 2026
 
 ---
 
+![Screenshot Galactic Donuts]
+
+
+---
+
+![Screenshot Many Tamas]
+
 ## Reflective Journal Entries
 
 [Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3) | [Week 4 Reflection (Conditionals)](https://mashuu83.github.io/cart253/topics/journal/journal4) | [Week 5 Reflection (Events)](https://mashuu83.github.io/cart253/topics/journal/journal5) | [Week 6 Reflection (Functions)](https://mashuu83.github.io/cart253/topics/journal/journal6) | [Week 7 Reflection (Arrays)](https://mashuu83.github.io/cart253/topics/journal/journal7)
