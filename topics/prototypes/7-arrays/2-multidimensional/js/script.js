@@ -73,8 +73,7 @@ function draw() {
         noStroke();
         fill(donutColors[0]);
         torus(50, 27);
-        pop();
-        
+        pop();    
     }
 
     //Galactic Sprinkle test
