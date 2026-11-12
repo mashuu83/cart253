@@ -8,6 +8,7 @@
 "use strict";
 
 //Constants for settings
+//TODO -- Improve this by making settings for how many rows/how many columns and then calculating the positions
 const howManyTamas = 18;
 //I know this is horrifically janky, but it was the best I could figure out at the moment, can definitly do this much simpler
 let positionsX = [0, 250, 250, 250, 250, 250, -1250, 250, 250, 250, 250, 250, -1250, 250, 250, 250, 250, 250];
@@ -21,6 +22,7 @@ let fontMicro5 = undefined;
 let allTamas = [];
 
 //An interaction message to tell the player what is happening
+//TODO -- Troubleshoot why the message does not seem to be appearing
 let interactionMessage = {
     x:1700,
     y:200,
@@ -55,7 +57,7 @@ let frameColors = ['#8EFBE3','#8EE0FB','#EFFDBA','#BAD2FD'];
 let buttonColors = ['#F5EE1D','#1DF582','#1D24F5','#F51D90'];
 
 //TODO - Button objects
-
+//Start small, one button to upgrade food, for example
 
 /**
  * Create a Canvas - Bigger this time for a PC Game.. lets say 1080p
@@ -121,7 +123,7 @@ function runTimer(stat){
     //Lower the stat by 1
     stat.value -=1;
     //Run again after the delay, need to pass the parameter for the function after the delay
-    setTimeout(runTimer, stat.delay, stat);
+    setTimeout(runTimer, random(stat.delay*.75, stat.delay * 1.25), stat);
 }
 
 //The functions to display the players Stats

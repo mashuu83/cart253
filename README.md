@@ -126,7 +126,7 @@ A collection and of various protoypes created Fall 2026
 
 ![Screenshot Many Tamas](./assets/screenshots/manyTamas3.png)
 
-[Tama Incremental](https://mashuu83.github.io/cart253/topics/prototypes/7-arrays/3-manyTamas/index.html) | A work in progress for an Incremenetal/Idle game where you care for several virtual pets | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/7-arrays/3-manyTamas/js/script.js)
+[Tama Incremental](https://mashuu83.github.io/cart253/topics/prototypes/7-arrays/3-manyTamas/index.html) | A work in progress for an Incremenetal/Idle game where you care for several virtual pets. Designed for fullscreen/1080p | [Code](https://github.com/mashuu83/cart253/blob/main/topics/prototypes/7-arrays/3-manyTamas/js/script.js)
 
 
 ## Reflective Journal Entries
