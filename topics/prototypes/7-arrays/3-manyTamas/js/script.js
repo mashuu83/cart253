@@ -119,6 +119,7 @@ function draw() {
 }
 
 //The function to decrement the stats based on their timers
+//TODO -- Stop at 0, change to a message like Hungry/Sad/Lonely etc...
 function runTimer(stat){
     //Lower the stat by 1
     stat.value -=1;
@@ -222,7 +223,7 @@ function pressedC(){
     updateMessage("Tama Cleaned! \nGain 3 Coins\nGain 3 Friendship");
 }
 
-//Display a message to the user
+//Update the message being shown to the user
 function updateMessage(_message){
     interactionMessage.string = _message;
 }
