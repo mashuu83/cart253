@@ -18,6 +18,7 @@ let lang = "en";
 
 // Starts with the instruction
 let carName = "Click to generate a car name.";
+let nameList = [];
 
 /**
  * Load the car and dinosaur data
@@ -31,28 +32,36 @@ async function preload() {
  * Create the canvas
 */
 async function setup() {
-    createCanvas(600, 400);
+    createCanvas(800, 600);
     
     await preload();
+    background(0);
 }
 
 /**
  * Display the current main text (either instructions or a car)
 */
 function draw() {
-    background(0);
 
-    push();
-    fill("pink");
-    textAlign(CENTER, CENTER);
-    textSize(32);
-    text(carName, width / 2, height / 2);
-    pop();
+    
 }
 
 /**
  * Generate a new car name
  */
 function mousePressed() {
+    let manufacturer = random(carData.cars);
+    let donkeyType = random(donkeyData.donkeys);
+    carName = manufacturer + " " + donkeyType;
+    nameList.push(carName);
+    drawName();
+}
 
+function drawName(){
+    push();
+    fill("hotpink");
+    textAlign(CENTER, CENTER);
+    textSize(36);
+    text(carName, random(100, width-100), random(50, height-50));
+    pop();
 }
