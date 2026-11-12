@@ -10,7 +10,7 @@ A collection and of various protoypes created Fall 2026
 
 ## In Class Challenges
 
-[Week 1 - Version Control](https://mashuu83.github.io/cart253/topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](https://mashuu83.github.io/cart253/topics/weekly-challenges/instructions-challenge/index.html) | [Week 3 - Mr Furious](https://mashuu83.github.io/cart253/topics/weekly-challenges/variables-challenge/index.html) | [Week 4 - Moving Puck](https://mashuu83.github.io/cart253/topics/weekly-challenges/conditionals-challenge/index.html) | [Week 5 - The Only Move is Not to Play](./topics/weekly-challenges/events-challenge/index.html) | [Week 6 - Bouncy Bonanza](./topics/weekly-challenges/6-functions-challenge/index.html) | [Week 7 - Boingo](./topics/weekly-challenges/7-arrays-challenge/index.html) | [Week 8 - Lines](./topics/weekly-challenges/8-loops-challenge/index.html)
+[Week 1 - Version Control](https://mashuu83.github.io/cart253/topics/weekly-challenges/version-control/version-control-workflow/index.html) | [Week 2 - Landscape](https://mashuu83.github.io/cart253/topics/weekly-challenges/instructions-challenge/index.html) | [Week 3 - Mr Furious](https://mashuu83.github.io/cart253/topics/weekly-challenges/variables-challenge/index.html) | [Week 4 - Moving Puck](https://mashuu83.github.io/cart253/topics/weekly-challenges/conditionals-challenge/index.html) | [Week 5 - The Only Move is Not to Play](./topics/weekly-challenges/events-challenge/index.html) | [Week 6 - Bouncy Bonanza](./topics/weekly-challenges/6-functions-challenge/index.html) | [Week 7 - Boingo](./topics/weekly-challenges/7-arrays-challenge/index.html) | [Week 8 - Lines](./topics/weekly-challenges/8-loops-challenge/index.html) | [Week 9 - Data](./topics/weekly-challenges/9-data-challenge/index.html)
 
 ## Week 2 Sketches - Instructions
 
@@ -132,6 +132,7 @@ A collection and of various protoypes created Fall 2026
 ## Reflective Journal Entries
 
 [Week 1 Reflection (Version Control)](https://mashuu83.github.io/cart253/topics/journal/journal) | [Week 2 Reflection (Instructions)](https://mashuu83.github.io/cart253/topics/journal/journal2) | [Week 3 Reflection (Variables)](https://mashuu83.github.io/cart253/topics/journal/journal3) | [Week 4 Reflection (Conditionals)](https://mashuu83.github.io/cart253/topics/journal/journal4) | [Week 5 Reflection (Events)](https://mashuu83.github.io/cart253/topics/journal/journal5) | [Week 6 Reflection (Functions)](https://mashuu83.github.io/cart253/topics/journal/journal6) | [Week 7 Reflection (Arrays)](https://mashuu83.github.io/cart253/topics/journal/journal7)
+
 
 ### Attributions
 Header Image taken from https://x.com/monmons137/header_photo
