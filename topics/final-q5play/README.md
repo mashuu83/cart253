@@ -1,8 +1,8 @@
-# q5play-template
+# Elevator Pitch - Digital Edition
 
-Visit <https://q5play.org> to learn how to use q5play.
+Matthew Brandon Thompson
 
-This folder contains a basic template to help get you started on your own q5play project! 😃🎮
+Visit <https://q5play.org>
 
 ## Contents
 

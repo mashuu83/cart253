@@ -1,25 +1,40 @@
+// Elevator Pitch: Digital Edition
+// Matthew Brandon Thompson
+// Final Project for CART 253
+// Dr Pippin Barr, FAll 2026
+
+// Settings constants and Variable declarations
+const stackOffset = 5;
+
+const gameSettings = {
+	starterTextRatio:30, //How much to divide screen by to get text size
+	gameCardHeight:80,
+	gameCardWidth:100,
+	gameCardRounding:10
+}
+//TODO - Create JSON Files with the card names
+
+//Define a new Game card
+// gameCard = new Sprite(0, 0, gameSettings.gameCardHeight, gameSettings.gameCardWidth, gameSettings.gameCardRounding);
+// gameCard.textSize = 12;
+
+//Define a Group of GameCards
+let gameCards = new Group();
+gameCards.color = 'yellow';
+
+//Draw the Canvas and set the gravity (Not needed here?)
 await Canvas();
-world.gravity.y = 10;
+//world.gravity.y = 10;
 
-let ball = new Sprite();
-ball.diameter = 50;
-ball.img = '🤪';
-
-let groundA = new Sprite();
-groundA.x = -120;
-groundA.width = 220;
-groundA.rotation = 30;
-groundA.physics = STATIC;
-
-let groundB = new Sprite();
-groundB.x = 120;
-groundB.width = 220;
-groundB.rotation = -30;
-groundB.physics = STATIC;
-
+//Like the p5 Draw, runs every frame
 q5.update = function () {
-	background('skyblue');
-	text('click to jump!', 0, -50);
+	//Draw the Background
+	background('#118014');
+	
 
-	if (mouse.presses()) ball.vel.y = -5;
+
+	
+	//Draw starting text
+	textSize(width/gameSettings.starterTextRatio);
+	text('My Game is Like...', -width/3, -height/4);
 };
