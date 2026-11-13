@@ -49,11 +49,15 @@ gameCards.rotationLock = true;
 //Define a new Game card
 while (gameCards.length < gameSettings.howManyGameCards){
 	let gameCard = new gameCards.Sprite(0, 0, gameSettings.gameCardHeight, gameSettings.gameCardWidth, gameSettings.gameCardRounding);
+	// gameCard.text.x = -5;
 	gameCard.text = "hello";
 	gameCard.x = gameCards.length * 5;
 	gameCard.y = gameCards.length * 10;
-	gameCard.overlaps(gameCards);
+	//Make it so the cards can overlap
+	//gameCard.overlaps(gameCards);
 	gameCard.layer = gameCards.length;
+	//Test
+	gameCard.rotation = (360/gameCards.length);
 }
 
 //Loop to create stack
