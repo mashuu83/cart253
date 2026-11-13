@@ -17,7 +17,8 @@ const gameSettings = {
 	gameCardWidth:100,
 	gameCardRounding:10,
 	howManyGameCards:30,
-	borderWidth:25
+	borderWidth:25,
+	gameCardColors:['#93DFB8','#FFC8BA','#E3AAD6','#B5D8EB','#FFBDD8']
 }
 
 //TODO - Create JSON Files with the card names
@@ -104,8 +105,6 @@ let gameCards = new Group();
 // This can make an image for the cards, emoji work
 // gameCards.img = '🃏'
 // Not defining a fill color makes it random
-// TODO add a palette of colors
-//gameCards.fill = 'yellow';
 gameCards.textSize = 12;
 gameCards.strokeWeight = 4;
 gameCards.stroke = 'red';
@@ -123,6 +122,7 @@ while (gameCards.length < gameSettings.howManyGameCards){
 	//Sprites do not seem to support having rounded corners and having borders... but perhaps I will be replacing them with images anway
 	let gameCard = new gameCards.Sprite(0, 0, gameSettings.gameCardHeight, gameSettings.gameCardWidth);
 	// gameCard.text.x = -5;
+	gameCard.fill = random(gameSettings.gameCardColors);
 	gameCard.text = random(gameNames);
 	gameCard.x = gameCards.length * 5;
 	gameCard.y = gameCards.length * 10;
