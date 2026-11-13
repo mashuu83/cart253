@@ -48,16 +48,17 @@ gameCards.rotationLock = true;
 
 //Define a new Game card
 while (gameCards.length < gameSettings.howManyGameCards){
-	let gameCard = new gameCards.Sprite(0, 0, gameSettings.gameCardHeight, gameSettings.gameCardWidth, gameSettings.gameCardRounding);
+	//Sprites do not seem to support having rounded corners and having borders... but perhaps I will be replacing them with images anway
+	let gameCard = new gameCards.Sprite(0, 0, gameSettings.gameCardHeight, gameSettings.gameCardWidth);
 	// gameCard.text.x = -5;
 	gameCard.text = "hello";
 	gameCard.x = gameCards.length * 5;
 	gameCard.y = gameCards.length * 10;
 	//Make it so the cards can overlap
-	//gameCard.overlaps(gameCards);
+	gameCard.overlaps(gameCards);
 	gameCard.layer = gameCards.length;
 	//Test
-	gameCard.rotation = (360/gameCards.length);
+	gameCard.rotation = (gameCards.length * (360/gameSettings.howManyGameCards));
 }
 
 //Loop to create stack
