@@ -18,6 +18,7 @@ const gameSettings = {
 	gameCardRounding:10,
 	howManyGameCards:30,
 	borderWidth:25,
+	//TODO -- Add more colors
 	gameCardColors:['#93DFB8','#FFC8BA','#E3AAD6','#B5D8EB','#FFBDD8']
 }
 
@@ -111,6 +112,8 @@ gameCards.stroke = 'red';
 gameCards.grabbable = true;
 //Might need to change this to Kinematic to not bump other cards
 gameCards.physics = DYNAMIC;
+//Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
+gameCards.drag = 5;
 // gameCards.friction = 100;
 // gameCards.mass = 100;
 //Keeps Cards from flying/Spinning around when you drag them
