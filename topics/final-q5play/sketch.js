@@ -107,13 +107,14 @@ let gameCards = new Group();
 // gameCards.img = '🃏'
 // Not defining a fill color makes it random
 gameCards.textSize = 12;
-gameCards.strokeWeight = 4;
-gameCards.stroke = 'red';
+gameCards.strokeWeight = 3;
+gameCards.stroke = 'black';
 gameCards.grabbable = true;
-//Might need to change this to Kinematic to not bump other cards
+//Might need to change this to Kinematic to not bump other cards? Nope, use .overlaps or .passes for that
 gameCards.physics = DYNAMIC;
 //Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
 gameCards.drag = 5;
+//Friction and Mass didn't seem to work as well as drag
 // gameCards.friction = 100;
 // gameCards.mass = 100;
 //Keeps Cards from flying/Spinning around when you drag them
