@@ -15,6 +15,7 @@ await Canvas();
 let triangles = new Group();
 let gameCards = new Group();
 let grabber = undefined;
+let layerCounter = 1000;
 const settings = {
 	general: {
 		starterTextRatio:30, //How much to divide screen by to get text size
@@ -55,6 +56,7 @@ drawBorders(settings.general.borderWidth);
 triangles.layer = -1;
 triangles.drag = 5;
 triangles.rotationDrag = 5;
+triangles.strokeWeight = 0;
 //Draw them all
 while (triangles.length < settings.triangles.amount){
 	let _triangle = new triangles.Sprite([settings.triangles.pointA, settings.triangles.pointB, settings.triangles.pointC, settings.triangles.pointA]);
@@ -124,7 +126,9 @@ q5.update = function () {
 		
 		//Make a new Grabber to pull the card around
 		grabber = new GrabberJoint(mouse, _clickedSprite);
-	  	//TODO Find highest layer and set to one above
+	  	//Add one to the layer counter and then set it so the card ends up on top
+		layerCounter ++;
+		_clickedSprite.layer = layerCounter;
     }
   }
     if (grabber){
@@ -178,3 +182,5 @@ function drawBorders(_width){
 	new borders.Sprite(-canvas.hw, 0, _width, canvas.h);
 	new borders.Sprite(canvas.hw, 0, _width, canvas.h);
 }
+
+// Make a counter for the layers and then just increment the counter when you use it
