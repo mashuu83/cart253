@@ -88,7 +88,7 @@ const settings = {
 		textColor:'white',
 		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S"],
 	},
-	helpText:"(X)plode (L)eaf lBlower (F)airies (G)ravity",
+	helpText:"e(X)plode (L)eaf Blower (F)airies (G)(R)avity",
 }
 
 // Load Card Names from JSON file
@@ -245,6 +245,14 @@ q5.update = function () {
 		gravityOn(settings.gravity.amount);
 	}
 	if (kb.released('G')){
+		console.log("G Released");
+		gravityOff();
+	}
+	if (kb.pressing('R')){
+		gravityOn(-settings.gravity.amount);
+	}
+	if (kb.released('R')){
+		console.log("R Released");
 		gravityOff();
 	}
 
@@ -311,18 +319,19 @@ function spawnFairies(){
 function gravityOn(_strength){
 	world.gravity.y = _strength;
 	allSprites.collides(allSprites);
-// 	triangles.collides(triangles);
-// 	triangles.collides(gameCards);
-// 	gameCards.collides(gameCards);
 }
 
 function gravityOff(){
 	world.gravity.y = 0;
-	allSprites.passes(allSprites);
-	allSprites.collides(borders);
+	// triangles.passes(circles);
 	// triangles.passes(triangles);
 	// triangles.passes(gameCards);
+	// circles.passes(circles);
+	// circles.passes(gameCards);
 	// gameCards.passes(gameCards);
+	allSprites.passes(allSprites);
+	// borders.physics = STATIC;
+	allSprites.collides(borders);
 }
 
 // TODO - Get cards to move into neat stacks
