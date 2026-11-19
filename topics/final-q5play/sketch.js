@@ -100,8 +100,7 @@ q5.update = function () {
 	//textFont(silomFont);
 	textSize(width/settings.general.starterTextRatio);
 	text('MY GAME IS...', -width/3, -height/4);
-
-	// TODO - Using find sprites make the clicked card move to the highest layer
+	text('(X)plode', (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
 	
 	//Set what happens when a sprite gets clicked
 	if (mouse.presses()) {
