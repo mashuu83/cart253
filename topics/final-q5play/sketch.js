@@ -23,6 +23,8 @@ let fallLeaf = new Visuals();
 fallLeaf.addAni('./assets/images/ELR_FallLeaf.png', 5);
 let springLeaf = new Visuals();
 springLeaf.addAni('./assets/images/ELR_SpringLeaf.png', 5);
+let blueFairy = new Visuals();
+blueFairy.addAni('./assets/images/Fairy1.png', 8);
 
 // Declarations for generic variables
 let grabber = undefined;
@@ -63,6 +65,11 @@ const settings = {
 		pointB:[0,0],
 		rounding:15,
 		variance:25,
+	},
+	leafBlower: {
+		wind:20,
+		direction:-90,
+		variance:10,
 	},
 }
 
@@ -195,9 +202,17 @@ q5.update = function () {
 		leafBlower();
 	}
 
-	// Leafblower cleanup
+	// Spawn Fairies
+	if (kb.pressing('F')){
+		spawnFairies();
+	}
+
+	// Visuals cleanup
 	fallLeaf.cull(8);
 	fallLeaf.draw();
+
+	blueFairy.cull(8);
+	blueFairy.draw();
 
 };
 
@@ -234,12 +249,29 @@ function explosionStart(){
 function leafBlower(){
 	// Make a heckton of leaves
 	// TODO - Pull settings out into declaration
-	for (let i=0; i<100; i++) {
+	for (let i=0; i<60; i++) {
 		let fl = new fallLeaf.Visual();
 		fl.x = pointer.x;
 		fl.y = pointer.y;
-		fl.vx = pointer.delta.x * 0.1 + jit(1);
-		fl.vy = pointer.delta.y * 0.1 + random(0, -1);
+		fl.vx = pointer.delta.x * 0.1 + jit(.25);
+		fl.vy = pointer.delta.y * 0.2 + random(0, -1);
+	}
+	let _blownSprite = world.getSpriteAt(mouse);
+	if (_blownSprite){
+		// Apply wind - strength, angle
+		_blownSprite.applyWind(settings.leafBlower.wind, settings.leafBlower.direction + jit(settings.leafBlower.variance));
+	}
+}
+
+function spawnFairies(){
+	for (let i=0; i<25; i++) {
+		//Spawn Fairies in centre of screen
+		let bf = new blueFairy.Visual();
+		bf.x = 0;
+		bf.y = 0;
+		bf.vx = pointer.delta.x * 0.1 + jit(1);
+		bf.vy = pointer.delta.y * 0.1 + jit(1);
+		// TODO - Use Sin to make fairies flight paths more interesting
 	}
 }
 
