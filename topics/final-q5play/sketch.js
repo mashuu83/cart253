@@ -123,9 +123,9 @@ while (gameCards.length < settings.gCard.amount){
 // TODO - Draw some lines to make a background Grid (Memphis Style)
 
 // Experimenting with Capsules
-let capsule = new capsules.Sprite([settings.capsules.pointA, settings.capsules.pointB], settings.capsules.rounding);
+// let capsule = new capsules.Sprite([settings.capsules.pointA, settings.capsules.pointB], settings.capsules.rounding);
 // Hmmm.. text on capsules is problematique appears on one side instead of centered
-capsule.text = 'meets';
+// capsule.text = 'meets';
 // Might be time to explore using img's
 
 // Like the p5 Draw, runs every frame
@@ -239,7 +239,7 @@ function leafBlower(){
 		fl.x = pointer.x;
 		fl.y = pointer.y;
 		fl.vx = pointer.delta.x * 0.1 + jit(1);
-		fl.vy = pointer.delta.y * 0.1 + jit(1);
+		fl.vy = pointer.delta.y * 0.1 + random(0, -1);
 	}
 }
 
