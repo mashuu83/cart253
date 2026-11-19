@@ -3,20 +3,14 @@
 // Final Project for CART 253
 // Dr Pippin Barr, FAll 2026
 
-//Draw the Canvas and set the gravity (Not needed here?)
+//Draw the Canvas
 //It seems like the canvas needs to be drawn before q5 commands work, so I'm putting this at the top
 await Canvas();
-world.gravity.y = 0;
+// let silomFont = await loadFont('./assets/fonts/Silom.ttf');
+// let jerseyFont = await loadFont('./assets/fonts/Jersey.ttf');
 
+// Declare Program Variables and settings
 let grabber = undefined;
-
-//Load Card Names from JSON file
-let gameCardText = undefined;
-gameCardText = await loadJSON("./assets/data/gameNames.json");
-
-//TODO - Load a font (Silom?)
-
-// Settings constants and Variable declarations
 const gameSettings = {
 	starterTextRatio:30, //How much to divide screen by to get text size
 	gameCardHeight:80,
@@ -25,14 +19,19 @@ const gameSettings = {
 	howManyGameCards:30,
 	borderWidth:25,
 	stackOffset:5,
+	gridSpacing:25,
+	borderColor:'brown',
 	//TODO -- Add more colors
 	gameCardColors:['#93DFB8','#FFC8BA','#E3AAD6','#B5D8EB','#FFBDD8']
 }
 
+//Load Card Names from JSON file
+let gameCardText = await loadJSON("./assets/data/gameNames.json");
+
 // Draw "Table" Borders so Cards stay on screen
 let borders = new Group();
 borders.physics = STATIC;
-borders.color = 'brown';
+borders.color = gameSettings.borderColor;
 //Draw the 4 sides
 new borders.Sprite(0, -canvas.hh, canvas.w, gameSettings.borderWidth);
 new borders.Sprite(0, canvas.hh, canvas.w, gameSettings.borderWidth);
@@ -45,6 +44,7 @@ let gameCards = new Group();
 // This can make an image for the cards, emoji work
 // gameCards.img = '🃏'
 // Not defining a fill color makes it random
+gameCards.textFont = 'sans-serif';
 gameCards.textSize = 12;
 gameCards.strokeWeight = 0;
 gameCards.stroke = 'black';
@@ -79,6 +79,8 @@ while (gameCards.length < gameSettings.howManyGameCards){
 	gameCard.x = random(-canvas.hw, canvas.hw);
 	gameCard.y = random(-canvas.hh, canvas.hh);
 
+	gameCard.rotation = random(0,360);
+
 	//Make it so the cards can overlap
 	//Using .overlaps didn't work with the custom shape, but .passes works
 	gameCard.passes(gameCards);
@@ -102,8 +104,10 @@ q5.update = function () {
 	background('white');
 		
 	//Draw starting text
+	// fill('black');
+	//textFont(silomFont);
 	textSize(width/gameSettings.starterTextRatio);
-	text('My Game is Like...', -width/3, -height/4);
+	text('MY GAME IS...', -width/3, -height/4);
 
 	// TODO - Using find sprites make the clicked card move to the highest layer
 	
