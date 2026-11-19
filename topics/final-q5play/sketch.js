@@ -157,7 +157,7 @@ q5.update = function () {
 	// Draw starting text
 	fill(settings.general.startTextColor);
 	textSize(width/settings.general.starterTextRatio);
-	text('MY GAME IS...', -canvas.hw + settings.general.borderWidth, -canvas.hh + settings.general.borderWidth * 2.5);
+	text('Click Cards and Circles for Text\n\nMY GAME IS...', -canvas.hw + settings.general.borderWidth, -canvas.hh + settings.general.borderWidth * 2.5);
 	// Helper Text
 	text(settings.helpText, (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
 	
@@ -225,22 +225,17 @@ q5.update = function () {
 	if (kb.pressing('G')){
 		gravityOn(settings.gravity.amount);
 	}
-	if (kb.released('G')){
+	if (kb.released('G') || kb.released('R')){
 		gravityOff();
 	}
-
 	if (kb.pressing('R')){
 		// Set gravity to the negative amount for reverse
 		gravityOn(-settings.gravity.amount);
-	}
-	if (kb.released('R')){
-		gravityOff();
 	}
 
 	// CLEANUPS (After doing effects)
 	fallLeaf.cull(8);
 	fallLeaf.draw();
-
 	blueFairy.cull(8);
 	blueFairy.draw();
 };
@@ -331,6 +326,8 @@ function cycleText(){
 // TODO - STICKY - Connect cards with joints
 
 // TODO - Move settings into JSON
+
+// OPTION - Refactor all the kepresses into a different kind of function that takes in the pressed key
 
 // Experimenting with Capsules
 // let capsule = new capsules.Sprite([settings.capsules.pointA, settings.capsules.pointB], settings.capsules.rounding);
