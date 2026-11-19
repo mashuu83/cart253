@@ -12,6 +12,8 @@ await Canvas();
 // let jerseyFont = await loadFont('./assets/fonts/Jersey.ttf');
 
 // Declare Program Variables and settings
+let triangles = new Group();
+let gameCards = new Group();
 let grabber = undefined;
 const settings = {
 	general: {
@@ -33,6 +35,13 @@ const settings = {
 		colors:['#93DFB8','#FFC8BA','#E3AAD6','#B5D8EB','#FFBDD8'],
 		stackOffset:5,
 	},
+	triangles: {
+		amount:75,
+		pointA:[0,0],
+		pointB:[0, -100],
+		pointC:[60, 0],
+		color:'black',
+	}
 }
 
 //Load Card Names from JSON file
@@ -41,8 +50,24 @@ let gameCardText = await loadJSON("./assets/data/gameNames.json");
 // Draw "Table" Borders so Cards stay on screen
 drawBorders(settings.general.borderWidth);
 
+//Experimenting
+//triangles.color = settings.triangles.color;
+triangles.layer = -1;
+triangles.drag = 5;
+triangles.rotationDrag = 5;
+//Draw them all
+while (triangles.length < settings.triangles.amount){
+	let _triangle = new triangles.Sprite([settings.triangles.pointA, settings.triangles.pointB, settings.triangles.pointC, settings.triangles.pointA]);
+	_triangle.passes(triangles);
+	_triangle.passes(gameCards);
+	_triangle.x = random(-canvas.hw, canvas.hw);
+	_triangle.y = random(-canvas.hh, canvas.hh);
+	_triangle.rotation = random(0, 360);
+	_triangle.opacity = random(0.1, 1);
+}
+
 //Define a Group of GameCards
-let gameCards = new Group();
+
 gameCards.strokeWeight = 0;
 gameCards.textSize = 12;
 gameCards.physics = DYNAMIC;
@@ -54,19 +79,19 @@ gameCards.rotationDrag = settings.gCard.rotationDrag;
 //Loop to create all the game cards
 while (gameCards.length < settings.gCard.amount){
 	//Sprites do not seem to support having rounded corners and having borders... but perhaps I will be replacing them with images anway
-	let gameCard = new gameCards.Sprite(0,0,[settings.gCard.w, 100, settings.gCard.h, 80,settings.gCard.w, 100, settings.gCard.h, 80]);
-	gameCard.fill = random(settings.gCard.colors);
+	let _gameCard = new gameCards.Sprite(0,0,[settings.gCard.w, 100, settings.gCard.h, 80, settings.gCard.w, 100, settings.gCard.h, 80]);
+	_gameCard.fill = random(settings.gCard.colors);
 	// TODO - Get the cards to align across the screen
-	gameCard.x = random(-canvas.hw, canvas.hw);
-	gameCard.y = random(-canvas.hh, canvas.hh);
-	gameCard.rotation = random(0,360);
+	_gameCard.x = random(-canvas.hw, canvas.hw);
+	_gameCard.y = random(-canvas.hh, canvas.hh);
+	_gameCard.rotation = random(0,360);
 	// OPTION - Stack the cards up
-	// gameCard.x = gameCards.length * gameSettings.stackOffset;
-	// gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
+	// _gameCard.x = gameCards.length * gameSettings.stackOffset;
+	// _gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
 	//Make it so the cards can overlap
 	//Using .overlaps didn't work with the custom shape, but .passes works
-	gameCard.passes(gameCards);
-	gameCard.layer = gameCards.length;
+	_gameCard.passes(gameCards);
+	_gameCard.layer = gameCards.length;
 }
 //TODO - Draw some lines to make a background Grid (Memphis Style)
 
@@ -92,7 +117,8 @@ q5.update = function () {
 		
 		//Add some text to the sprite 
 	  	//Check and see if there is any text first so that it doesn't change each time you click
-		if (_clickedSprite.text == undefined){
+		// FIX - Will need to check and see if it is a gamecard... (Or make other shapes have text)
+		if (_clickedSprite.text == undefined && _clickedSprite.groups.includes(gameCards)){
 			_clickedSprite.text = random(gameCardText.gameCardText);
 		}
 		
