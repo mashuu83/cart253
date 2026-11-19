@@ -19,6 +19,7 @@ let gameCards = new Group();
 let capsules = new Group();
 let circles = new Group();
 let borders = new Group();
+let innerElements = new Group();
 
 // Declarations for the particle effects
 let fallLeaf = new Visuals();
@@ -103,15 +104,12 @@ circles.textColor = settings.circles.textColor;
 circles.drag = settings.circles.drag;
 circles.rotationDrag = settings.circles.rotationDrag;
 circles.strokeWeight = 0;
-circles.passes(circles);
-circles.passes(gameCards);
-circles.passes(triangles);
 while (circles.length < settings.circles.amount){
 	let _circle = new circles.Sprite(0, 0, settings.circles.size);
 	_circle.x = random(-canvas.hw, canvas.hw);
 	_circle.y = random(-canvas.hh, canvas.hh);
 	_circle.textColor = 'white';
-	//_circle.text = random(settings.circles.strings);
+	innerElements.add(_circle);
 }
 
 // CLEANUP - Experimenting with Triangles
@@ -119,20 +117,16 @@ while (circles.length < settings.circles.amount){
 
 // KEEP? - Make triangles always underneath
 triangles.layer = -1;
-
 triangles.drag = 5;
 triangles.rotationDrag = 5;
 triangles.strokeWeight = 0;
 // Draw them all
 while (triangles.length < settings.triangles.amount){
 	let _triangle = new triangles.Sprite([settings.triangles.pointA, settings.triangles.pointB, settings.triangles.pointC, settings.triangles.pointA]);
-	_triangle.passes(triangles);
-	_triangle.passes(gameCards);
 	_triangle.x = random(-canvas.hw, canvas.hw);
 	_triangle.y = random(-canvas.hh, canvas.hh);
 	_triangle.rotation = random(0, 360);
-	// Opacity doesn't seem to work, is it because of custom shape?
-	_triangle.opacity = random(0.1, 1);
+	innerElements.add(_triangle);
 }
 
 // GameCard universal settings
@@ -154,13 +148,16 @@ while (gameCards.length < settings.gCard.amount){
 	_gameCard.x = random(-canvas.hw, canvas.hw);
 	_gameCard.y = random(-canvas.hh, canvas.hh);
 	_gameCard.rotation = random(0,360);
+	innerElements.add(_gameCard);
 	// OPTION - Stack the cards up
 	// _gameCard.x = gameCards.length * gameSettings.stackOffset;
 	// _gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
 	// Make it so the cards can overlap
 	// Using .overlaps didn't work with the custom shape, but .passes works
-	_gameCard.passes(gameCards);
 }
+
+// Make Inner elements pass each other
+innerElements.passes(innerElements);
 
 // UPDATE FUNCTION
 // Like the p5 Draw, runs every frame
@@ -248,6 +245,7 @@ q5.update = function () {
 		console.log("G Released");
 		gravityOff();
 	}
+
 	if (kb.pressing('R')){
 		gravityOn(-settings.gravity.amount);
 	}
@@ -262,6 +260,8 @@ q5.update = function () {
 
 	blueFairy.cull(8);
 	blueFairy.draw();
+
+	borders.collides(allSprites);
 };
 
 // FUNCTION DEFINITIONS
@@ -315,31 +315,22 @@ function spawnFairies(){
 	}
 }
 
-
 function gravityOn(_strength){
 	world.gravity.y = _strength;
-	allSprites.collides(allSprites);
+	innerElements.collides(innerElements);
 }
 
 function gravityOff(){
 	world.gravity.y = 0;
-	// triangles.passes(circles);
-	// triangles.passes(triangles);
-	// triangles.passes(gameCards);
-	// circles.passes(circles);
-	// circles.passes(gameCards);
-	// gameCards.passes(gameCards);
-	allSprites.passes(allSprites);
-	// borders.physics = STATIC;
-	allSprites.collides(borders);
+	innerElements.passes(innerElements);
 }
 
 // TODO - Get cards to move into neat stacks
 function stackCards(){
 }
 
-// TODO - Hide all the text on the screen to enjoy the shapes/graphics
-function hideText(){
+// TODO - Hide all the text on the screen to enjoy the shapes/graphics (OOOOR Make this cycle text to turn them all on or off)
+function cycleText(){
 
 }
 
