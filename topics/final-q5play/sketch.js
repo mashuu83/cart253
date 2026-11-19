@@ -46,7 +46,7 @@ let gameCards = new Group();
 // gameCards.img = '🃏'
 // Not defining a fill color makes it random
 gameCards.textSize = 12;
-gameCards.strokeWeight = 2;
+gameCards.strokeWeight = 0;
 gameCards.stroke = 'black';
 
 // gameCards.grabbable = true;
@@ -54,6 +54,7 @@ gameCards.stroke = 'black';
 gameCards.physics = DYNAMIC;
 // Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
 gameCards.drag = 5;
+gameCards.rotationDrag = 5;
 // Friction and Mass didn't seem to work as well as drag
 gameCards.friction = 1000;
 // gameCards.mass = 100;
@@ -67,10 +68,17 @@ while (gameCards.length < gameSettings.howManyGameCards){
 	let gameCard = new gameCards.Sprite(0,0,[gameSettings.gameCardHeight,100,gameSettings.gameCardHeight,80,gameSettings.gameCardHeight,100,gameSettings.gameCardHeight,80]);
 	// gameCard.text.x = -5;
 	gameCard.fill = random(gameSettings.gameCardColors);
-	gameCard.text = random(gameCardText.gameCardText);
+	// gameCard.text = random(gameCardText.gameCardText);
+	
+	//TODO - Get the cards to align across the screen
+	
 	//Stack the cards up
-	gameCard.x = gameCards.length * gameSettings.stackOffset;
-	gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
+	// gameCard.x = gameCards.length * gameSettings.stackOffset;
+	// gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
+	
+	gameCard.x = random(-canvas.hw, canvas.hw);
+	gameCard.y = random(-canvas.hh, canvas.hh);
+
 	//Make it so the cards can overlap
 	//Using .overlaps didn't work with the custom shape, but .passes works
 	gameCard.passes(gameCards);
@@ -99,17 +107,20 @@ q5.update = function () {
 
 	// TODO - Using find sprites make the clicked card move to the highest layer
 	
+	//Set what happens when a sprite gets clicked
 	if (mouse.presses()) {
     let _clickedSprite = world.getSpriteAt(mouse);
     if (_clickedSprite) {
-      _clickedSprite.stroke = 'white';
+      _clickedSprite.strokeWeight = 2;
+	 //Add some text to the sprite 
+	  _clickedSprite.text = random(gameCardText.gameCardText);
       grabber = new GrabberJoint(mouse, _clickedSprite);
 	  //TODO Find highest layer and set to one above
     }
   }
     if (grabber) grabber.target = mouse;
   	if (mouse.released() && grabber) {
-    grabber.sprite.stroke = 'black';
+    grabber.sprite.strokeWeight = 0;
     grabber.delete();
     grabber = null;
   }
