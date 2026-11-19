@@ -3,30 +3,36 @@
 // Final Project for CART 253
 // Dr Pippin Barr, FAll 2026
 
-//Draw the Canvas
-//It seems like the canvas needs to be drawn before q5 commands work, so I'm putting this at the top
+// Draw the Canvas
+// NOTE - It seems like the canvas needs to be drawn before q5 commands work, so I'm putting this at the top
 await Canvas();
 
-// Fonts were working for screen text but not text on sprites...
+// FIX? - Fonts were working for screen text but not text on sprites...
 // let silomFont = await loadFont('./assets/fonts/Silom.ttf');
 // let jerseyFont = await loadFont('./assets/fonts/Jersey.ttf');
 
 // Declare Program Variables and settings
 let grabber = undefined;
-const gameSettings = {
-	starterTextRatio:30, //How much to divide screen by to get text size
-	gameCardHeight:80,
-	gameCardWidth:100,
-	gameCardDrag:5,
-	gameCardRotationDrag:5,
-	gameCardRounding:2,
-	howManyGameCards:30,
-	borderWidth:25,
-	stackOffset:5,
-	gridSpacing:25,
-	borderColor:'brown',
-	//TODO -- Add more colors
-	gameCardColors:['#93DFB8','#FFC8BA','#E3AAD6','#B5D8EB','#FFBDD8']
+const settings = {
+	general: {
+		starterTextRatio:30, //How much to divide screen by to get text size
+		gridSpacing:25,
+		borderWidth:25,
+		borderColor:'brown',
+	},
+	//Options for the game card/tiles
+	gCard: {
+		amount:30,
+		h:80,
+		w:100,
+		rounding:2,
+		textSize:12,
+		drag:5,
+		rotationDrag:5,
+		//TODO -- Add more colors
+		colors:['#93DFB8','#FFC8BA','#E3AAD6','#B5D8EB','#FFBDD8'],
+		stackOffset:5,
+	},
 }
 
 //Load Card Names from JSON file
@@ -35,43 +41,29 @@ let gameCardText = await loadJSON("./assets/data/gameNames.json");
 // Draw "Table" Borders so Cards stay on screen
 let borders = new Group();
 borders.physics = STATIC;
-borders.color = gameSettings.borderColor;
+borders.color = settings.general.borderColor;
 //Draw the 4 sides
-new borders.Sprite(0, -canvas.hh, canvas.w, gameSettings.borderWidth);
-new borders.Sprite(0, canvas.hh, canvas.w, gameSettings.borderWidth);
-new borders.Sprite(-canvas.hw, 0, gameSettings.borderWidth, canvas.h);
-new borders.Sprite(canvas.hw, 0, gameSettings.borderWidth, canvas.h);
+drawBorders();
 
 //Define a Group of GameCards
 let gameCards = new Group();
-// Set paramaters that will apply to all cards
-// This can make an image for the cards, emoji work
-// gameCards.img = '🃏'
-// Not defining a fill color makes it random
-gameCards.textFont = 'sans-serif';
-gameCards.textSize = 12;
 gameCards.strokeWeight = 0;
-gameCards.stroke = 'black';
-
-// gameCards.grabbable = true;
-// Might need to change this to Kinematic to not bump other cards? Nope, use .overlaps or .passes for that
+gameCards.textSize = 12;
 gameCards.physics = DYNAMIC;
 // Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
-gameCards.drag = gameSettings.gameCardDrag;
-gameCards.rotationDrag = gameSettings.gameCardRotationDrag;
-// Friction and Mass didn't seem to work as well as drag
-gameCards.friction = 1000;
-// gameCards.mass = 100;
+gameCards.drag = settings.gCard.drag;
+gameCards.rotationDrag = settings.gCard.rotationDrag;
+
 //Keeps Cards from flying/Spinning around when you drag them
-gameCards.rotationLock = false;
+//gameCards.rotationLock = false;
 
 //Define a new Game card
 //Loop to create stack
-while (gameCards.length < gameSettings.howManyGameCards){
+while (gameCards.length < settings.gCard.amount){
 	//Sprites do not seem to support having rounded corners and having borders... but perhaps I will be replacing them with images anway
-	let gameCard = new gameCards.Sprite(0,0,[gameSettings.gameCardHeight,100,gameSettings.gameCardHeight,80,gameSettings.gameCardHeight,100,gameSettings.gameCardHeight,80]);
+	let gameCard = new gameCards.Sprite(0,0,[settings.gCard.h,100,settings.gCard.h,80,settings.gCard.h,100,settings.gCard.h,80]);
 	// gameCard.text.x = -5;
-	gameCard.fill = random(gameSettings.gameCardColors);
+	gameCard.fill = random(settings.gCard.colors);
 	// gameCard.text = random(gameCardText.gameCardText);
 	
 	//TODO - Get the cards to align across the screen
@@ -108,9 +100,9 @@ q5.update = function () {
 	background('white');
 		
 	//Draw starting text
-	// fill('black');
+	fill('black');
 	//textFont(silomFont);
-	textSize(width/gameSettings.starterTextRatio);
+	textSize(width/settings.general.starterTextRatio);
 	text('MY GAME IS...', -width/3, -height/4);
 
 	// TODO - Using find sprites make the clicked card move to the highest layer
@@ -127,7 +119,6 @@ q5.update = function () {
 			_clickedSprite.text = random(gameCardText.gameCardText);
 		}
 		
-      	
 		//Make a new Grabber to pull the card around
 		grabber = new GrabberJoint(mouse, _clickedSprite);
 	  	//TODO Find highest layer and set to one above
@@ -147,19 +138,18 @@ q5.update = function () {
     	grabber = null;
   	}
 
+	//Explosion Effect
 	if (kb.pressing('X')) {
 		gameCards.drag = 0;
 		gameCards.rotationDrag = 0;
 		world.explodeAt(pointer, 200, 100);
   	}
 	else{
-		gameCards.drag = gameSettings.gameCardDrag;
-		gameCards.rotationDrag = gameSettings.gameCardDrag;
+		gameCards.drag = settings.gCard.drag;
+		gameCards.rotationDrag = settings.gCard.rotationDrag;
 	}
 
 };
-
-//TODO (End) - Explosion Effect
 
 //TODO (End) - Leafblower effect (So many particles)
 
@@ -175,3 +165,11 @@ q5.update = function () {
 
 //IDEA - Make the game name only appear when a box is clicked
 
+// Function definitions
+
+function drawBorders(){
+	new borders.Sprite(0, -canvas.hh, canvas.w, settings.general.borderWidth);
+	new borders.Sprite(0, canvas.hh, canvas.w, settings.general.borderWidth);
+	new borders.Sprite(-canvas.hw, 0, settings.general.borderWidth, canvas.h);
+	new borders.Sprite(canvas.hw, 0, settings.general.borderWidth, canvas.h);
+}
