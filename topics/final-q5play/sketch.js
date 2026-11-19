@@ -67,9 +67,13 @@ const settings = {
 		variance:25,
 	},
 	leafBlower: {
+		amount:60,
 		wind:20,
 		direction:-90,
 		variance:10,
+	},
+	gravity: {
+		amount:15,
 	},
 }
 
@@ -146,7 +150,7 @@ q5.update = function () {
 	textSize(width/settings.general.starterTextRatio);
 	text('MY GAME IS...', -width/3, -height/4);
 	// Helper Text
-	text('(X)plode', (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
+	text('(X)plode (L)eaf Blower (F)airy Spawn (G)ravity', (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
 	
 	// Set what happens when a sprite gets clicked
 	if (mouse.presses()) {
@@ -207,12 +211,21 @@ q5.update = function () {
 		spawnFairies();
 	}
 
-	// Visuals cleanup
+	// Gravity Effect
+	if (kb.pressing('G')){
+		gravityOn(settings.gravity.amount);
+	}
+	if (kb.released('G')){
+		gravityOff();
+	}
+
+	// CLEANUPS (After doing effects)
 	fallLeaf.cull(8);
 	fallLeaf.draw();
 
 	blueFairy.cull(8);
 	blueFairy.draw();
+
 
 };
 
@@ -249,7 +262,7 @@ function explosionStart(){
 function leafBlower(){
 	// Make a heckton of leaves
 	// TODO - Pull settings out into declaration
-	for (let i=0; i<60; i++) {
+	for (let i=0; i<settings.leafBlower.amount; i++) {
 		let fl = new fallLeaf.Visual();
 		fl.x = pointer.x;
 		fl.y = pointer.y;
@@ -261,6 +274,7 @@ function leafBlower(){
 		// Apply wind - strength, angle
 		_blownSprite.applyWind(settings.leafBlower.wind, settings.leafBlower.direction + jit(settings.leafBlower.variance));
 	}
+	// SPICY - use raycasting to blow in a line
 }
 
 function spawnFairies(){
@@ -269,10 +283,19 @@ function spawnFairies(){
 		let bf = new blueFairy.Visual();
 		bf.x = 0;
 		bf.y = 0;
+		// TODO - Can I make them spawn in a circle instead?
 		bf.vx = pointer.delta.x * 0.1 + jit(1);
 		bf.vy = pointer.delta.y * 0.1 + jit(1);
 		// TODO - Use Sin to make fairies flight paths more interesting
 	}
+}
+
+function gravityOn(_strength){
+	world.gravity.y = _strength;
+}
+
+function gravityOff(){
+	world.gravity.y = 0;
 }
 
 // OPTIONAL - Make the game name only appear when a box is clicked (Currently Implemented)
