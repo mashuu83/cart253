@@ -40,7 +40,7 @@ const settings = {
 	},
 	// Options for the game card/tiles
 	gCard: {
-		amount:30,
+		amount:25,
 		h:100,
 		w:120,
 		rounding:2,
@@ -52,7 +52,7 @@ const settings = {
 		stackOffset:5,
 	},
 	triangles: {
-		amount:75,
+		amount:50,
 		pointA:[0,0],
 		pointB:[0, -100],
 		pointC:[60, 0],
@@ -73,8 +73,9 @@ const settings = {
 		variance:10,
 	},
 	gravity: {
-		amount:15,
+		amount:45,
 	},
+	helpText:"(X)plode (L)eaf lBlower (F)airies (G)ravity",
 }
 
 // Load Card Names from JSON file
@@ -129,17 +130,12 @@ while (gameCards.length < settings.gCard.amount){
 	// Make it so the cards can overlap
 	// Using .overlaps didn't work with the custom shape, but .passes works
 	_gameCard.passes(gameCards);
-	_gameCard.layer = gameCards.length;
 }
-// TODO - Draw some lines to make a background Grid (Memphis Style)
 
-// Experimenting with Capsules
-// let capsule = new capsules.Sprite([settings.capsules.pointA, settings.capsules.pointB], settings.capsules.rounding);
-// Hmmm.. text on capsules is problematique appears on one side instead of centered
-// capsule.text = 'meets';
-// Might be time to explore using img's
-
+// UPDATE FUNCTION
 // Like the p5 Draw, runs every frame
+// -------------------------------
+
 q5.update = function () {
 	// Draw the Background
 	background('white');
@@ -150,7 +146,7 @@ q5.update = function () {
 	textSize(width/settings.general.starterTextRatio);
 	text('MY GAME IS...', -width/3, -height/4);
 	// Helper Text
-	text('(X)plode (L)eaf Blower (F)airy Spawn (G)ravity', (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
+	text(settings.helpText, (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
 	
 	// Set what happens when a sprite gets clicked
 	if (mouse.presses()) {
@@ -225,24 +221,11 @@ q5.update = function () {
 
 	blueFairy.cull(8);
 	blueFairy.draw();
-
-
 };
 
-// TODO (End) - Leafblower effect (So many particles)
+// FUNCTION DEFINITIONS
+// -------------------
 
-// TODO - Magnet/Follow/Flocking Effect
-
-// TODO - Set all sprites to repel each other
-
-// TODO - Mixup/Shuffle/Tornado
-
-// TODO - "Cleanup" button that sorts the cards
-
-// TODO - Clear options inspired by mario paint
-
-
-// Function definitions
 function drawBorders(_width){
 	let borders = new Group();
 	borders.physics = STATIC;
@@ -286,16 +269,53 @@ function spawnFairies(){
 		// TODO - Can I make them spawn in a circle instead?
 		bf.vx = pointer.delta.x * 0.1 + jit(1);
 		bf.vy = pointer.delta.y * 0.1 + jit(1);
+		bf.layer = layerCounter;
 		// TODO - Use Sin to make fairies flight paths more interesting
 	}
 }
 
 function gravityOn(_strength){
 	world.gravity.y = _strength;
+	triangles.collides(triangles);
+	triangles.collides(gameCards);
+	gameCards.collides(gameCards);
 }
 
 function gravityOff(){
 	world.gravity.y = 0;
+	triangles.passes(triangles);
+	triangles.passes(gameCards);
+	gameCards.passes(gameCards);
+}
+
+// TODO - Get cards to move into neat stacks
+function stackCards(){
+
 }
 
 // OPTIONAL - Make the game name only appear when a box is clicked (Currently Implemented)
+
+// TODO - Magnet/Follow/Flocking Effect
+
+// TODO - Set all sprites to repel each other
+
+// TODO - Mixup/Shuffle/Tornado
+
+// TODO - "Cleanup" button that sorts the cards
+
+// TODO - Clear options inspired by mario paint
+
+// TODO - Draw some lines to make a background Grid (Memphis Style)
+// TODO - Add squiggle shapes which are not affected by physics, use scale randomness?
+
+// TODO - STICKY - Connect cards with joints
+
+// TODO - Move settings into JSON
+
+// Experimenting with Capsules
+// let capsule = new capsules.Sprite([settings.capsules.pointA, settings.capsules.pointB], settings.capsules.rounding);
+// Hmmm.. text on capsules is problematique appears on one side instead of centered
+// capsule.text = 'meets';
+// Might be time to explore using img's
+
+// 1 - Add connector words on circles?
