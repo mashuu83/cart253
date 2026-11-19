@@ -8,16 +8,20 @@
 await Canvas();
 world.gravity.y = 0;
 
+let grabber = undefined;
+
 //Load Card Names from JSON file
 let gameCardText = undefined;
 gameCardText = await loadJSON("./assets/data/gameNames.json");
+
+//TODO - Load a font (Silom?)
 
 // Settings constants and Variable declarations
 const gameSettings = {
 	starterTextRatio:30, //How much to divide screen by to get text size
 	gameCardHeight:80,
 	gameCardWidth:100,
-	gameCardRounding:10,
+	gameCardRounding:2,
 	howManyGameCards:30,
 	borderWidth:25,
 	stackOffset:5,
@@ -42,48 +46,73 @@ let gameCards = new Group();
 // gameCards.img = '🃏'
 // Not defining a fill color makes it random
 gameCards.textSize = 12;
-gameCards.strokeWeight = 3;
+gameCards.strokeWeight = 2;
 gameCards.stroke = 'black';
-gameCards.grabbable = true;
+
+// gameCards.grabbable = true;
 // Might need to change this to Kinematic to not bump other cards? Nope, use .overlaps or .passes for that
 gameCards.physics = DYNAMIC;
 // Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
 gameCards.drag = 5;
 // Friction and Mass didn't seem to work as well as drag
-// gameCards.friction = 100;
+gameCards.friction = 1000;
 // gameCards.mass = 100;
 //Keeps Cards from flying/Spinning around when you drag them
-gameCards.rotationLock = true;
+gameCards.rotationLock = false;
 
 //Define a new Game card
 //Loop to create stack
 while (gameCards.length < gameSettings.howManyGameCards){
 	//Sprites do not seem to support having rounded corners and having borders... but perhaps I will be replacing them with images anway
-	let gameCard = new gameCards.Sprite(0, 0, gameSettings.gameCardHeight, gameSettings.gameCardWidth);
+	let gameCard = new gameCards.Sprite(0,0,[gameSettings.gameCardHeight,100,gameSettings.gameCardHeight,80,gameSettings.gameCardHeight,100,gameSettings.gameCardHeight,80]);
 	// gameCard.text.x = -5;
 	gameCard.fill = random(gameSettings.gameCardColors);
 	gameCard.text = random(gameCardText.gameCardText);
-	gameCard.x = gameCards.length * 5;
-	gameCard.y = gameCards.length * 10;
+	//Stack the cards up
+	gameCard.x = gameCards.length * gameSettings.stackOffset;
+	gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
 	//Make it so the cards can overlap
-	gameCard.overlaps(gameCards);
+	//Using .overlaps didn't work with the custom shape, but .passes works
+	gameCard.passes(gameCards);
 	gameCard.layer = gameCards.length;
-	//Test
-	// gameCard.rotation = (gameCards.length * (360/gameSettings.howManyGameCards));
+	//See if you can make text invisible
 }
+
+//Experiment with Drawing some shapes as Sprites
+//Drawing a rhombus, you give x, then y, then an array with length-angle-length-angle etc.. you can add rounding after the array
+// let experimentShape = new Sprite(0,0,[gameSettings.gameCardHeight,100,gameSettings.gameCardHeight,80,gameSettings.gameCardHeight,100,gameSettings.gameCardHeight,80], gameSettings.gameCardRounding);
+// experimentShape.grabbable = true;
+// experimentShape.text = "testing";
+// experimentShape.rotationLock = true;
+// experimentShape.drag = 4;
 
 //TODO - Draw some lines to make a background Grid (Memphis Style)
 
 //Like the p5 Draw, runs every frame
 q5.update = function () {
 	//Draw the Background
-	background('black');
+	background('white');
 		
 	//Draw starting text
 	textSize(width/gameSettings.starterTextRatio);
 	text('My Game is Like...', -width/3, -height/4);
 
 	// TODO - Using find sprites make the clicked card move to the highest layer
+	
+	if (mouse.presses()) {
+    let _clickedSprite = world.getSpriteAt(mouse);
+    if (_clickedSprite) {
+      _clickedSprite.stroke = 'white';
+      grabber = new GrabberJoint(mouse, _clickedSprite);
+	  //TODO Find highest layer and set to one above
+    }
+  }
+    if (grabber) grabber.target = mouse;
+  	if (mouse.released() && grabber) {
+    grabber.sprite.stroke = 'black';
+    grabber.delete();
+    grabber = null;
+  }
 };
 
 //TODO (End) - Explosion Effect
@@ -95,3 +124,10 @@ q5.update = function () {
 //TODO - Set all sprites to repel each other
 
 //TODO - Mixup/Shuffle/Tornado
+
+//TODO - "Cleanup" button that sorts the cards
+
+//TODO - Clear options inspired by mario paint
+
+//IDEA - Make the game name only appear when a box is clicked
+
