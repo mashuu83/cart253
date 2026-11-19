@@ -6,6 +6,8 @@
 //Draw the Canvas
 //It seems like the canvas needs to be drawn before q5 commands work, so I'm putting this at the top
 await Canvas();
+
+// Fonts were working for screen text but not text on sprites...
 // let silomFont = await loadFont('./assets/fonts/Silom.ttf');
 // let jerseyFont = await loadFont('./assets/fonts/Jersey.ttf');
 
@@ -15,6 +17,7 @@ const gameSettings = {
 	starterTextRatio:30, //How much to divide screen by to get text size
 	gameCardHeight:80,
 	gameCardWidth:100,
+	gameCardDrag:5,
 	gameCardRounding:2,
 	howManyGameCards:30,
 	borderWidth:25,
@@ -53,7 +56,7 @@ gameCards.stroke = 'black';
 // Might need to change this to Kinematic to not bump other cards? Nope, use .overlaps or .passes for that
 gameCards.physics = DYNAMIC;
 // Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
-gameCards.drag = 5;
+gameCards.drag = gameSettings.gameCardDrag;
 gameCards.rotationDrag = 5;
 // Friction and Mass didn't seem to work as well as drag
 gameCards.friction = 1000;
@@ -83,7 +86,7 @@ while (gameCards.length < gameSettings.howManyGameCards){
 
 	//Make it so the cards can overlap
 	//Using .overlaps didn't work with the custom shape, but .passes works
-	gameCard.passes(gameCards);
+	// gameCard.passes(gameCards);
 	gameCard.layer = gameCards.length;
 	//See if you can make text invisible
 }
@@ -115,19 +118,42 @@ q5.update = function () {
 	if (mouse.presses()) {
     let _clickedSprite = world.getSpriteAt(mouse);
     if (_clickedSprite) {
-      _clickedSprite.strokeWeight = 2;
-	 //Add some text to the sprite 
-	  _clickedSprite.text = random(gameCardText.gameCardText);
-      grabber = new GrabberJoint(mouse, _clickedSprite);
-	  //TODO Find highest layer and set to one above
+    	_clickedSprite.strokeWeight = 2;
+	 	
+		//Add some text to the sprite 
+	  	//Check and see if there is any text first so that it doesn't change each time you click
+		if (_clickedSprite.text == undefined){
+			_clickedSprite.text = random(gameCardText.gameCardText);
+		}
+		
+      	
+		//Make a new Grabber to pull the card around
+		grabber = new GrabberJoint(mouse, _clickedSprite);
+	  	//TODO Find highest layer and set to one above
     }
   }
-    if (grabber) grabber.target = mouse;
+    if (grabber){
+		//If the grabber exists, the target is the mouse location
+		grabber.target = mouse;
+	} 
   	if (mouse.released() && grabber) {
-    grabber.sprite.strokeWeight = 0;
-    grabber.delete();
-    grabber = null;
-  }
+    	//What to do when you let go
+		//Get rid of the frame
+		grabber.sprite.strokeWeight = 0;
+    
+		// Delete the Grabber
+		grabber.delete();
+    	grabber = null;
+  	}
+
+	if (kb.pressing('X')) {
+		gameCards.drag = 0;
+		world.explodeAt(pointer, 5000);
+  	}
+	else{
+		gameCards.drag = gameSettings.gameCardDrag;
+	}
+
 };
 
 //TODO (End) - Explosion Effect
