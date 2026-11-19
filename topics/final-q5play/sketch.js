@@ -18,6 +18,7 @@ let triangles = new Group();
 let gameCards = new Group();
 let capsules = new Group();
 let circles = new Group();
+let borders = new Group();
 
 // Declarations for the particle effects
 let fallLeaf = new Visuals();
@@ -79,11 +80,11 @@ const settings = {
 	circles: {
 		amount:10,
 		size:100,
-		colors:['pink'],
+		colors:['yellow'],
 		variance:20,
 		drag:5,
 		rotationDrag:5,
-		textSize:12,
+		textSize:16,
 		textColor:'white',
 		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S"],
 	},
@@ -110,7 +111,7 @@ while (circles.length < settings.circles.amount){
 	_circle.x = random(-canvas.hw, canvas.hw);
 	_circle.y = random(-canvas.hh, canvas.hh);
 	_circle.textColor = 'white';
-	_circle.text = random(settings.circles.strings);
+	//_circle.text = random(settings.circles.strings);
 }
 
 // CLEANUP - Experimenting with Triangles
@@ -193,6 +194,9 @@ q5.update = function () {
 		if (_clickedSprite.text == undefined && _clickedSprite.groups.includes(gameCards)){
 			_clickedSprite.text = random(gameCardText.gameCardText);
 		}
+		else if(_clickedSprite.text == undefined && _clickedSprite.groups.includes(circles)){
+			_clickedSprite.text = random(settings.circles.strings);
+		}
 		
 		// Make a new Grabber to pull the card around
 		grabber = new GrabberJoint(mouse, _clickedSprite);
@@ -256,7 +260,7 @@ q5.update = function () {
 // -------------------
 
 function drawBorders(_width){
-	let borders = new Group();
+	
 	borders.physics = STATIC;
 	borders.color = settings.general.borderColor;
 	new borders.Sprite(0, -canvas.hh, canvas.w, _width);
@@ -303,18 +307,22 @@ function spawnFairies(){
 	}
 }
 
+
 function gravityOn(_strength){
 	world.gravity.y = _strength;
-	triangles.collides(triangles);
-	triangles.collides(gameCards);
-	gameCards.collides(gameCards);
+	allSprites.collides(allSprites);
+// 	triangles.collides(triangles);
+// 	triangles.collides(gameCards);
+// 	gameCards.collides(gameCards);
 }
 
 function gravityOff(){
 	world.gravity.y = 0;
-	triangles.passes(triangles);
-	triangles.passes(gameCards);
-	gameCards.passes(gameCards);
+	allSprites.passes(allSprites);
+	allSprites.collides(borders);
+	// triangles.passes(triangles);
+	// triangles.passes(gameCards);
+	// gameCards.passes(gameCards);
 }
 
 // TODO - Get cards to move into neat stacks
