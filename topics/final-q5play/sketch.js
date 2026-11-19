@@ -18,6 +18,7 @@ const gameSettings = {
 	gameCardHeight:80,
 	gameCardWidth:100,
 	gameCardDrag:5,
+	gameCardRotationDrag:5,
 	gameCardRounding:2,
 	howManyGameCards:30,
 	borderWidth:25,
@@ -57,7 +58,7 @@ gameCards.stroke = 'black';
 gameCards.physics = DYNAMIC;
 // Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
 gameCards.drag = gameSettings.gameCardDrag;
-gameCards.rotationDrag = 5;
+gameCards.rotationDrag = gameSettings.gameCardRotationDrag;
 // Friction and Mass didn't seem to work as well as drag
 gameCards.friction = 1000;
 // gameCards.mass = 100;
@@ -148,10 +149,12 @@ q5.update = function () {
 
 	if (kb.pressing('X')) {
 		gameCards.drag = 0;
-		world.explodeAt(pointer, 5000);
+		gameCards.rotationDrag = 0;
+		world.explodeAt(pointer, 200, 100);
   	}
 	else{
 		gameCards.drag = gameSettings.gameCardDrag;
+		gameCards.rotationDrag = gameSettings.gameCardDrag;
 	}
 
 };
