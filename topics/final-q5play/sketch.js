@@ -23,8 +23,8 @@ const settings = {
 	//Options for the game card/tiles
 	gCard: {
 		amount:30,
-		h:80,
-		w:100,
+		h:100,
+		w:120,
 		rounding:2,
 		textSize:12,
 		drag:5,
@@ -39,11 +39,7 @@ const settings = {
 let gameCardText = await loadJSON("./assets/data/gameNames.json");
 
 // Draw "Table" Borders so Cards stay on screen
-let borders = new Group();
-borders.physics = STATIC;
-borders.color = settings.general.borderColor;
-//Draw the 4 sides
-drawBorders();
+drawBorders(settings.general.borderWidth);
 
 //Define a Group of GameCards
 let gameCards = new Group();
@@ -167,9 +163,12 @@ q5.update = function () {
 
 // Function definitions
 
-function drawBorders(){
-	new borders.Sprite(0, -canvas.hh, canvas.w, settings.general.borderWidth);
-	new borders.Sprite(0, canvas.hh, canvas.w, settings.general.borderWidth);
-	new borders.Sprite(-canvas.hw, 0, settings.general.borderWidth, canvas.h);
-	new borders.Sprite(canvas.hw, 0, settings.general.borderWidth, canvas.h);
+function drawBorders(_width){
+	let borders = new Group();
+	borders.physics = STATIC;
+	borders.color = settings.general.borderColor;
+	new borders.Sprite(0, -canvas.hh, canvas.w, _width);
+	new borders.Sprite(0, canvas.hh, canvas.w, _width);
+	new borders.Sprite(-canvas.hw, 0, _width, canvas.h);
+	new borders.Sprite(canvas.hw, 0, _width, canvas.h);
 }
