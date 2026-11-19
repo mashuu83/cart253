@@ -14,6 +14,7 @@ await Canvas();
 // Declare Program Variables and settings
 let triangles = new Group();
 let gameCards = new Group();
+let capsules = new Group();
 let grabber = undefined;
 let layerCounter = 1000;
 const settings = {
@@ -68,10 +69,10 @@ while (triangles.length < settings.triangles.amount){
 	_triangle.opacity = random(0.1, 1);
 }
 
-//Define a Group of GameCards
-
+//GameCard universal settings
 gameCards.strokeWeight = 0;
 gameCards.textSize = 12;
+//Dynamic is default
 gameCards.physics = DYNAMIC;
 
 // Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
@@ -126,7 +127,8 @@ q5.update = function () {
 		
 		//Make a new Grabber to pull the card around
 		grabber = new GrabberJoint(mouse, _clickedSprite);
-	  	//Add one to the layer counter and then set it so the card ends up on top
+	  	
+		//Add one to the layer counter and then set it so the card ends up on top
 		layerCounter ++;
 		_clickedSprite.layer = layerCounter;
     }
@@ -147,14 +149,14 @@ q5.update = function () {
 
 	//Explosion Effect
 	if (kb.pressing('X')) {
-		gameCards.drag = 0;
-		gameCards.rotationDrag = 0;
-		world.explodeAt(pointer, 200, 100);
+		explosionStart();
+		//TODO - Set timeout for explosion end, call reset after some time?
   	}
-	else{
-		gameCards.drag = settings.gCard.drag;
-		gameCards.rotationDrag = settings.gCard.rotationDrag;
-	}
+
+	// TODO - Make function called physicsReset()??
+	gameCards.drag = settings.gCard.drag;
+	gameCards.rotationDrag = settings.gCard.rotationDrag;
+
 
 };
 
@@ -183,4 +185,8 @@ function drawBorders(_width){
 	new borders.Sprite(canvas.hw, 0, _width, canvas.h);
 }
 
-// Make a counter for the layers and then just increment the counter when you use it
+function explosionStart(){
+	gameCards.drag = 0;
+	gameCards.rotationDrag = 0;
+	world.explodeAt(pointer, 200, 100);
+}
