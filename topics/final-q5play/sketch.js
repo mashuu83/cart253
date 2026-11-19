@@ -19,6 +19,7 @@ let gameCards = new Group();
 let capsules = new Group();
 let circles = new Group();
 let borders = new Group();
+// Additional group to address only inner elements but not borders (useful in Gravity shenanigans)
 let innerElements = new Group();
 
 // Declarations for the particle effects
@@ -36,7 +37,9 @@ let layerCounter = 1000;
 // Constants for all the game settings
 const settings = {
 	general: {
+		bgColor:'white',
 		starterTextRatio:30, // How much to divide screen by to get text size
+		startTextColor:'black',
 		gridSpacing:25,
 		borderWidth:25,
 		borderColor:'brown',
@@ -46,8 +49,7 @@ const settings = {
 		amount:25,
 		h:100,
 		w:120,
-		rounding:2,
-		textSize:12,
+		textSize:16,
 		drag:5,
 		rotationDrag:5,
 		// TODO -- Add more colors
@@ -98,6 +100,35 @@ let gameCardText = await loadJSON("./assets/data/gameNames.json");
 // Draw "Table" Borders so Cards stay on screen
 drawBorders(settings.general.borderWidth);
 
+// Draw Triangles
+// Make triangles start underneath other shapes
+triangles.layer = -1;
+triangles.drag = 5;
+triangles.rotationDrag = 5;
+triangles.strokeWeight = 0;
+// Draw them all
+while (triangles.length < settings.triangles.amount){
+	let _triangle = new triangles.Sprite([settings.triangles.pointA, settings.triangles.pointB, settings.triangles.pointC, settings.triangles.pointA]);
+	_triangle.x = random(-canvas.hw, canvas.hw);
+	_triangle.y = random(-canvas.hh, canvas.hh);
+	_triangle.rotation = random(0, 360);
+	innerElements.add(_triangle);
+}
+
+// Draw Game Cards
+gameCards.strokeWeight = 0;
+gameCards.textSize = settings.gCard.textSize;
+gameCards.drag = settings.gCard.drag;
+gameCards.rotationDrag = settings.gCard.rotationDrag;
+while (gameCards.length < settings.gCard.amount){
+	let _gameCard = new gameCards.Sprite(0,0,[settings.gCard.w, 100, settings.gCard.h, 80, settings.gCard.w, 100, settings.gCard.h, 80]);
+	_gameCard.fill = random(settings.gCard.colors);
+	_gameCard.x = random(-canvas.hw, canvas.hw);
+	_gameCard.y = random(-canvas.hh, canvas.hh);
+	_gameCard.rotation = random(0,360);
+	innerElements.add(_gameCard);
+}
+
 // Draw Circles
 circles.color = random(settings.circles.colors);
 circles.textColor = settings.circles.textColor;
@@ -112,50 +143,6 @@ while (circles.length < settings.circles.amount){
 	innerElements.add(_circle);
 }
 
-// CLEANUP - Experimenting with Triangles
-// triangles.color = settings.triangles.color;
-
-// KEEP? - Make triangles always underneath
-triangles.layer = -1;
-triangles.drag = 5;
-triangles.rotationDrag = 5;
-triangles.strokeWeight = 0;
-// Draw them all
-while (triangles.length < settings.triangles.amount){
-	let _triangle = new triangles.Sprite([settings.triangles.pointA, settings.triangles.pointB, settings.triangles.pointC, settings.triangles.pointA]);
-	_triangle.x = random(-canvas.hw, canvas.hw);
-	_triangle.y = random(-canvas.hh, canvas.hh);
-	_triangle.rotation = random(0, 360);
-	innerElements.add(_triangle);
-}
-
-// GameCard universal settings
-gameCards.strokeWeight = 0;
-gameCards.textSize = 12;
-// Dynamic is default
-gameCards.physics = DYNAMIC;
-
-// Drag works well to keep the physics a little more real for cards on a table but still able to 'toss' a bit
-gameCards.drag = settings.gCard.drag;
-gameCards.rotationDrag = settings.gCard.rotationDrag;
-
-// Loop to create all the game cards
-while (gameCards.length < settings.gCard.amount){
-	// Sprites do not seem to support having rounded corners and having borders... but perhaps I will be replacing them with images anway
-	let _gameCard = new gameCards.Sprite(0,0,[settings.gCard.w, 100, settings.gCard.h, 80, settings.gCard.w, 100, settings.gCard.h, 80]);
-	_gameCard.fill = random(settings.gCard.colors);
-	// TODO - Get the cards to align across the screen
-	_gameCard.x = random(-canvas.hw, canvas.hw);
-	_gameCard.y = random(-canvas.hh, canvas.hh);
-	_gameCard.rotation = random(0,360);
-	innerElements.add(_gameCard);
-	// OPTION - Stack the cards up
-	// _gameCard.x = gameCards.length * gameSettings.stackOffset;
-	// _gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
-	// Make it so the cards can overlap
-	// Using .overlaps didn't work with the custom shape, but .passes works
-}
-
 // Make Inner elements pass each other
 innerElements.passes(innerElements);
 
@@ -165,13 +152,12 @@ innerElements.passes(innerElements);
 
 q5.update = function () {
 	// Draw the Background
-	background('white');
+	background(settings.general.bgColor);
 		
-	// TODO - Change text into Kinematic Sprites
 	// Draw starting text
-	fill('black');
+	fill(settings.general.startTextColor);
 	textSize(width/settings.general.starterTextRatio);
-	text('MY GAME IS...', -width/3, -height/4);
+	text('MY GAME IS...', -canvas.hw + settings.general.borderWidth, -canvas.hh + settings.general.borderWidth * 2.5);
 	// Helper Text
 	text(settings.helpText, (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
 	
@@ -209,10 +195,8 @@ q5.update = function () {
 	} 
   	if (mouse.released() && grabber) {
     	// What to do when you let go
-		// Get rid of the frame
+		// Get rid of the frame and delete grabber
 		grabber.sprite.strokeWeight = 0;
-    
-		// Delete the Grabber
 		grabber.delete();
     	grabber = null;
   	}
@@ -242,15 +226,14 @@ q5.update = function () {
 		gravityOn(settings.gravity.amount);
 	}
 	if (kb.released('G')){
-		console.log("G Released");
 		gravityOff();
 	}
 
 	if (kb.pressing('R')){
+		// Set gravity to the negative amount for reverse
 		gravityOn(-settings.gravity.amount);
 	}
 	if (kb.released('R')){
-		console.log("R Released");
 		gravityOff();
 	}
 
@@ -260,8 +243,6 @@ q5.update = function () {
 
 	blueFairy.cull(8);
 	blueFairy.draw();
-
-	borders.collides(allSprites);
 };
 
 // FUNCTION DEFINITIONS
@@ -358,3 +339,7 @@ function cycleText(){
 // Might be time to explore using img's
 
 // 1 - Add connector words on circles?
+
+// OPTION - Stack the cards up
+	// _gameCard.x = gameCards.length * gameSettings.stackOffset;
+	// _gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
