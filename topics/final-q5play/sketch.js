@@ -17,6 +17,7 @@ await Canvas();
 let triangles = new Group();
 let gameCards = new Group();
 let capsules = new Group();
+let circles = new Group();
 
 // Declarations for the particle effects
 let fallLeaf = new Visuals();
@@ -75,6 +76,17 @@ const settings = {
 	gravity: {
 		amount:45,
 	},
+	circles: {
+		amount:10,
+		size:100,
+		colors:['pink'],
+		variance:20,
+		drag:5,
+		rotationDrag:5,
+		textSize:12,
+		textColor:'white',
+		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S"],
+	},
 	helpText:"(X)plode (L)eaf lBlower (F)airies (G)ravity",
 }
 
@@ -83,6 +95,23 @@ let gameCardText = await loadJSON("./assets/data/gameNames.json");
 
 // Draw "Table" Borders so Cards stay on screen
 drawBorders(settings.general.borderWidth);
+
+// Draw Circles
+circles.color = random(settings.circles.colors);
+circles.textColor = settings.circles.textColor;
+circles.drag = settings.circles.drag;
+circles.rotationDrag = settings.circles.rotationDrag;
+circles.strokeWeight = 0;
+circles.passes(circles);
+circles.passes(gameCards);
+circles.passes(triangles);
+while (circles.length < settings.circles.amount){
+	let _circle = new circles.Sprite(0, 0, settings.circles.size);
+	_circle.x = random(-canvas.hw, canvas.hw);
+	_circle.y = random(-canvas.hh, canvas.hh);
+	_circle.textColor = 'white';
+	_circle.text = random(settings.circles.strings);
+}
 
 // CLEANUP - Experimenting with Triangles
 // triangles.color = settings.triangles.color;
@@ -290,6 +319,10 @@ function gravityOff(){
 
 // TODO - Get cards to move into neat stacks
 function stackCards(){
+}
+
+// TODO - Hide all the text on the screen to enjoy the shapes/graphics
+function hideText(){
 
 }
 
@@ -300,8 +333,6 @@ function stackCards(){
 // TODO - Set all sprites to repel each other
 
 // TODO - Mixup/Shuffle/Tornado
-
-// TODO - "Cleanup" button that sorts the cards
 
 // TODO - Clear options inspired by mario paint
 
