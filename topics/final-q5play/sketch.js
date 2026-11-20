@@ -157,7 +157,7 @@ q5.update = function () {
 	// Draw starting text
 	fill(settings.general.startTextColor);
 	textSize(width/settings.general.starterTextRatio);
-	text('Click Cards and Circles for Text\n\nMY GAME IS...', -canvas.hw + settings.general.borderWidth, -canvas.hh + settings.general.borderWidth * 2.5);
+	text('Click Cards and Circles for Text\n\nMY GAME IS LIKE...', -canvas.hw + settings.general.borderWidth, -canvas.hh + settings.general.borderWidth * 2.5);
 	// Helper Text
 	text(settings.helpText, (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
 	
