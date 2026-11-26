@@ -38,7 +38,7 @@ let layerCounter = 1000;
 const settings = {
 	general: {
 		bgColor:'white',
-		starterTextRatio:30, // How much to divide screen by to get text size
+		textSize:26,
 		startTextColor:'black',
 		gridSpacing:25,
 		borderWidth:25,
@@ -103,7 +103,7 @@ const settings = {
 		textColor:'white',
 		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S", "STAR-\nRING"],
 	},
-	helpText:"e(X)plode (G)(R)avity (C)ard (S)tacks (L)eaves (F)airies",
+	helpText:"e(X)plode (G)(R)avity (C)ard (S)tacks (L)eaves (F)airies (M)agnet",
 }
 
 // Load Card Names from JSON file
@@ -173,7 +173,7 @@ q5.update = function () {
 		
 	// Draw starting text
 	fill(settings.general.startTextColor);
-	textSize(width/settings.general.starterTextRatio);
+	textSize(settings.general.textSize);
 	text('Click Cards and Circles for Text\n\nMY GAME IS LIKE...', -canvas.hw + settings.general.borderWidth, -canvas.hh + settings.general.borderWidth * 2.5);
 	// Helper Text
 	text(settings.helpText, (-canvas.hw + settings.general.borderWidth), (canvas.hh - settings.general.borderWidth));
@@ -423,3 +423,6 @@ function magnetize(){
 // FIX? - Fonts were working for screen text but not text on sprites... Maybe not supported
 // let silomFont = await loadFont('./assets/fonts/Silom.ttf');
 // let jerseyFont = await loadFont('./assets/fonts/Jersey.ttf');
+
+		// Made text size static
+		// starterTextRatio:30, // How much to divide screen by to get text size
