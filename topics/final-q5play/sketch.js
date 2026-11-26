@@ -9,9 +9,6 @@
 // NOTE - It seems like the canvas needs to be drawn before q5 commands work, so I'm putting this at the very top, unlike in p5 where I would declare variables first
 await Canvas();
 
-// FIX? - Fonts were working for screen text but not text on sprites... Maybe not supported
-// let silomFont = await loadFont('./assets/fonts/Silom.ttf');
-// let jerseyFont = await loadFont('./assets/fonts/Jersey.ttf');
 
 // DECLARE Program Variables and settings
 
@@ -59,6 +56,7 @@ const settings = {
 		// TODO -- Add more colors
 		colors:['#93DFB8','#FFC8BA','#E3AAD6','#B5D8EB','#FFBDD8'],
 		stackOffset:5,
+		stackingSpeed:50,
 	},
 	objCard: {
 		h:65,
@@ -103,7 +101,7 @@ const settings = {
 		textColor:'white',
 		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S", "STAR-\nRING"],
 	},
-	helpText:"e(X)plode (L)eaf Blower (F)airies (G)(R)avity (C)ard",
+	helpText:"e(X)plode (G)(R)avity (C)ard (S)tacks (L)eaves (F)airies",
 }
 
 // Load Card Names from JSON file
@@ -204,6 +202,11 @@ q5.update = function () {
 		// Add one to the layer counter and then set it so the card ends up on top
 		layerCounter ++;
 		_clickedSprite.layer = layerCounter;
+		// Put in the array at the top
+		if (_clickedSprite.groups.includes(gameCards)){
+			gameCards.remove(_clickedSprite);
+			gameCards.add(_clickedSprite);
+		}
     }
   }
     if (grabber){
@@ -253,6 +256,11 @@ q5.update = function () {
 	//Add a new card with a Twist/Object
 	if (kb.presses('C')){
 		addTwistCard();
+	}
+
+	//Stacking effect
+	if (kb.pressing('S')){
+		stackCards();
 	}
 
 	// CLEANUPS (After doing effects)
@@ -325,6 +333,19 @@ function gravityOff(){
 
 // TODO - Get cards to move into neat stacks
 function stackCards(){
+	console.log("Stack the Cards");
+	// Stack the Game Cards
+	for (let i=0; i<gameCards.length; i++){
+		gameCards[i].attractTo(-(width/3) + (i * settings.gCard.stackOffset), -(height/4) + (2 * (i * settings.gCard.stackOffset)), settings.gCard.stackingSpeed);
+		gameCards[i].rotateTo(0, 2);
+		// NOTE - When cards are clicked they get added to the end of their arrays, so the clicked ones will always go to the top of the stack
+	}
+
+	// Stack the Triangles
+
+	// Stack the Object Cards
+
+	// Stack the Circles
 }
 
 // TODO - Hide all the text on the screen to enjoy the shapes/graphics (OOOOR Make this cycle text to turn them all on or off)
@@ -347,8 +368,6 @@ function addTwistCard(){
 	// Put in the inner elements group
 	innerElements.add(objectCard);
 }
-
-// OPTIONAL - Make the game name only appear when a box is clicked (Currently Implemented)
 
 // TODO - Magnet/Follow/Flocking Effect
 
@@ -373,8 +392,10 @@ function addTwistCard(){
 // capsule.text = 'meets';
 // Might be time to explore using img's
 
-// 1 - Add connector words on circles?
-
 // OPTION - Stack the cards up
 	// _gameCard.x = gameCards.length * gameSettings.stackOffset;
 	// _gameCard.y = gameCards.length * gameSettings.stackOffset * 2;
+
+// FIX? - Fonts were working for screen text but not text on sprites... Maybe not supported
+// let silomFont = await loadFont('./assets/fonts/Silom.ttf');
+// let jerseyFont = await loadFont('./assets/fonts/Jersey.ttf');
