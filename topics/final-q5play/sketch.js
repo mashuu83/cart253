@@ -44,6 +44,7 @@ const settings = {
 		borderWidth:25,
 		borderColor:'brown',
 		helperBoxSize:100,
+		magnetPower:30,
 	},
 	// Options for the game card/tiles
 	gCard: {
@@ -73,6 +74,7 @@ const settings = {
 		pointC:[60, 0],
 		// TODO -- Set triangle Colors
 		colors:['black'],
+		stackingSpeed:10,
 	},
 	capsules: {
 		amount:30,
@@ -113,8 +115,8 @@ drawBorders(settings.general.borderWidth);
 
 // Draw Triangles
 // Make triangles start underneath other shapes
-triangles.layer = -1;
-triangles.drag = 5;
+// triangles.layer = -1;
+triangles.drag = 7;
 triangles.rotationDrag = 5;
 triangles.strokeWeight = 0;
 // Draw them all
@@ -202,10 +204,15 @@ q5.update = function () {
 		// Add one to the layer counter and then set it so the card ends up on top
 		layerCounter ++;
 		_clickedSprite.layer = layerCounter;
+		
 		// Put in the array at the top
 		if (_clickedSprite.groups.includes(gameCards)){
 			gameCards.remove(_clickedSprite);
 			gameCards.add(_clickedSprite);
+		}
+		else if (_clickedSprite.groups.includes(triangles)){
+			triangles.remove(_clickedSprite);
+			triangles.add(_clickedSprite);
 		}
     }
   }
@@ -263,6 +270,11 @@ q5.update = function () {
 		stackCards();
 	}
 
+	// Magnetize effect
+	if (kb.pressing('M')){
+		magnetize();
+	}
+
 	// CLEANUPS (After doing effects)
 	fallLeaf.cull(8);
 	fallLeaf.draw();
@@ -296,6 +308,7 @@ function leafBlower(){
 		let fl = new fallLeaf.Visual();
 		fl.x = pointer.x;
 		fl.y = pointer.y;
+		fl.layer = layerCounter + 1;
 		fl.vx = pointer.delta.x * 0.1 + jit(.25);
 		fl.vy = pointer.delta.y * 0.2 + random(0, -1);
 	}
@@ -337,15 +350,23 @@ function stackCards(){
 	// Stack the Game Cards
 	for (let i=0; i<gameCards.length; i++){
 		gameCards[i].attractTo(-(width/3) + (i * settings.gCard.stackOffset), -(height/4) + (2 * (i * settings.gCard.stackOffset)), settings.gCard.stackingSpeed);
-		gameCards[i].rotateTo(0, 2);
+		// Rotation parameters are (angle, speed);
+		// 1.5 speed seems really nice for cards roughly aligning as they arrive in the stack
+		gameCards[i].rotateTo(0, 1.5);
 		// NOTE - When cards are clicked they get added to the end of their arrays, so the clicked ones will always go to the top of the stack
 	}
-
 	// Stack the Triangles
+	for (let i=0; i<triangles.length; i++){
+		triangles[i].attractTo(0 + (i * settings.gCard.stackOffset), -(height/4) + (2 * (i * settings.gCard.stackOffset)), settings.triangles.stackingSpeed);
+		triangles[i].rotateTo(0, 1.5);
+	}
 
 	// Stack the Object Cards
 
 	// Stack the Circles
+	for (let i=0; i<circles.length; i++){
+		circles[i].attractTo((-width/3) + (i*50), height/3 , settings.gCard.stackingSpeed);
+	}
 }
 
 // TODO - Hide all the text on the screen to enjoy the shapes/graphics (OOOOR Make this cycle text to turn them all on or off)
@@ -370,6 +391,9 @@ function addTwistCard(){
 }
 
 // TODO - Magnet/Follow/Flocking Effect
+function magnetize(){
+	innerElements.attractTo(mouseX, mouseY, settings.general.magnetPower);
+}
 
 // TODO - Set all sprites to repel each other
 
