@@ -275,6 +275,12 @@ q5.update = function () {
 		magnetize();
 	}
 
+	if (mouseIsPressed && mouseButton == 'right'){
+		console.log("right click");
+		// Move everything around with the mouse
+		innerElements.moveTowards(mouse);
+	}
+
 	// CLEANUPS (After doing effects)
 	fallLeaf.cull(8);
 	fallLeaf.draw();
@@ -426,3 +432,5 @@ function magnetize(){
 
 		// Made text size static
 		// starterTextRatio:30, // How much to divide screen by to get text size
+
+// NOTE Move towards(mouse) made an interesting effect where everything moved the way the mouse moved, all as a single group
