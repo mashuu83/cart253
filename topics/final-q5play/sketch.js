@@ -3,6 +3,8 @@
 // Final Project for CART 253
 // Dr Pippin Barr, FAll 2026
 
+// Uses 'Corpora' for household object list https://github.com/dariusk/corpora/blob/master/data/objects/objects.json
+
 // Draw the Canvas
 // NOTE - It seems like the canvas needs to be drawn before q5 commands work, so I'm putting this at the very top, unlike in p5 where I would declare variables first
 await Canvas();
@@ -18,6 +20,7 @@ let triangles = new Group();
 let gameCards = new Group();
 let capsules = new Group();
 let circles = new Group();
+let twists = new Group();
 let borders = new Group();
 // Additional group to address only inner elements but not borders (useful in Gravity shenanigans)
 let innerElements = new Group();
@@ -92,11 +95,12 @@ const settings = {
 		textColor:'white',
 		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S"],
 	},
-	helpText:"e(X)plode (L)eaf Blower (F)airies (G)(R)avity",
+	helpText:"e(X)plode (L)eaf Blower (F)airies (G)(R)avity (C)ard",
 }
 
 // Load Card Names from JSON file
 let gameCardText = await loadJSON("./assets/data/gameNames.json");
+let householdObjectText = await loadJSON("./assets/data/objects.json")
 
 // Draw "Table" Borders so Cards stay on screen
 drawBorders(settings.general.borderWidth);
@@ -238,6 +242,11 @@ q5.update = function () {
 		gravityOn(-settings.gravity.amount);
 	}
 
+	//Add a new card with a Twist/Object
+	if (kb.presses('C')){
+		addTwistCard();
+	}
+
 	// CLEANUPS (After doing effects)
 	fallLeaf.cull(8);
 	fallLeaf.draw();
@@ -313,6 +322,12 @@ function stackCards(){
 // TODO - Hide all the text on the screen to enjoy the shapes/graphics (OOOOR Make this cycle text to turn them all on or off)
 function cycleText(){
 
+}
+
+function addTwistCard(){
+	console.log("Add Card");
+	let objectCard = new twists.Sprite();
+	objectCard.text = random(householdObjectText.objects);
 }
 
 // OPTIONAL - Make the game name only appear when a box is clicked (Currently Implemented)
