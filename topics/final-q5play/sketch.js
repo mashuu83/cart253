@@ -60,6 +60,14 @@ const settings = {
 		colors:['#93DFB8','#FFC8BA','#E3AAD6','#B5D8EB','#FFBDD8'],
 		stackOffset:5,
 	},
+	objCard: {
+		h:65,
+		w:130,
+		textSize:12,
+		drag:5,
+		rotationDrag:5,
+		colors:['#93DFB8'],
+	},
 	triangles: {
 		amount:50,
 		pointA:[0,0],
@@ -93,7 +101,7 @@ const settings = {
 		rotationDrag:5,
 		textSize:16,
 		textColor:'white',
-		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S"],
+		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S", "STAR-\nRING"],
 	},
 	helpText:"e(X)plode (L)eaf Blower (F)airies (G)(R)avity (C)ard",
 }
@@ -258,7 +266,6 @@ q5.update = function () {
 // -------------------
 
 function drawBorders(_width){
-	
 	borders.physics = STATIC;
 	borders.color = settings.general.borderColor;
 	new borders.Sprite(0, -canvas.hh, canvas.w, _width);
@@ -268,6 +275,7 @@ function drawBorders(_width){
 }
 
 function explosionStart(){
+	// TODO - ADD VISUAL AND SOUND
 	gameCards.drag = 0;
 	gameCards.rotationDrag = 0;
 	world.explodeAt(pointer, 200, 100);
@@ -326,8 +334,18 @@ function cycleText(){
 
 function addTwistCard(){
 	console.log("Add Card");
-	let objectCard = new twists.Sprite();
+	// Draw the card
+	let objectCard = new twists.Sprite(0,0,settings.objCard.w, settings.objCard.h);
+	// Set the location and parameters
+	objectCard.fill = random(settings.objCard.colors);
+	objectCard.textSize = settings.objCard.textSize;
 	objectCard.text = random(householdObjectText.objects);
+	objectCard.x = random(-canvas.hw, canvas.hw);
+	objectCard.strokeWeight = 0;
+	objectCard.drag = settings.objCard.drag;
+	objectCard.rotationLock = true;
+	// Put in the inner elements group
+	innerElements.add(objectCard);
 }
 
 // OPTIONAL - Make the game name only appear when a box is clicked (Currently Implemented)
