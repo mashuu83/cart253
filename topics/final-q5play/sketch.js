@@ -103,7 +103,7 @@ const settings = {
 		textColor:'white',
 		strings:["MEETS", "MIXED\nWITH", "VS.", "BUT\nIT'S", "STAR-\nRING"],
 	},
-	helpText:"e(X)plode (G)(R)avity (C)ard (S)tacks (L)eaves (F)airies (M)agnet",
+	helpText:"e(X)plode (G)(R)avity (C)ard (S)tacks (J)oin (L)eaves (F)airies (M)agnet",
 }
 
 // Load Card Names from JSON file
@@ -275,10 +275,22 @@ q5.update = function () {
 		magnetize();
 	}
 
+	// Accidentally found an effect that I liked while experimenting so I implemented it on right click
 	if (mouseIsPressed && mouseButton == 'right'){
 		console.log("right click");
 		// Move everything around with the mouse
 		innerElements.moveTowards(mouse);
+	}
+
+	if (kb.presses('J')){
+		// Check which sprites are under the mouse and then join them together
+		// Can I use JIT to get some range around the mouse
+		let cards = world.getSpritesAt(mouse);
+		for (let i=1; i<cards.length; i++){
+			let glue = new GlueJoint(cards[0], cards[i]);
+		}
+		// Using GlueJoint
+		// TODO Add sound and particle effect
 	}
 
 	// CLEANUPS (After doing effects)
@@ -433,4 +445,4 @@ function magnetize(){
 		// Made text size static
 		// starterTextRatio:30, // How much to divide screen by to get text size
 
-// NOTE Move towards(mouse) made an interesting effect where everything moved the way the mouse moved, all as a single group
+// NOTE Move towards(mouse) made an interesting effect where everything moved the way the mouse moved, all as a single group, so I implemented this on right click!
