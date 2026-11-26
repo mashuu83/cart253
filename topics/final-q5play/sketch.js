@@ -43,6 +43,7 @@ const settings = {
 		gridSpacing:25,
 		borderWidth:25,
 		borderColor:'brown',
+		helperBoxSize:100,
 	},
 	// Options for the game card/tiles
 	gCard: {
@@ -142,6 +143,10 @@ while (circles.length < settings.circles.amount){
 	_circle.textColor = 'white';
 	innerElements.add(_circle);
 }
+
+// Draw invisible boxes so that the text stays visible
+let helperBox = new Sprite(0, canvas.hh, width, settings.general.helperBoxSize, KINEMATIC);
+helperBox.visible = false;
 
 // Make Inner elements pass each other
 innerElements.passes(innerElements);
